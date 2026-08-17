@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPENSE — Privacy Policy</title>
+    <script>
+        (function() {
+            try {
+                var p = new URLSearchParams(window.location.search).get('lang');
+                var s = localStorage.getItem('site_lang');
+                var l = (p === 'zh' || p === 'ms' || p === 'en') ? p : ((s === 'zh' || s === 'ms') ? s : 'en');
+                document.documentElement.setAttribute('data-lang', l);
+                document.documentElement.lang = l;
+            } catch(e) {}
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Top Navigation -->
+<header class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-brand">
+            <span class="brand-name">EXPENSE</span>
+            <span class="brand-ver">v4.4.0</span>
+        </a>
+        <div class="nav-right">
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+                <a href="index.html#features" class="nav-link" data-i18n="nav.features">Features</a>
+                <a href="index.html#autodetect" class="nav-link" data-i18n="nav.autodetect">Auto-Detect</a>
+                <a href="manual.html" class="nav-link" data-i18n="nav.manual">Manual</a>
+                <a href="privacy.html" class="nav-link active" data-i18n="nav.privacy">Privacy</a>
+                <a href="index.html#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+            </nav>
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="zh">中文</button>
+                <button class="lang-btn" data-lang="ms">BM</button>
+            </div>
+            <a href="manual.html" class="btn-nav-action" data-i18n="nav.docsBtn">
+                Documentation
+            </a>
+            <button class="menu-toggle-btn" aria-label="Toggle Menu" data-i18n="mobile.menu">Menu</button>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-nav-drawer">
+    <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+    <a href="index.html#features" class="nav-link" data-i18n="nav.features">Features</a>
+    <a href="index.html#autodetect" class="nav-link" data-i18n="nav.autodetect">Auto-Detect</a>
+    <a href="manual.html" class="nav-link" data-i18n="nav.manual">Manual</a>
+    <a href="privacy.html" class="nav-link active" data-i18n="nav.privacy">Privacy</a>
+    <a href="index.html#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+</div>
+
+<main class="privacy-wrap">
+
+    <!-- English Version -->
+    <div class="lang-content lang-en">
+        <h1>Privacy Policy</h1>
+        <div class="privacy-meta">EFFECTIVE DATE: AUGUST 18, 2026 · VERSION 4.4.0 (BUILD 44)</div>
+
+        <p><strong>Expense</strong> ("we", "our", or "us") is committed to absolute financial data privacy. This policy defines the local storage, in-memory processing, and governance principles implemented in the Expense mobile application.</p>
+
+        <h2>1. 100% Offline-First Architecture</h2>
+        <p>Expense operates strictly locally on your physical device:</p>
+        <ul>
+            <li>All transaction ledgers, category rules, budgets, account balances, friend split reimbursements, and inbox drafts are stored exclusively in a local SQLite database on your physical device.</li>
+            <li>We do not collect, transmit, sell, rent, track, or monetize any financial records.</li>
+            <li>Zero analytics SDKs, tracking frameworks, or advertising libraries are integrated.</li>
+        </ul>
+
+        <h2>2. Notification Listener & On-Device Processing</h2>
+        <p>To support optional automatic transaction capture ("Auto-Detect Notifications"), Expense requests Android’s <code>BIND_NOTIFICATION_LISTENER_SERVICE</code> permission.</p>
+        
+        <div class="callout">
+            <strong>On-Device Handling Rules:</strong>
+            <ul style="margin-top: 8px; padding-left: 18px;">
+                <li><strong>Package Whitelist:</strong> Only notifications from verified Malaysian banking and e-wallet applications (Touch 'n Go, MAE Maybank, CIMB, Boost, Boost Bank, RHB, Public Bank, GrabPay, Hong Leong, AmBank, Bank Islam, Alliance Bank, OCBC, UOB, HSBC, GXBank, WeChat Pay, Alipay, DuitNow) are evaluated.</li>
+                <li><strong>In-Memory SMS Filter:</strong> SMS notifications are evaluated strictly in volatile memory against banking regex patterns (e.g. RM/MYR amount patterns).</li>
+                <li><strong>Immediate Discard:</strong> Non-financial notifications (personal chats, OTPs, verification codes, promotional ads) are discarded immediately in memory without storage or logging.</li>
+                <li><strong>Inbox Review:</strong> Captured details are staged as pending local drafts (<code>inbox_drafts</code>) requiring user confirmation.</li>
+                <li><strong>Zero Network Calls:</strong> Notification text is processed entirely on-device and never uploaded.</li>
+            </ul>
+        </div>
+
+        <h2>3. Declared Permissions & Scope</h2>
+        <div class="table-responsive">
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th>Permission</th>
+                        <th>Status</th>
+                        <th>Scope</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>BIND_NOTIFICATION_LISTENER_SERVICE</code></td>
+                        <td><span class="tag-mono yes">OPTIONAL</span></td>
+                        <td>Parses payment alerts from whitelisted banking apps locally in memory.</td>
+                    </tr>
+                    <tr>
+                        <td><code>POST_NOTIFICATIONS</code></td>
+                        <td><span class="tag-mono yes">OPTIONAL</span></td>
+                        <td>Local daily reminder notifications.</td>
+                    </tr>
+                    <tr>
+                        <td><code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code></td>
+                        <td><span class="tag-mono yes">OPTIONAL</span></td>
+                        <td>Maintains reliable listener service execution across OEM devices.</td>
+                    </tr>
+                    <tr>
+                        <td><code>READ_SMS / RECEIVE_SMS</code></td>
+                        <td><span class="tag-mono no">NOT REQUESTED</span></td>
+                        <td>Expense does not read raw SMS inbox data.</td>
+                    </tr>
+                    <tr>
+                        <td><code>INTERNET</code></td>
+                        <td><span class="tag-mono yes">RUNTIME ONLY</span></td>
+                        <td>Standard WebView runtime component requirement. No financial data transmitted.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>4. Third-Party Sharing</h2>
+        <p>Expense does not share, disclose, or distribute data to any third-party services, advertisers, or analytics networks.</p>
+
+        <h2>5. Data Retention & User Rights</h2>
+        <ul>
+            <li><strong>Editing & Soft-Delete:</strong> You can edit or soft-delete individual transactions, dismiss drafts, or clear database tables directly within settings.</li>
+            <li><strong>Soft-Delete Recovery:</strong> A 4.5-second undo snackbar allows immediate restoration of deleted entries.</li>
+            <li><strong>CSV Export:</strong> Complete transaction history can be exported as a standard <code>.csv</code> spreadsheet at any time.</li>
+            <li><strong>Balance Recalibration:</strong> The self-healing balance calibration tool recalculates balances from non-deleted ledger entries.</li>
+            <li><strong>Complete Deletion:</strong> Uninstalling the application or clearing app storage in Android Settings permanently removes all records from the device.</li>
+        </ul>
+
+        <h2>6. Contact</h2>
+        <p>For questions or feedback regarding this Privacy Policy:</p>
+        <p><a href="mailto:marcus.dev00@outlook.com" class="email-link">marcus.dev00@outlook.com</a></p>
+    </div>
+
+    <!-- 简体中文 Version -->
+    <div class="lang-content lang-zh">
+        <h1>隐私政策</h1>
+        <div class="privacy-meta">生效日期：2026年8月18日 · 版本 4.4.0 (BUILD 44)</div>
+
+        <p><strong>Expense</strong>（以下简称“我们”或“本应用”）高度重视您的个人财务数据隐私。本隐私政策明确阐述本应用的数据处理、本地存储与隐私保护机制。</p>
+
+        <h2>1. 100% 本地优先架构</h2>
+        <p>Expense 严格在您的物理设备本地运行：</p>
+        <ul>
+            <li>所有的账目流水、自定义分类、预算限额、账户余额、垫付分摊账目及待办草稿均<strong>100% 存储于手机本地嵌入式 SQLite 数据库</strong>中。</li>
+            <li>我们<strong>绝不收集、上传、出售、出租、追踪或商业化利用</strong>您的任何财务与个人信息。</li>
+            <li>应用内零集成任何第三方数据分析 SDK、广告网络或远程监控组件。</li>
+        </ul>
+
+        <h2>2. 通知监听与内存级本地处理</h2>
+        <p>为了实现可选的自动记账功能（“自动识别记账”），Expense 会申请安卓系统的 <code>BIND_NOTIFICATION_LISTENER_SERVICE</code> 通知监听权限。</p>
+        
+        <div class="callout">
+            <strong>本地数据处理准则：</strong>
+            <ul style="margin-top: 8px; padding-left: 18px;">
+                <li><strong>金融应用白名单严格过滤：</strong>仅对受支持的马来西亚银行与电子钱包（Touch 'n Go、MAE Maybank、CIMB、Boost、Boost Bank、RHB、Public Bank、GrabPay、Hong Leong、AmBank、Bank Islam、Alliance Bank、OCBC、UOB、HSBC、GXBank、WeChat Pay、Alipay、DuitNow）发出的通知进行分析。</li>
+                <li><strong>短信内存级正则匹配：</strong>系统短信通知在手机易失性内存中即时进行正则匹配（如 RM/MYR 金额与交易关键字）。</li>
+                <li><strong>非财务信息即时丢弃：</strong>所有非财务通知（如微信/WhatsApp 聊天、验证码短信、营销广告等）在内存中完成校验后<strong>立即丢弃</strong>，绝不存储或记录日志。</li>
+                <li><strong>待办箱确认机制：</strong>捕获的交易仅作为待办草稿（<code>inbox_drafts</code>）保存，需经您手动核对确认后方可入账。</li>
+                <li><strong>零网络上传：</strong>通知文字全部在手机本地处理，绝不上传至任何远程服务器。</li>
+            </ul>
+        </div>
+
+        <h2>3. 权限申请与使用范围</h2>
+        <div class="table-responsive">
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th>申请权限</th>
+                        <th>状态</th>
+                        <th>使用范围说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>BIND_NOTIFICATION_LISTENER_SERVICE</code></td>
+                        <td><span class="tag-mono yes">可选开启</span></td>
+                        <td>在手机本地内存中解析白名单银行与电子钱包的支付通知。</td>
+                    </tr>
+                    <tr>
+                        <td><code>POST_NOTIFICATIONS</code></td>
+                        <td><span class="tag-mono yes">可选开启</span></td>
+                        <td>发送手机本地每日记账提醒与预算警报。</td>
+                    </tr>
+                    <tr>
+                        <td><code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code></td>
+                        <td><span class="tag-mono yes">可选开启</span></td>
+                        <td>防止安卓后台杀进程，保障通知监听服务稳定运行。</td>
+                    </tr>
+                    <tr>
+                        <td><code>READ_SMS / RECEIVE_SMS</code></td>
+                        <td><span class="tag-mono no">不索取</span></td>
+                        <td>Expense 完全不索取短信读取权限，保障隐私安全。</td>
+                    </tr>
+                    <tr>
+                        <td><code>INTERNET</code></td>
+                        <td><span class="tag-mono yes">仅运行时</span></td>
+                        <td>WebView 基础运行环境声明，不上传任何财务数据。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>4. 第三方数据共享声明</h2>
+        <p>Expense 绝不与任何第三方机构、广告平台、数据代理商或分析服务共享、出售或转让您的任何财务数据。</p>
+
+        <h2>5. 数据控制与用户权利</h2>
+        <ul>
+            <li><strong>编辑与删除：</strong>您可以随时修改、软删除单笔流水、清空待办草稿或在设置中一键清空全部账本数据。</li>
+            <li><strong>防误删恢复：</strong>删除流水后提供 4.5 秒悬浮撤销提示，支持一键找回。</li>
+            <li><strong>CSV 备份导出：</strong>支持随时将完整流水导出为标准 <code>.csv</code> 表格，供 Excel 审计或本地归档。</li>
+            <li><strong>原子级校准：</strong>内置自愈校准工具，可随时从有效流水重算账本余额。</li>
+            <li><strong>彻底擦除：</strong>卸载应用或在安卓系统设置中清除存储空间，即可永久抹除手机本地的所有账本记录。</li>
+        </ul>
+
+        <h2>6. 联系方式</h2>
+        <p>如有关于本隐私政策的任何疑问或反馈，请联系开发者：</p>
+        <p><a href="mailto:marcus.dev00@outlook.com" class="email-link">marcus.dev00@outlook.com</a></p>
+    </div>
+
+    <!-- Bahasa Melayu Version -->
+    <div class="lang-content lang-ms">
+        <h1>Dasar Privasi</h1>
+        <div class="privacy-meta">TARIKH BERKUAT KUASA: 18 OGOS 2026 · VERSI 4.4.0 (BUILD 44)</div>
+
+        <p><strong>Expense</strong> ("kami") komited untuk melindungi privasi data kewangan peribadi anda sepenuhnya. Dasar ini menjelaskan pengurusan storan tempatan, pemprosesan memori, dan tadbir urus privasi dalam aplikasi mudah alih Expense.</p>
+
+        <h2>1. 100% Arkitektur Luar Talian</h2>
+        <p>Expense beroperasi secara eksklusif pada peranti fizikal anda:</p>
+        <ul>
+            <li>Semua lejar transaksi, kategori, bajet, baki akaun, bayaran balik rakan, dan draf peti masuk disimpan <strong>100% dalam pangkalan data SQLite tempatan</strong>.</li>
+            <li>Kami <strong>tidak mengumpul, memuat naik, menjual, menyewa, menjejak, atau mengewangkan</strong> sebarang maklumat kewangan anda.</li>
+            <li>Sifar SDK analitik pihak ketiga, rangkaian iklan, atau alat penjejakan jauh disepadukan.</li>
+        </ul>
+
+        <h2>2. Pendengar Notifikasi & Pemprosesan Tempatan</h2>
+        <p>Untuk menyokong ciri pengesanan pembayaran automatik ("Auto-Detect Notifications"), Expense meminta kebenaran <code>BIND_NOTIFICATION_LISTENER_SERVICE</code> Android.</p>
+        
+        <div class="callout">
+            <strong>Peraturan Pemprosesan Tempatan:</strong>
+            <ul style="margin-top: 8px; padding-left: 18px;">
+                <li><strong>Senarai Putih Aplikasi Kewangan:</strong> Hanya notifikasi daripada aplikasi perbankan dan e-dompet Malaysia yang sah (Touch 'n Go, MAE Maybank, CIMB, Boost, Boost Bank, RHB, Public Bank, GrabPay, Hong Leong, AmBank, Bank Islam, Alliance Bank, OCBC, UOB, HSBC, GXBank, WeChat Pay, Alipay, DuitNow) dinilai.</li>
+                <li><strong>Penapis Regex SMS dalam Memori:</strong> Notifikasi SMS sistem dipadankan dalam memori secara serta-merta menggunakan corak kata kunci perbankan (RM/MYR).</li>
+                <li><strong>Pembuangan Serta-Merta:</strong> Notifikasi bukan kewangan (sembang peribadi, OTP, kod pengesahan, iklan) dibuang serta-merta dalam memori tanpa disimpan atau dicatat dalam log.</li>
+                <li><strong>Semakan Peti Masuk:</strong> Butiran yang ditangkap disimpan sebagai draf belum selesai (<code>inbox_drafts</code>) untuk semakan dan kelulusan manual anda.</li>
+                <li><strong>Sifar Muat Naik Rangkaian:</strong> Teks notifikasi diproses sepenuhnya pada peranti dan tidak pernah dihantar melalui internet.</li>
+            </ul>
+        </div>
+
+        <h2>3. Kebenaran yang Diminta & Skop</h2>
+        <div class="table-responsive">
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th>Kebenaran</th>
+                        <th>Status</th>
+                        <th>Skop & Tujuan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>BIND_NOTIFICATION_LISTENER_SERVICE</code></td>
+                        <td><span class="tag-mono yes">Pilihan</span></td>
+                        <td>Menganalisis amaran pembayaran daripada aplikasi senarai putih dalam memori.</td>
+                    </tr>
+                    <tr>
+                        <td><code>POST_NOTIFICATIONS</code></td>
+                        <td><span class="tag-mono yes">Pilihan</span></td>
+                        <td>Pemberitahuan peringatan harian tempatan.</td>
+                    </tr>
+                    <tr>
+                        <td><code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code></td>
+                        <td><span class="tag-mono yes">Pilihan</span></td>
+                        <td>Mengekalkan kestabilan perkhidmatan pendengar latar belakang.</td>
+                    </tr>
+                    <tr>
+                        <td><code>READ_SMS / RECEIVE_SMS</code></td>
+                        <td><span class="tag-mono no">Tidak Diminta</span></td>
+                        <td>Expense tidak meminta akses membaca peti masuk SMS mentah.</td>
+                    </tr>
+                    <tr>
+                        <td><code>INTERNET</code></td>
+                        <td><span class="tag-mono yes">Masa Larian</span></td>
+                        <td>Keperluan komponen WebView standard. Tiada data kewangan dihantar.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>4. Perkongsian Pihak Ketiga</h2>
+        <p>Expense tidak berkongsi, mendedahkan, atau memindahkan data kepada mana-mana perkhidmatan pihak ketiga, pengiklan, atau pembekal analitik.</p>
+
+        <h2>5. Kawalan Data & Hak Pengguna</h2>
+        <ul>
+            <li><strong>Pengeditan & Pemadaman:</strong> Anda boleh mengedit atau memadam transaksi, menolak draf, atau mengosongkan pangkalan data dalam tetapan.</li>
+            <li><strong>Pemulihan Batal Padam:</strong> Bar snek 4.5 saat membolehkan pemulihan segera rekod yang dipadam.</li>
+            <li><strong>Eksport CSV:</strong> Sejarah transaksi lengkap boleh dieksport ke hamparan <code>.csv</code> standard pada bila-bila masa.</li>
+            <li><strong>Kalibrasi Kendiri:</strong> Alat penentukuran mengira semula baki daripada transaksi lejar yang sah.</li>
+            <li><strong>Pemadaman Mutlak:</strong> Menyahpasang aplikasi atau memadam data storan dalam Tetapan Android memadamkan semua rekod tempatan secara kekal.</li>
+        </ul>
+
+        <h2>6. Hubungi Kami</h2>
+        <p>Untuk pertanyaan atau maklum balas mengenai Dasar Privasi ini:</p>
+        <p><a href="mailto:marcus.dev00@outlook.com" class="email-link">marcus.dev00@outlook.com</a></p>
+    </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div data-i18n="footer.tag">EXPENSE · VERSION 4.4.0 · MALAYSIA</div>
+    <div class="footer-links">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="manual.html" data-i18n="nav.manual">Manual</a>
+        <a href="privacy.html" data-i18n="nav.privacy">Privacy</a>
+        <a href="mailto:marcus.dev00@outlook.com" data-i18n="nav.contact">Contact</a>
+    </div>
+</footer>
+
+<script src="i18n.js"></script>
+
+</body>
+</html>

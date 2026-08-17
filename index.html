@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPENSE — Offline-First Personal Finance</title>
+    <meta name="description" content="Offline-first, zero-telemetry personal expense tracker for Malaysia with native payment auto-detection.">
+    <script>
+        (function() {
+            try {
+                var p = new URLSearchParams(window.location.search).get('lang');
+                var s = localStorage.getItem('site_lang');
+                var l = (p === 'zh' || p === 'ms' || p === 'en') ? p : ((s === 'zh' || s === 'ms') ? s : 'en');
+                document.documentElement.setAttribute('data-lang', l);
+                document.documentElement.lang = l;
+            } catch(e) {}
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Top Navigation -->
+<header class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-brand">
+            <span class="brand-name">EXPENSE</span>
+            <span class="brand-ver">v4.4.0</span>
+        </a>
+        <div class="nav-right">
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link active" data-i18n="nav.home">Home</a>
+                <a href="#features" class="nav-link" data-i18n="nav.features">Features</a>
+                <a href="#autodetect" class="nav-link" data-i18n="nav.autodetect">Auto-Detect</a>
+                <a href="manual.html" class="nav-link" data-i18n="nav.manual">Manual</a>
+                <a href="privacy.html" class="nav-link" data-i18n="nav.privacy">Privacy</a>
+                <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+            </nav>
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="zh">中文</button>
+                <button class="lang-btn" data-lang="ms">BM</button>
+            </div>
+            <a href="manual.html" class="btn-nav-action" data-i18n="nav.docsBtn">
+                Documentation
+            </a>
+            <button class="menu-toggle-btn" aria-label="Toggle Menu" data-i18n="mobile.menu">Menu</button>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-nav-drawer">
+    <a href="index.html" class="nav-link active" data-i18n="nav.home">Home</a>
+    <a href="#features" class="nav-link" data-i18n="nav.features">Features</a>
+    <a href="#autodetect" class="nav-link" data-i18n="nav.autodetect">Auto-Detect</a>
+    <a href="manual.html" class="nav-link" data-i18n="nav.manual">Manual</a>
+    <a href="privacy.html" class="nav-link" data-i18n="nav.privacy">Privacy</a>
+    <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+</div>
+
+<main class="container">
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <span class="hero-tag" data-i18n="hero.tag">100% Local SQLite · Zero Cloud · Zero Telemetry</span>
+        <h1 class="hero-title" data-i18n-html="hero.title">Your Money. Your Privacy.<br>Zero Cloud. 100% Local.</h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">
+            An offline-first financial ledger designed for Malaysia. Capture payment notifications from Touch 'n Go, MAE, CIMB, and bank alerts with zero data leaving your device.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="manual.html" class="btn-primary" data-i18n="hero.btnManual">
+                Explore User Manual
+            </a>
+            <a href="privacy.html" class="btn-secondary" data-i18n="hero.btnPrivacy">
+                Privacy Architecture
+            </a>
+            <a href="mailto:marcus.dev00@outlook.com" class="btn-secondary" data-i18n="hero.btnContact">
+                Contact Developer
+            </a>
+        </div>
+    </section>
+
+    <!-- Capabilities Grid -->
+    <section class="section" id="features">
+        <div class="section-head">
+            <span class="section-tag" data-i18n="features.tag">Architecture</span>
+            <h2 class="section-title" data-i18n="features.title">Core Capabilities</h2>
+        </div>
+
+        <div class="grid-3">
+            <div class="grid-cell">
+                <span class="cell-num" data-i18n="feat1.num">01 / DATABASE</span>
+                <h3 data-i18n="feat1.title">Embedded SQLite Engine</h3>
+                <p data-i18n="feat1.desc">Records are stored exclusively in an embedded local SQLite database. Exact integer sen precision with zero remote database synchronization.</p>
+            </div>
+
+            <div class="grid-cell">
+                <span class="cell-num" data-i18n="feat2.num">02 / CAPTURE</span>
+                <h3 data-i18n="feat2.title">Notification Auto-Detect</h3>
+                <p data-i18n="feat2.desc">Captures payment alerts from Touch 'n Go, MAE Maybank, CIMB, Boost, and bank SMS in memory without broad SMS read permissions.</p>
+            </div>
+
+            <div class="grid-cell">
+                <span class="cell-num" data-i18n="feat3.num">03 / SPLIT</span>
+                <h3 data-i18n="feat3.title">Bill Splits & Reimbursements</h3>
+                <p data-i18n="feat3.desc">Advance shared expenses with fractional splits (1/2, 2/3, 3/4). Tracks receivables separately without inflating personal monthly expenditure.</p>
+            </div>
+
+            <div class="grid-cell">
+                <span class="cell-num" data-i18n="feat4.num">04 / MERGE</span>
+                <h3 data-i18n="feat4.title">Fuel Pre-Auth Auto-Merge</h3>
+                <p data-i18n="feat4.desc">Pre-authorized pump holds (RON95) and refund changes are matched on the same day and consolidated into exact net spending with one tap.</p>
+            </div>
+
+            <div class="grid-cell">
+                <span class="cell-num" data-i18n="feat5.num">05 / INBOX</span>
+                <h3 data-i18n="feat5.title">Drafts Review Deck</h3>
+                <p data-i18n="feat5.desc">Momentum snap card deck for captured drafts, heuristic category matching, duplicate warnings, and cross-app transfer merge prompts.</p>
+            </div>
+
+            <div class="grid-cell">
+                <span class="cell-num" data-i18n="feat6.num">06 / REPAIR</span>
+                <h3 data-i18n="feat6.title">Tri-Lingual & Self-Healing</h3>
+                <p data-i18n="feat6.desc">Full support for English, 简体中文, and Bahasa Malaysia. Built-in ledger calibration recalculates account balances atomically.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auto-Detect Setup -->
+    <section class="section" id="autodetect">
+        <div class="section-head">
+            <span class="section-tag" data-i18n="setup.tag">Setup</span>
+            <h2 class="section-title" data-i18n="setup.title">Enabling Auto-Detect</h2>
+        </div>
+
+        <div class="grid-3">
+            <div class="grid-cell">
+                <span class="cell-num" data-i18n="setup.step1">STEP 01</span>
+                <h3 data-i18n="setup.step1Title">Toggle in Settings</h3>
+                <p data-i18n="setup.step1Desc">Open <strong>Mine (个人中心)</strong> in Expense and turn ON the <strong>Auto-Detect Notifications</strong> switch.</p>
+            </div>
+            <div class="grid-cell">
+                <span class="cell-num" data-i18n="setup.step2">STEP 02</span>
+                <h3 data-i18n="setup.step2Title">Grant Notification Access</h3>
+                <p data-i18n="setup.step2Desc">In Android System Settings, locate <strong>Expense</strong> under <em>Notification Access</em> and select <strong>Allow</strong>.</p>
+            </div>
+            <div class="grid-cell">
+                <span class="cell-num" data-i18n="setup.step3">STEP 03</span>
+                <h3 data-i18n="setup.step3Title">Battery Optimization</h3>
+                <p data-i18n="setup.step3Desc">Under <strong>Mine → Background Autostart Guide</strong>, set battery optimization to unrestricted for Xiaomi, Samsung, OPPO, or vivo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="section">
+        <div class="section-head">
+            <span class="section-tag" data-i18n="comp.tag">Comparison</span>
+            <h2 class="section-title" data-i18n="comp.title">Offline-First vs Cloud Accounting</h2>
+        </div>
+        
+        <div class="table-responsive">
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="comp.thCrit">Criterion</th>
+                        <th data-i18n="comp.thExpense">Expense (v4.4.0)</th>
+                        <th data-i18n="comp.thCloud">Cloud Expense Apps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong data-i18n="comp.row1Label">Data Storage</strong></td>
+                        <td><span class="tag-mono yes" data-i18n="comp.row1Exp">100% LOCAL SQLITE</span></td>
+                        <td><span class="tag-mono no" data-i18n="comp.row1Cloud">REMOTE CLOUD</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="comp.row2Label">Account Requirement</strong></td>
+                        <td><span class="tag-mono yes" data-i18n="comp.row2Exp">NO REGISTRATION</span></td>
+                        <td><span class="tag-mono no" data-i18n="comp.row2Cloud">MANDATORY SIGN-UP</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="comp.row3Label">Telemetry & Analytics</strong></td>
+                        <td><span class="tag-mono yes" data-i18n="comp.row3Exp">ZERO TELEMETRY</span></td>
+                        <td><span class="tag-mono no" data-i18n="comp.row3Cloud">TRACKERS & AD NETWORKS</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="comp.row4Label">SMS Access</strong></td>
+                        <td><span class="tag-mono yes" data-i18n="comp.row4Exp">NO READ_SMS PERMISSION</span></td>
+                        <td><span class="tag-mono no" data-i18n="comp.row4Cloud">REQUIRES READ_SMS</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="comp.row5Label">Offline Operation</strong></td>
+                        <td><span class="tag-mono yes" data-i18n="comp.row5Exp">FULLY OFFLINE</span></td>
+                        <td><span class="tag-mono no" data-i18n="comp.row5Cloud">INTERNET REQUIRED</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <span class="section-tag" data-i18n="contact.tag">Inquiries</span>
+        <h2 data-i18n="contact.title">Developer Support</h2>
+        <p data-i18n="contact.desc">For feedback, technical questions, or bug reports:</p>
+        <a href="mailto:marcus.dev00@outlook.com" class="email-link">marcus.dev00@outlook.com</a>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div data-i18n="footer.tag">EXPENSE · VERSION 4.4.0 · MALAYSIA</div>
+    <div class="footer-links">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="manual.html" data-i18n="nav.manual">Manual</a>
+        <a href="privacy.html" data-i18n="nav.privacy">Privacy</a>
+        <a href="mailto:marcus.dev00@outlook.com" data-i18n="nav.contact">Contact</a>
+    </div>
+</footer>
+
+<script src="i18n.js"></script>
+
+</body>
+</html>

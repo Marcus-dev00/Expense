@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPENSE — User Manual & Reference Guide</title>
+    <script>
+        (function() {
+            try {
+                var p = new URLSearchParams(window.location.search).get('lang');
+                var s = localStorage.getItem('site_lang');
+                var l = (p === 'zh' || p === 'ms' || p === 'en') ? p : ((s === 'zh' || s === 'ms') ? s : 'en');
+                document.documentElement.setAttribute('data-lang', l);
+                document.documentElement.lang = l;
+            } catch(e) {}
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Top Navigation -->
+<header class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-brand">
+            <span class="brand-name">EXPENSE</span>
+            <span class="brand-ver">v4.4.0</span>
+        </a>
+        <div class="nav-right">
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+                <a href="index.html#features" class="nav-link" data-i18n="nav.features">Features</a>
+                <a href="index.html#autodetect" class="nav-link" data-i18n="nav.autodetect">Auto-Detect</a>
+                <a href="manual.html" class="nav-link active" data-i18n="nav.manual">Manual</a>
+                <a href="privacy.html" class="nav-link" data-i18n="nav.privacy">Privacy</a>
+                <a href="index.html#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+            </nav>
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="zh">中文</button>
+                <button class="lang-btn" data-lang="ms">BM</button>
+            </div>
+            <a href="manual.html" class="btn-nav-action" data-i18n="nav.docsBtn">
+                Documentation
+            </a>
+            <button class="menu-toggle-btn" aria-label="Toggle Menu" data-i18n="mobile.menu">Menu</button>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-nav-drawer">
+    <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+    <a href="index.html#features" class="nav-link" data-i18n="nav.features">Features</a>
+    <a href="index.html#autodetect" class="nav-link" data-i18n="nav.autodetect">Auto-Detect</a>
+    <a href="manual.html" class="nav-link active" data-i18n="nav.manual">Manual</a>
+    <a href="privacy.html" class="nav-link" data-i18n="nav.privacy">Privacy</a>
+    <a href="index.html#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+</div>
+
+<!-- Mobile Sticky TOC Bar -->
+<div class="mobile-toc-bar">
+    <select class="mobile-toc-select" aria-label="Select Chapter">
+        <option value="" disabled selected data-i18n="mobile.tocPrompt">Jump to Chapter...</option>
+        <option value="sec-01">01. Architecture & Privacy (架构与隐私)</option>
+        <option value="sec-02">02. First Launch & Tour (首次启动与向导)</option>
+        <option value="sec-03">03. Navigation & Views (导航与视图)</option>
+        <option value="sec-04">04. Logging & Math Keypad (记账与计算键盘)</option>
+        <option value="sec-05">05. Categories System (分类系统)</option>
+        <option value="sec-06">06. Accounts & Liabilities (账户与信用卡负债)</option>
+        <option value="sec-07">07. Bill Splits & Reimburse (AA垫付分账)</option>
+        <option value="sec-08">08. Analytics & Trends (统计与图表)</option>
+        <option value="sec-09">09. Budget Tracking (预算管理)</option>
+        <option value="sec-10">10. Auto-Detect Engine (自动记账引擎)</option>
+        <option value="sec-11">11. Drafts Review Deck (待办箱卡片)</option>
+        <option value="sec-12">12. Fuel Refund Auto-Merge (加油预扣退款合并)</option>
+        <option value="sec-13">13. Transfer Merge (60秒转账合并)</option>
+        <option value="sec-14">14. Auto-Detect Q&A (常见问答)</option>
+        <option value="sec-15">15. OEM Autostart Guide (机型后台保活)</option>
+        <option value="sec-16">16. Preferences & Tri-Lingual (偏好与语言)</option>
+        <option value="sec-17">17. Data & Recalibration (数据与自愈校准)</option>
+        <option value="sec-18">18. Privacy Governance (隐私保护准则)</option>
+        <option value="sec-19">19. Roadmap (未来规划)</option>
+        <option value="sec-20">20. Contact & Support (支持与联系)</option>
+    </select>
+</div>
+
+<div class="manual-layout">
+
+    <!-- Sticky Desktop Sidebar -->
+    <aside class="manual-sidebar">
+        <div class="sidebar-head" data-i18n="manual.sidebarHead">Sections</div>
+        <a href="#sec-01" class="active"><span class="sidebar-num">01</span> <span data-i18n="manual.s01">Architecture</span></a>
+        <a href="#sec-02"><span class="sidebar-num">02</span> <span data-i18n="manual.s02">First Launch</span></a>
+        <a href="#sec-03"><span class="sidebar-num">03</span> <span data-i18n="manual.s03">Navigation</span></a>
+        <a href="#sec-04"><span class="sidebar-num">04</span> <span data-i18n="manual.s04">Logging & Keypad</span></a>
+        <a href="#sec-05"><span class="sidebar-num">05</span> <span data-i18n="manual.s05">Categories</span></a>
+        <a href="#sec-06"><span class="sidebar-num">06</span> <span data-i18n="manual.s06">Accounts & Debts</span></a>
+        <a href="#sec-07"><span class="sidebar-num">07</span> <span data-i18n="manual.s07">Bill Splits</span></a>
+        <a href="#sec-08"><span class="sidebar-num">08</span> <span data-i18n="manual.s08">Analytics</span></a>
+        <a href="#sec-09"><span class="sidebar-num">09</span> <span data-i18n="manual.s09">Budget Tracking</span></a>
+        <a href="#sec-10"><span class="sidebar-num">10</span> <span data-i18n="manual.s10">Auto-Detect</span></a>
+        <a href="#sec-11"><span class="sidebar-num">11</span> <span data-i18n="manual.s11">Drafts Deck</span></a>
+        <a href="#sec-12"><span class="sidebar-num">12</span> <span data-i18n="manual.s12">Fuel Refund</span></a>
+        <a href="#sec-13"><span class="sidebar-num">13</span> <span data-i18n="manual.s13">Transfer Merge</span></a>
+        <a href="#sec-14"><span class="sidebar-num">14</span> <span data-i18n="manual.s14">Setup Q&A</span></a>
+        <a href="#sec-15"><span class="sidebar-num">15</span> <span data-i18n="manual.s15">OEM Autostart</span></a>
+        <a href="#sec-16"><span class="sidebar-num">16</span> <span data-i18n="manual.s16">Preferences</span></a>
+        <a href="#sec-17"><span class="sidebar-num">17</span> <span data-i18n="manual.s17">Data Recalibration</span></a>
+        <a href="#sec-18"><span class="sidebar-num">18</span> <span data-i18n="manual.s18">Privacy Governance</span></a>
+        <a href="#sec-19"><span class="sidebar-num">19</span> <span data-i18n="manual.s19">Future Roadmap</span></a>
+        <a href="#sec-20"><span class="sidebar-num">20</span> <span data-i18n="manual.s20">Contact & Support</span></a>
+    </aside>
+
+    <!-- Main Content (20 Unique Sections) -->
+    <main class="manual-content">
+
+        <!-- Title Block -->
+        <div style="padding-bottom: 36px; border-bottom: 1px solid var(--border);">
+            <div class="lang-content lang-en">
+                <span class="hero-tag">Official Documentation · Version 4.4.0 (Build 44)</span>
+                <h1 style="font-size: 28px; font-weight: 800; color: #ffffff; letter-spacing: -0.02em; margin-bottom: 8px;">Expense User Manual</h1>
+                <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Technical documentation and operational guide for Expense — an offline-first, zero-telemetry personal financial manager built for Malaysia.</p>
+            </div>
+            <div class="lang-content lang-zh">
+                <span class="hero-tag">官方参考文档 · 版本 4.4.0 (Build 44)</span>
+                <h1 style="font-size: 28px; font-weight: 800; color: #ffffff; letter-spacing: -0.02em; margin-bottom: 8px;">Expense 用户完整操作手册</h1>
+                <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">专为马来西亚银行与电子钱包生态打造的 100% 本地优先记账应用官方技术与操作参考指南。</p>
+            </div>
+            <div class="lang-content lang-ms">
+                <span class="hero-tag">Dokumentasi Rasmi · Versi 4.4.0 (Build 44)</span>
+                <h1 style="font-size: 28px; font-weight: 800; color: #ffffff; letter-spacing: -0.02em; margin-bottom: 8px;">Manual Pengguna Expense</h1>
+                <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Panduan teknikal dan operasi lengkap untuk Expense — pengurus kewangan luar talian tanpa telemetri untuk Malaysia.</p>
+            </div>
+        </div>
+
+        <!-- 01. Architecture -->
+        <section class="doc-section" id="sec-01">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">01.</span><div class="section-title-group"><h2>Overview & Architecture</h2><div class="desc">100% Offline-first local ledger</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;"><strong>Expense</strong> is designed for privacy-conscious users in Malaysia. All records are stored exclusively in an embedded SQLite database on your device with exact integer sen precision.</p>
+                <div class="callout"><strong>Currency Standard:</strong> Amounts are stored internally as integer sen (`RM 124.50` = `12450` sen) to prevent floating-point errors.</div>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">01.</span><div class="section-title-group"><h2>技术架构与隐私哲学</h2><div class="desc">100% 本地嵌入式 SQLite 引擎</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;"><strong>Expense</strong> 专为注重个人财务隐私的马来西亚用户设计。所有流水、分类、预算与账户配置全部保存在手机物理 SQLite 数据库中，零数据上报。</p>
+                <div class="callout"><strong>货币单位与存储精度：</strong> 底层全部采用<strong>整数分（sen）</strong>存储（例如 `RM 124.50` 存储为整数 `12450`），彻底消除浮点数计算误差。</div>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">01.</span><div class="section-title-group"><h2>Arkitektur & Privasi</h2><div class="desc">100% Lejar tempatan luar talian</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;"><strong>Expense</strong> direka khas untuk pengguna di Malaysia. Semua rekod disimpan dalam pangkalan data SQLite peranti anda dengan ketepatan integer sen.</p>
+                <div class="callout"><strong>Standard Mata Wang:</strong> Nilai disimpan sebagai integer sen (`RM 124.50` = `12450` sen) untuk mengelakkan ralat pembundaran.</div>
+            </div>
+        </section>
+
+        <!-- 02. First Launch -->
+        <section class="doc-section" id="sec-02">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">02.</span><div class="section-title-group"><h2>First Launch & Onboarding</h2><div class="desc">Initial setup and spotlight tour</div></div></div>
+                <ul class="step-list">
+                    <li><span class="step-num">01</span><div class="step-body"><strong>Welcome Flow</strong><span>Introduces the application and offline-first principles.</span></div></li>
+                    <li><span class="step-num">02</span><div class="step-body"><strong>Profile Setup</strong><span>Set your local profile name (2–20 characters, required).</span></div></li>
+                    <li><span class="step-num">03</span><div class="step-body"><strong>Spotlight Tour</strong><span>Walks through the + Record button, Inbox, Statistics, Accounts, and Mine views.</span></div></li>
+                </ul>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">02.</span><div class="section-title-group"><h2>首次启动与新手引导</h2><div class="desc">极简三步初始化与聚光灯教程</div></div></div>
+                <ul class="step-list">
+                    <li><span class="step-num">01</span><div class="step-body"><strong>欢迎页</strong><span>清晰声明本地优先与零云端隐私原则。</span></div></li>
+                    <li><span class="step-num">02</span><div class="step-body"><strong>设置个人昵称</strong><span>输入 2–20 位的本地显示名字（必填）。</span></div></li>
+                    <li><span class="step-num">03</span><div class="step-body"><strong>交互式聚光灯向导</strong><span>逐步引导熟悉「+ 记账按钮」、「待办箱」、「统计」、「账户」及「个人中心」。</span></div></li>
+                </ul>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">02.</span><div class="section-title-group"><h2>Pelancaran Pertama & Persediaan</h2><div class="desc">Aliran persediaan awal</div></div></div>
+                <ul class="step-list">
+                    <li><span class="step-num">01</span><div class="step-body"><strong>Skrin Alu-aluan</strong><span>Pengisytiharan privasi luar talian.</span></div></li>
+                    <li><span class="step-num">02</span><div class="step-body"><strong>Tetapan Nama</strong><span>Masukkan nama profil tempatan (2–20 aksara).</span></div></li>
+                    <li><span class="step-num">03</span><div class="step-body"><strong>Panduan Interaktif</strong><span>Panduan ciri butang +, Peti Masuk, Statistik, Akaun, dan Mine.</span></div></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 03. Navigation -->
+        <section class="doc-section" id="sec-03">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">03.</span><div class="section-title-group"><h2>Navigation & Views</h2><div class="desc">Four primary tabs and central recorder</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;"><strong>Home:</strong> Monthly balances with privacy eye, inbox banner, and transaction feed.<br><strong>Statistics:</strong> Period graphs, trends, and category rankings.<br><strong>Accounts:</strong> Net assets, bank cards, eWallets, and receivable debts.<br><strong>Mine:</strong> Budgets, auto-detect settings, language, theme, and recalibration tools.</p>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">03.</span><div class="section-title-group"><h2>导航架构与核心视图</h2><div class="desc">四大主标签页与中央悬浮记账</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;"><strong>首页 (Home)：</strong> 月度收支卡片（支持隐私眼睛遮挡）、待办箱横幅、按日期分组流水列表与搜索筛选。<br><strong>统计 (Statistics)：</strong> 周/月/年周期切换、动态条形图、月环比趋势及分类支出排行榜。<br><strong>资金账本 (Accounts)：</strong> 净资产总额、现金与电子钱包、银行卡、信用卡负债及待收欠款。<br><strong>个人中心 (Mine)：</strong> 预算限额、自动记账开关、保活指南、中英马三语切换、主题及余额自愈校准。</p>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">03.</span><div class="section-title-group"><h2>Navigasi & Paparan Utama</h2><div class="desc">Empat tab utama dan butang rakam</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;"><strong>Utama:</strong> Baki bulanan dengan ikon privasi, sepanduk peti masuk, dan senarai transaksi.<br><strong>Statistik:</strong> Graf tempoh, tren, dan kedudukan kategori.<br><strong>Akaun:</strong> Aset bersih, kad bank, e-dompet, dan pinjaman belum terima.<br><strong>Mine:</strong> Had bajet, tetapan auto-kesan, pertukaran bahasa, tema, dan alat penentukuran.</p>
+            </div>
+        </section>
+
+        <!-- 04. Logging & Keypad -->
+        <section class="doc-section" id="sec-04">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">04.</span><div class="section-title-group"><h2>Logging Transactions & Keypad</h2><div class="desc">Live arithmetic and soft-delete undo</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">The custom numeric keypad supports live arithmetic calculations (e.g. `12.50 + 5.30 = RM 17.80`). Deleting a record triggers a 4.5-second undo snackbar.</p>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">04.</span><div class="section-title-group"><h2>记账流程与算术键盘</h2><div class="desc">实时算术运算与 4.5 秒防误删撤销</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">点击中央「+ 记账」呼出专用数字键盘（`NumKeyboard.js`），支持在金额框中直接进行加减乘除实时运算（如 `12.50 + 5.30 = RM 17.80`）。删除流水采用软删除（`deleted_at`），提供 4.5 秒悬浮撤销栏。</p>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">04.</span><div class="section-title-group"><h2>Merekod Transaksi & Papan Kekunci</h2><div class="desc">Aritmetik langsung dan bar snek batal padam</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">Papan kekunci numerik terbina dalam menyokong pengiraan matematik langsung (cth. `12.50 + 5.30 = RM 17.80`). Pemadaman menyediakan bar snek pemulihan 4.5 saat.</p>
+            </div>
+        </section>
+
+        <!-- 05. Categories -->
+        <section class="doc-section" id="sec-05">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">05.</span><div class="section-title-group"><h2>Categories System</h2><div class="desc">Default classifications & custom management</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">Pre-loaded with localized categories (Food, Transport, Shopping, Utilities, Medical, Salary, Bonus) and supports unlimited custom categories.</p>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">05.</span><div class="section-title-group"><h2>分类体系管理</h2><div class="desc">预设分类与自定义扩展</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">预置餐饮、交通、购物、娱乐、账单水电、医疗、投资、其他等支出分类，以及薪水、奖金、投资收益等收入分类，支持无上限创建自定义分类。</p>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">05.</span><div class="section-title-group"><h2>Sistem Kategori</h2><div class="desc">Kategori pratetap & tersuai</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">Dilengkapi kategori sedia ada (Makanan, Pengangkutan, Membeli-belah, Utiliti, Perubatan, Gaji, Bonus) dan sokongan kategori tersuai tanpa had.</p>
+            </div>
+        </section>
+
+        <!-- 06. Accounts & Liabilities -->
+        <section class="doc-section" id="sec-06">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">06.</span><div class="section-title-group"><h2>Accounts & Liabilities</h2><div class="desc">Credit card liability sign inversion</div></div></div>
+                <div class="callout"><strong>Liability Accounting:</strong> For credit cards (`is_liability = 1`), expenses increase outstanding debt, while payments reduce it. `Net Assets = Asset Balances − Liability Balances`.</div>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">06.</span><div class="section-title-group"><h2>多账户与信用卡负债</h2><div class="desc">负债符号反转与净资产计算</div></div></div>
+                <div class="callout"><strong>信用卡负债记账：</strong> 信用卡标记为 `is_liability = 1`。发生支出时欠款增加，还款入账时欠款减少。净资产公式：`总资产（现金+银行） − 总负债（信用卡）`。</div>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">06.</span><div class="section-title-group"><h2>Akaun & Liabiliti</h2><div class="desc">Penyongsangan tanda liabiliti Kad Kredit</div></div></div>
+                <div class="callout"><strong>Perakaunan Liabiliti:</strong> Bagi kad kredit (`is_liability = 1`), perbelanjaan menambah hutang; bayaran balik mengurangkannya. `Aset Bersih = Jumlah Aset − Jumlah Liabiliti`.</div>
+            </div>
+        </section>
+
+        <!-- 07. Bill Splits -->
+        <section class="doc-section" id="sec-07">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">07.</span><div class="section-title-group"><h2>Bill Splits & Reimbursements</h2><div class="desc">AA fractions & 1-tap settlement</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">Advance group meals with quick fractions (`1/2`, `2/3`, `3/4`). Pending receivables are isolated from monthly spending and settled with 1 tap upon repayment.</p>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">07.</span><div class="section-title-group"><h2>AA 聚餐垫付与还款冲减</h2><div class="desc">独立应收账款与一键平账</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">聚餐垫付时支持快捷点击 `1/2`、`2/3`、`3/4` 分摊比例。系统自动计算自费金额与应收朋友款项，垫付部分不虚增月度个人开销。朋友还款时，一键点击「结算」平账。</p>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">07.</span><div class="section-title-group"><h2>Kongsi Bil & Bayaran Balik (AA)</h2><div class="desc">Pecahan nisbah & penyelesaian 1-ketikan</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">Dahulukan bil makanan dengan pecahan pantas (`1/2`, `2/3`, `3/4`). Belum terima diasingkan daripada perbelanjaan bulanan peribadi dan diselesaikan dengan 1 ketikan.</p>
+            </div>
+        </section>
+
+        <!-- 08. Analytics -->
+        <section class="doc-section" id="sec-08">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">08.</span><div class="section-title-group"><h2>Statistics & Analytics</h2><div class="desc">Dynamic period graphs and category breakdown</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">Includes interactive SVG bar charts, vs-last-month trend indicators, category rankings, and day breakdown sheets.</p>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">08.</span><div class="section-title-group"><h2>统计分析与支出趋势</h2><div class="desc">周期柱状图与单日明细透视</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">提供周/月/年动态柱状图、月度环比趋势标签、分类占比排行榜，点击任意日期可呼出单日详细消费透视面板。</p>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">08.</span><div class="section-title-group"><h2>Statistik & Analisis</h2><div class="desc">Graf bar interaktif dan pecahan kategori</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">Graf bar SVG dinamik, penunjuk tren bulanan, dan paparan pecahan harian terperinci.</p>
+            </div>
+        </section>
+
+        <!-- 09. Budget Tracking -->
+        <section class="doc-section" id="sec-09">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">09.</span><div class="section-title-group"><h2>Monthly & Daily Budget</h2><div class="desc">Momentum drum wheel pickers and warnings</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">Set monthly and daily caps with momentum-scroll pickers. Home dashboard warns at 80% and 100% threshold limits.</p>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">09.</span><div class="section-title-group"><h2>月度与每日预算管理</h2><div class="desc">滚轮选择器与超支阈值预警</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">在「个人中心」设置月度与日预算。首页收支卡片在达到 80% 和 100% 阈值时自动发出超支预警。</p>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">09.</span><div class="section-title-group"><h2>Pengurusan Bajet</h2><div class="desc">Pemilih roda drum dan amaran had</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">Tetapkan had bulanan dan harian. Amaran had dipaparkan apabila perbelanjaan mencecah 80% dan 100%.</p>
+            </div>
+        </section>
+
+        <!-- 10. Auto-Detect Engine -->
+        <section class="doc-section" id="sec-10">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">10.</span><div class="section-title-group"><h2>Auto-Detect Notification Engine</h2><div class="desc">Native Android notification capture</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;"><strong>Whitelist:</strong> Touch 'n Go, MAE Maybank, CIMB, Boost, Boost Bank, RHB, Public Bank, GrabPay, Hong Leong, AmBank, Bank Islam, Alliance, OCBC, UOB, HSBC, GXBank, WeChat Pay, Alipay, DuitNow. Bank SMS alerts are parsed in memory without raw SMS read access.</p>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">10.</span><div class="section-title-group"><h2>通知监听自动识别引擎</h2><div class="desc">安卓原生监听与短信内存解析</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;"><strong>白名单支持：</strong> Touch 'n Go、MAE Maybank、CIMB、Boost、Boost Bank、RHB、Public Bank、GrabPay、Hong Leong、AmBank、Bank Islam、Alliance、OCBC、UOB、HSBC、GXBank、WeChat Pay、Alipay、DuitNow。短信在内存中通过金额正则匹配，完全不申请短信读取权限。</p>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">10.</span><div class="section-title-group"><h2>Enjin Auto-Kesan Notifikasi</h2><div class="desc">Tangkapan notifikasi asal Android</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;"><strong>Aplikasi Disokong:</strong> Touch 'n Go, MAE Maybank, CIMB, Boost, Boost Bank, RHB, Public Bank, GrabPay, Hong Leong, AmBank, Bank Islam, Alliance, OCBC, UOB, HSBC, GXBank, WeChat Pay, Alipay, DuitNow. SMS bank dianalisis dalam memori tanpa kebenaran membaca SMS.</p>
+            </div>
+        </section>
+
+        <!-- 11. Drafts Review Deck -->
+        <section class="doc-section" id="sec-11">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">11.</span><div class="section-title-group"><h2>Drafts Review Deck</h2><div class="desc">Momentum snap cards & AI prediction</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">Captured alerts become pending drafts (`inbox_drafts`). Features category matching, duplicate payment warnings, and batch approval.</p>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">11.</span><div class="section-title-group"><h2>待办箱草稿卡片</h2><div class="desc">启发式智能分类与重复预警</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">识别的交易生成待审草稿（`inbox_drafts`），具备商户智能匹配分类、同日重复记账预警以及批量一键入账功能。</p>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">11.</span><div class="section-title-group"><h2>Dek Kad Peti Masuk</h2><div class="desc">Draf belum selesai & ramalan kategori</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">Notifikasi disimpan sebagai draf (`inbox_drafts`). Mempunyai pemadanan kategori automatik, amaran duplikasi, dan kelulusan pukal.</p>
+            </div>
+        </section>
+
+        <!-- 12. Fuel Refund Auto-Merge -->
+        <section class="doc-section" id="sec-12">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">12.</span><div class="section-title-group"><h2>Fuel Pre-Auth Auto-Merge</h2><div class="desc">RON95 hold and refund reconciliation</div></div></div>
+                <div class="callout"><strong>Auto-Merge:</strong> Pre-authorization pump holds (RM 80) and unpumped refunds (RM 5.34) merge into net spending (RM 74.66) without false income entries.</div>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">12.</span><div class="section-title-group"><h2>加油预扣与找零退款合并</h2><div class="desc">RON95 预授权冲减</div></div></div>
+                <div class="callout"><strong>智能合并机制：</strong> 自动关联同日的加油预扣（如 RM 80）与找零退款（如 RM 5.34），一键合并为实际净支出 RM 74.66，不产生多余虚假收入。</div>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">12.</span><div class="section-title-group"><h2>Gabung Bayaran Balik Pam Minyak</h2><div class="desc">Penyelarasan RON95</div></div></div>
+                <div class="callout"><strong>Gabung Auto:</strong> Penahanan pra-kebenaran pam (RM 80) dan pulangan baki (RM 5.34) digabungkan menjadi perbelanjaan bersih tepat (RM 74.66) tanpa rekod pendapatan palsu.</div>
+            </div>
+        </section>
+
+        <!-- 13. Transfer Merge -->
+        <section class="doc-section" id="sec-13">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">13.</span><div class="section-title-group"><h2>60s Transfer Merge</h2><div class="desc">Bidirectional reload prompt</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">When matching debit/credit notifications occur within 60s (e.g. Bank to eWallet), Expense prompts 1-tap transfer consolidation.</p>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">13.</span><div class="section-title-group"><h2>60 秒跨软件转账识别</h2><div class="desc">充值流水一键合并</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">60 秒内检测到相同金额的反向变动（如银行卡扣款 + TNG 钱包充值），主动提示一键合并为内部转账。</p>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">13.</span><div class="section-title-group"><h2>Gabung Pindahan 60-Saat</h2><div class="desc">Cadangan penggabungan tambah nilai</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">Apabila notifikasi debit/kredit sepadan dikesan dalam masa 60s, Expense mencadangkan penggabungan pindahan dalaman 1-ketikan.</p>
+            </div>
+        </section>
+
+        <!-- 14. Auto-Detect Q&A -->
+        <section class="doc-section" id="sec-14">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">14.</span><div class="section-title-group"><h2>Auto-Detect Setup Q&A</h2><div class="desc">Common questions and troubleshooting</div></div></div>
+                <div class="qa-card"><div class="qa-question">How to enable?</div><div class="qa-answer">Open Mine → Turn on Auto-Detect Notifications → Grant Notification Access in Android Settings.</div></div>
+                <div class="qa-card"><div class="qa-question">Missed alerts after standby?</div><div class="qa-answer">Open Mine → Background Autostart Guide → Tap Repair and set battery optimization to Unrestricted.</div></div>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">14.</span><div class="section-title-group"><h2>自动识别配置 Q&A</h2><div class="desc">常见问题与排查指南</div></div></div>
+                <div class="qa-card"><div class="qa-question">如何开启自动记账？</div><div class="qa-answer">个人中心 → 打开「自动识别记账」开关 → 在安卓系统设置中授予「通知使用权」。</div></div>
+                <div class="qa-card"><div class="qa-question">手机锁屏待机后不记账？</div><div class="qa-answer">打开「后台保活指南」，若连接断开点击「修复」，并将本应用电池策略设置为「无限制」。</div></div>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">14.</span><div class="section-title-group"><h2>Soal Jawab Persediaan (Q&A)</h2><div class="desc">Penyelesaian masalah biasa</div></div></div>
+                <div class="qa-card"><div class="qa-question">Bagaimana cara mengaktifkan?</div><div class="qa-answer">Buka Mine → Hidupkan Auto-Detect Notifications → Beri Akses Notifikasi dalam Tetapan Android.</div></div>
+                <div class="qa-card"><div class="qa-question">Notifikasi terlepas selepas mod sedia?</div><div class="qa-answer">Buka Mine → Panduan Autostart → Ketik Pembaikan dan tetapkan bateri kepada Tanpa Sekatan.</div></div>
+            </div>
+        </section>
+
+        <!-- 15. OEM Guide -->
+        <section class="doc-section" id="sec-15">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">15.</span><div class="section-title-group"><h2>OEM Autostart Guide</h2><div class="desc">Brand-specific optimization checklist</div></div></div>
+                <div class="grid-2">
+                    <div class="grid-cell"><span class="cell-num">XIAOMI / REDMI</span><h3>HyperOS / MIUI</h3><p>Settings → Apps → Manage Apps → Expense → Enable Autostart → Set Battery Saver to No restrictions.</p></div>
+                    <div class="grid-cell"><span class="cell-num">SAMSUNG</span><h3>One UI</h3><p>Settings → Battery → Background usage limits → Add to Never sleeping apps → Battery: Unrestricted.</p></div>
+                    <div class="grid-cell"><span class="cell-num">OPPO / ONEPLUS</span><h3>ColorOS / OxygenOS</h3><p>Settings → Apps → Auto-launch → Enable Expense → Battery: Allow background activity.</p></div>
+                    <div class="grid-cell"><span class="cell-num">VIVO / IQOO</span><h3>OriginOS / FuntouchOS</h3><p>Settings → Battery → Background power consumption → Set to High background consumption.</p></div>
+                </div>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">15.</span><div class="section-title-group"><h2>主流机型后台保活配置</h2><div class="desc">小米/三星/OPPO/vivo 指南</div></div></div>
+                <div class="grid-2">
+                    <div class="grid-cell"><span class="cell-num">小米 / REDMI</span><h3>HyperOS / MIUI</h3><p>系统设置 → 应用管理 → Expense → 开启「自启动」 → 将省电策略设为「无限制」。</p></div>
+                    <div class="grid-cell"><span class="cell-num">三星 (SAMSUNG)</span><h3>One UI</h3><p>系统设置 → 电池与设备维护 → 应用程序耗电管理 → 添加至「深度休眠之外的应用程序」 → 电池设为「无限制」。</p></div>
+                    <div class="grid-cell"><span class="cell-num">OPPO / 一加</span><h3>ColorOS</h3><p>系统设置 → 应用管理 → 应用自启动 → 勾选 Expense → 电池设为「允许完全后台行为」。</p></div>
+                    <div class="grid-cell"><span class="cell-num">VIVO / IQOO</span><h3>OriginOS</h3><p>系统设置 → 电池 → 后台高耗电管理 → 勾选 Expense 允许高耗电运行。</p></div>
+                </div>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">15.</span><div class="section-title-group"><h2>Panduan Autostart Jenama Telefon</h2><div class="desc">Senarai semak Xiaomi/Samsung/OPPO/vivo</div></div></div>
+                <div class="grid-2">
+                    <div class="grid-cell"><span class="cell-num">XIAOMI / REDMI</span><h3>HyperOS / MIUI</h3><p>Tetapan → Aplikasi → Urus Aplikasi → Expense → Hidupkan Autostart → Penjimat Bateri: Tiada sekatan.</p></div>
+                    <div class="grid-cell"><span class="cell-num">SAMSUNG</span><h3>One UI</h3><p>Tetapan → Bateri → Had penggunaan latar belakang → Tambah ke Never sleeping apps → Bateri: Unrestricted.</p></div>
+                    <div class="grid-cell"><span class="cell-num">OPPO / ONEPLUS</span><h3>ColorOS</h3><p>Tetapan → Aplikasi → Auto-launch → Hidupkan Expense → Bateri: Benarkan aktiviti latar belakang.</p></div>
+                    <div class="grid-cell"><span class="cell-num">VIVO / IQOO</span><h3>OriginOS</h3><p>Tetapan → Bateri → Penggunaan kuasa latar belakang → Benarkan penggunaan latar belakang tinggi.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 16. Preferences -->
+        <section class="doc-section" id="sec-16">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">16.</span><div class="section-title-group"><h2>Preferences & Tri-Lingual</h2><div class="desc">Profile, appearance, and languages</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">Supports instant switching between English, 简体中文, and Bahasa Malaysia, plus dark/light themes and configurable daily reminder notifications.</p>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">16.</span><div class="section-title-group"><h2>偏好设置与多语言</h2><div class="desc">三语即时切换与主题</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">支持 English、简体中文、Bahasa Malaysia 即时切换无需重启，提供深色、浅色及跟随系统主题，支持自定义每日记账提醒推送。</p>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">16.</span><div class="section-title-group"><h2>Keutamaan & Tri-Bahasa</h2><div class="desc">Profil, penampilan, dan bahasa</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px;">Menyokong pertukaran serta-merta antara English, 简体中文, dan Bahasa Malaysia, tema gelap/cerah, dan pemberitahuan peringatan harian.</p>
+            </div>
+        </section>
+
+        <!-- 17. Data Management -->
+        <section class="doc-section" id="sec-17">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">17.</span><div class="section-title-group"><h2>Data Management & Recalibrate</h2><div class="desc">Audit, repair, and CSV export</div></div></div>
+                <div class="grid-3">
+                    <div class="grid-cell"><span class="cell-num">REPAIR</span><h3>Recalibrate Balances</h3><p>Recalculates ledger sum in integer sen from all non-deleted transactions atomically.</p></div>
+                    <div class="grid-cell"><span class="cell-num">EXPORT</span><h3>Standard CSV Export</h3><p>Export all accounting ledgers to standard <code>.csv</code> spreadsheet format for audit.</p></div>
+                    <div class="grid-cell"><span class="cell-num">DEBUG</span><h3>Developer Mode</h3><p>Tap version text 7 times to unlock internal diagnostics and testing mock data seeders.</p></div>
+                </div>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">17.</span><div class="section-title-group"><h2>数据管理与自愈校准</h2><div class="desc">余额校准与 CSV 导出</div></div></div>
+                <div class="grid-3">
+                    <div class="grid-cell"><span class="cell-num">自愈修复</span><h3>账户余额校准</h3><p>从全部有效流水中按整数分原子级重算全账本余额，修复任何数据不一致。</p></div>
+                    <div class="grid-cell"><span class="cell-num">数据备份</span><h3>标准 CSV 导出</h3><p>随时将完整流水导出为标准 <code>.csv</code> 表格，支持 Excel 与第三方表格分析。</p></div>
+                    <div class="grid-cell"><span class="cell-num">开发者</span><h3>隐藏诊断工具</h3><p>连续点击版本号 7 次进入开发者模式，快速生成本地测试流水与诊断日志。</p></div>
+                </div>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">17.</span><div class="section-title-group"><h2>Pengurusan Data & Kalibrasi</h2><div class="desc">Audit lejar dan eksport CSV</div></div></div>
+                <div class="grid-3">
+                    <div class="grid-cell"><span class="cell-num">PEMBAIKAN</span><h3>Penentukuran Baki</h3><p>Mengira semula baki daripada semua transaksi lejar yang sah secara atomik.</p></div>
+                    <div class="grid-cell"><span class="cell-num">EKSPORT</span><h3>Eksport CSV Standard</h3><p>Eksport lejar ke format hamparan <code>.csv</code> untuk analisis atau sandaran.</p></div>
+                    <div class="grid-cell"><span class="cell-num">DIAGNOSTIK</span><h3>Mod Pembangun</h3><p>Ketik nombor versi 7 kali untuk membuka diagnostik dan penjana data ujian tempatan.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 18. Privacy Governance -->
+        <section class="doc-section" id="sec-18">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">18.</span><div class="section-title-group"><h2>Privacy Governance & Local Sovereignty</h2><div class="desc">Zero-telemetry data sovereignty</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;">Expense strictly enforces local device sovereignty. Zero bytes of financial transaction records leave your device.</p>
+                <div class="callout"><strong>100% Offline Promise:</strong> All notification analysis runs exclusively in volatile RAM. Personal chats, OTPs, and private messages are immediately discarded.</div>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">18.</span><div class="section-title-group"><h2>隐私合规与数据主权</h2><div class="desc">100% 本地运行与零数据泄露承诺</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;">Expense 严格遵循数据主权原则。您的所有记账数据 100% 仅存在于您本人的手机物理设备中，绝不上传至任何服务器。</p>
+                <div class="callout"><strong>零云端承诺：</strong> 通知解析全部在手机易失性内存（RAM）中即时完成，所有非银行短信、个人聊天与验证码均在内存中直接丢弃，不留痕迹。</div>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">18.</span><div class="section-title-group"><h2>Tadbir Urus Privasi & Kedaulatan Data</h2><div class="desc">Kedaulatan data tanpa telemetri</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;">Expense menguatkuasakan kedaulatan peranti tempatan sepenuhnya. 0 bait data transaksi kewangan dihantar keluar dari telefon anda.</p>
+                <div class="callout"><strong>Janji 100% Luar Talian:</strong> Semua analisis notifikasi dijalankan secara eksklusif dalam memori RAM peranti. Sembang peribadi dan OTP dibuang serta-merta.</div>
+            </div>
+        </section>
+
+        <!-- 19. Future Roadmap -->
+        <section class="doc-section" id="sec-19">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">19.</span><div class="section-title-group"><h2>Future Roadmap & Next Features</h2><div class="desc">Research and planning</div></div></div>
+                <div class="grid-3">
+                    <div class="grid-cell"><span class="cell-num">AI ASSISTANT</span><h3>Local Voice Recording</h3><p>Natural language voice input powered by lightweight on-device speech processing models.</p></div>
+                    <div class="grid-cell"><span class="cell-num">VISION OCR</span><h3>Receipt Camera Scanner</h3><p>On-device optical character recognition for paper petrol receipts and supermarket bills.</p></div>
+                    <div class="grid-cell"><span class="cell-num">SECURITY</span><h3>Encrypted Drive Backup</h3><p>Optional user-controlled end-to-end encrypted backup to private Google Drive storage.</p></div>
+                </div>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">19.</span><div class="section-title-group"><h2>未来规划与版本路线图</h2><div class="desc">正在规划中的特性</div></div></div>
+                <div class="grid-3">
+                    <div class="grid-cell"><span class="cell-num">AI 语音记账</span><h3>本地语音自然语言录入</h3><p>通过端侧轻量级语音识别模型，实现“今天午饭花费25令吉”一句话极速记账。</p></div>
+                    <div class="grid-cell"><span class="cell-num">视觉 OCR</span><h3>收据拍照智能识别</h3><p>端侧相机 OCR 识别加油小票与超市发票明细，一键提取金额与商户。</p></div>
+                    <div class="grid-cell"><span class="cell-num">加密备份</span><h3>Google Drive 私有加密备份</h3><p>可选的端到端 AES-256 加密同步至用户私有 Google Drive 云盘。</p></div>
+                </div>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">19.</span><div class="section-title-group"><h2>Peta Hala Tuju & Ciri Masa Hadapan</h2><div class="desc">Penyelidikan masa hadapan</div></div></div>
+                <div class="grid-3">
+                    <div class="grid-cell"><span class="cell-num">PEMBANTU AI</span><h3>Rakaman Suara Tempatan</h3><p>Input suara bahasa semula jadi dikuasakan oleh model pemprosesan pertuturan pada peranti.</p></div>
+                    <div class="grid-cell"><span class="cell-num">PENGLIHATAN OCR</span><h3>Pengimbas Resit Kamera</h3><p>Pengecaman aksara optik pada peranti untuk resit petrol dan bil pasar raya.</p></div>
+                    <div class="grid-cell"><span class="cell-num">KESELAMATAN</span><h3>Sandaran Disulitkan Drive</h3><p>Pilihan sandaran disulitkan hujung-ke-hujung ke storan Google Drive peribadi pengguna.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 20. Contact & Support -->
+        <section class="doc-section" id="sec-20">
+            <div class="lang-content lang-en">
+                <div class="section-header"><span class="section-badge-num">20.</span><div class="section-title-group"><h2>Contact & Technical Support</h2><div class="desc">Developer contact & issue reporting</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px; margin-bottom:12px;">For inquiries, feature suggestions, or reporting new Malaysian banking notification formats:</p>
+                <p style="margin-bottom: 20px; font-size: 14px;"><a href="mailto:marcus.dev00@outlook.com" class="email-link">marcus.dev00@outlook.com</a></p>
+                <div class="hero-buttons">
+                    <a href="mailto:marcus.dev00@outlook.com" class="btn-primary">Email Developer</a>
+                    <a href="https://github.com/marcuslzy0103-bit/expense-app/releases" class="btn-secondary">GitHub Releases</a>
+                </div>
+            </div>
+            <div class="lang-content lang-zh">
+                <div class="section-header"><span class="section-badge-num">20.</span><div class="section-title-group"><h2>联系开发者与技术支持</h2><div class="desc">开发者反馈渠道与格式上报</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px; margin-bottom:12px;">如有任何使用疑问、功能建议，或遇到未识别的马来西亚银行/电子钱包新格式通知：</p>
+                <p style="margin-bottom: 20px; font-size: 14px;"><a href="mailto:marcus.dev00@outlook.com" class="email-link">marcus.dev00@outlook.com</a></p>
+                <div class="hero-buttons">
+                    <a href="mailto:marcus.dev00@outlook.com" class="btn-primary">发送邮件咨询</a>
+                    <a href="https://github.com/marcuslzy0103-bit/expense-app/releases" class="btn-secondary">查看 GitHub 发布页</a>
+                </div>
+            </div>
+            <div class="lang-content lang-ms">
+                <div class="section-header"><span class="section-badge-num">20.</span><div class="section-title-group"><h2>Hubungi & Bantuan Teknikal</h2><div class="desc">Saluran sokongan pembangun</div></div></div>
+                <p style="color:var(--text-muted); font-size:14px; margin-bottom:12px;">Untuk sebarang pertanyaan, cadangan ciri baharu, atau melaporkan format notifikasi bank yang belum disokong:</p>
+                <p style="margin-bottom: 20px; font-size: 14px;"><a href="mailto:marcus.dev00@outlook.com" class="email-link">marcus.dev00@outlook.com</a></p>
+                <div class="hero-buttons">
+                    <a href="mailto:marcus.dev00@outlook.com" class="btn-primary">Emel Pembangun</a>
+                    <a href="https://github.com/marcuslzy0103-bit/expense-app/releases" class="btn-secondary">Keluaran GitHub</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div data-i18n="footer.tag">EXPENSE · VERSION 4.4.0 · MALAYSIA</div>
+    <div class="footer-links">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="manual.html" data-i18n="nav.manual">Manual</a>
+        <a href="privacy.html" data-i18n="nav.privacy">Privacy</a>
+        <a href="mailto:marcus.dev00@outlook.com" data-i18n="nav.contact">Contact</a>
+    </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script>
+    // Robust sidebar click & scroll-spy handling
+    const sections = Array.from(document.querySelectorAll('.doc-section'));
+    const navLinks = Array.from(document.querySelectorAll('.manual-sidebar a'));
+
+    // Smooth scroll and immediate active state on click
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetEl = document.getElementById(targetId);
+            if (targetEl) {
+                targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // Proximity and bottom-aware Scroll-Spy
+    function updateActiveSection() {
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const docHeight = document.documentElement.scrollHeight;
+
+        // If user scrolled to the bottom of the page, activate the last visible section
+        if (windowHeight + scrollY >= docHeight - 40) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            if (navLinks.length > 0) {
+                navLinks[navLinks.length - 1].classList.add('active');
+            }
+            return;
+        }
+
+        // Check top bounding rects
+        let currentSectionId = '';
+        for (let i = 0; i < sections.length; i++) {
+            const sec = sections[i];
+            const rect = sec.getBoundingClientRect();
+            // If section is currently crossing the top 160px viewport threshold
+            if (rect.top <= 160 && rect.bottom >= 60) {
+                currentSectionId = sec.getAttribute('id');
+                break;
+            }
+        }
+
+        // Default to first section when at top
+        if (!currentSectionId && scrollY < 240 && sections.length > 0) {
+            currentSectionId = sections[0].getAttribute('id');
+        }
+
+        if (currentSectionId) {
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + currentSectionId);
+            });
+        }
+    }
+
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
+    window.addEventListener('resize', updateActiveSection, { passive: true });
+    updateActiveSection();
+</script>
+
+</body>
+</html>
