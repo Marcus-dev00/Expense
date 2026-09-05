@@ -62,7 +62,7 @@ const translations = {
         "comp.tag": "Comparison",
         "comp.title": "Offline-First vs Cloud Accounting",
         "comp.thCrit": "Criterion",
-        "comp.thExpense": "Expense (v4.4.0)",
+        "comp.thExpense": "Expense (v5.0)",
         "comp.thCloud": "Cloud Expense Apps",
         "comp.row1Label": "Data Storage",
         "comp.row1Exp": "100% LOCAL SQLITE",
@@ -80,11 +80,15 @@ const translations = {
         "comp.row5Exp": "FULLY OFFLINE",
         "comp.row5Cloud": "INTERNET REQUIRED",
 
+        // Index - Benchmarks
+        "bench.tag": "Performance",
+        "bench.title": "Hardware & Power Benchmarks",
+
         // Contact & Footer
         "contact.tag": "Inquiries",
         "contact.title": "Developer Support",
         "contact.desc": "For feedback, technical questions, or bug reports:",
-        "footer.tag": "EXPENSE · VERSION 4.4.0 · MALAYSIA",
+        "footer.tag": "EXPENSE · VERSION 5.0 · MALAYSIA",
         "mobile.menu": "Menu",
         "mobile.tocPrompt": "Jump to Section...",
 
@@ -106,10 +110,11 @@ const translations = {
         "manual.s14": "Setup Q&A",
         "manual.s15": "OEM Autostart",
         "manual.s16": "Preferences",
-        "manual.s17": "Data Recalibration",
-        "manual.s18": "Privacy Governance",
-        "manual.s19": "Future Roadmap",
-        "manual.s20": "Contact & Support"
+        "manual.s17": "Data & Migration",
+        "manual.s18": "Hardware Benchmarks",
+        "manual.s19": "Privacy Governance",
+        "manual.s20": "Future Roadmap",
+        "manual.s21": "Contact & Support"
     },
 
     zh: {
@@ -170,7 +175,7 @@ const translations = {
         "comp.tag": "对比分析",
         "comp.title": "本地优先 vs 传统云端记账",
         "comp.thCrit": "对比维度",
-        "comp.thExpense": "Expense (v4.4.0)",
+        "comp.thExpense": "Expense (v5.0)",
         "comp.thCloud": "传统云端记账应用",
         "comp.row1Label": "数据存储位置",
         "comp.row1Exp": "100% 本地 SQLITE",
@@ -188,11 +193,15 @@ const translations = {
         "comp.row5Exp": "完全离线可用",
         "comp.row5Cloud": "必须连接互联网",
 
+        // Index - Benchmarks
+        "bench.tag": "实测性能",
+        "bench.title": "真实硬件与功耗基准",
+
         // Contact & Footer
         "contact.tag": "联系与咨询",
         "contact.title": "开发者技术支持",
         "contact.desc": "如有任何反馈、功能建议或 Bug 汇报，请直接联系开发者：",
-        "footer.tag": "EXPENSE · 4.4.0 版本 · 马来西亚隐私记账",
+        "footer.tag": "EXPENSE · 5.0 版本 · 马来西亚隐私记账",
         "mobile.menu": "菜单",
         "mobile.tocPrompt": "快速跳转章节...",
 
@@ -214,10 +223,11 @@ const translations = {
         "manual.s14": "常见问题",
         "manual.s15": "机型保活指南",
         "manual.s16": "偏好设置",
-        "manual.s17": "数据自愈校准",
-        "manual.s18": "隐私保护准则",
-        "manual.s19": "未来规划",
-        "manual.s20": "联系与支持"
+        "manual.s17": "数据迁移与备份",
+        "manual.s18": "硬件与功耗基准",
+        "manual.s19": "隐私保护准则",
+        "manual.s20": "未来规划",
+        "manual.s21": "联系与支持"
     },
 
     ms: {
@@ -278,7 +288,7 @@ const translations = {
         "comp.tag": "Perbandingan",
         "comp.title": "Luar Talian vs Aplikasi Awan",
         "comp.thCrit": "Kriteria",
-        "comp.thExpense": "Expense (v4.4.0)",
+        "comp.thExpense": "Expense (v5.0)",
         "comp.thCloud": "Aplikasi Perbelanjaan Awan",
         "comp.row1Label": "Lokasi Penyimpanan Data",
         "comp.row1Exp": "100% SQLITE TEMPATAN",
@@ -296,11 +306,15 @@ const translations = {
         "comp.row5Exp": "SEPENUHNYA LUAR TALIAN",
         "comp.row5Cloud": "MEMERLUKAN INTERNET",
 
+        // Index - Benchmarks
+        "bench.tag": "Prestasi",
+        "bench.title": "Tanda Aras Perkakasan & Kuasa",
+
         // Contact & Footer
         "contact.tag": "Pertanyaan",
         "contact.title": "Sokongan Pembangun",
         "contact.desc": "Untuk maklum balas, pertanyaan teknikal, atau laporan pepijat:",
-        "footer.tag": "EXPENSE · VERSI 4.4.0 · MALAYSIA",
+        "footer.tag": "EXPENSE · VERSI 5.0 · MALAYSIA",
         "mobile.menu": "Menu",
         "mobile.tocPrompt": "Lompat ke Seksyen...",
 
@@ -322,10 +336,11 @@ const translations = {
         "manual.s14": "Soal Jawab",
         "manual.s15": "Panduan Autostart",
         "manual.s16": "Keutamaan",
-        "manual.s17": "Penentukuran Data",
-        "manual.s18": "Tadbir Urus Privasi",
-        "manual.s19": "Peta Hala Tuju",
-        "manual.s20": "Hubungi & Bantuan"
+        "manual.s17": "Data & Migrasi",
+        "manual.s18": "Tanda Aras Perkakasan",
+        "manual.s19": "Tadbir Urus Privasi",
+        "manual.s20": "Peta Hala Tuju",
+        "manual.s21": "Hubungi & Bantuan"
     }
 };
 
