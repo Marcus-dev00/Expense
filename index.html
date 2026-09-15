@@ -16,7 +16,7 @@
             } catch(e) {}
         })();
     </script>
-    <link rel="stylesheet" href="style.css?v=bw3">
+    <link rel="stylesheet" href="style.css?v=bw4">
 </head>
 <body class="is-entering">
     <div class="page-veil" aria-hidden="true"></div>
@@ -41,7 +41,7 @@
                     <button class="lang-btn" data-lang="zh">中文</button>
                     <button class="lang-btn" data-lang="ms">BM</button>
                 </div>
-                <a href="manual.html" class="btn-nav-action" data-nav data-i18n="nav.cta">打开指南</a>
+                <a href="https://groups.google.com/g/my-expense-tracker-testing" class="btn-nav-action" target="_blank" rel="noopener noreferrer" data-i18n="nav.cta">加入测试</a>
                 <button class="menu-toggle-btn" aria-label="Menu" data-i18n="mobile.menu">菜单</button>
             </div>
         </div>
@@ -66,8 +66,8 @@
                     用 TnG、Maybank、CIMB 等付完款，Expense 帮你记一笔。不用注册账号，也不会把数据传到网上。
                 </p>
                 <div class="hero-buttons">
-                    <a href="#how" class="btn-primary" data-i18n="hero.btnHow">三步就能用</a>
-                    <a href="manual.html" class="btn-secondary" data-nav data-i18n="hero.btnManual">打开使用指南</a>
+                    <a href="#beta" class="btn-primary" data-i18n="hero.btnBeta">加入封闭测试</a>
+                    <a href="#how" class="btn-secondary" data-i18n="hero.btnHow">三步就能用</a>
                 </div>
                 <div class="telemetry-strip">
                     <div class="telemetry-item"><span class="telemetry-dot"></span><span data-i18n="hero.pill1">留在手机里</span></div>
@@ -254,6 +254,45 @@
             </div>
         </section>
 
+        <!-- Screenshot placeholders -->
+        <section class="section reveal" id="shots">
+            <div class="section-head">
+                <span class="section-tag" data-i18n="shots.tag">界面一览</span>
+                <h2 class="section-title" data-i18n="shots.title">应用长什么样</h2>
+                <p class="desc" data-i18n="shots.desc">真实截图即将放上。先看示意位置，正式版会替换。</p>
+            </div>
+            <div class="shots-grid">
+                <div class="shot-slot reveal" style="--d:0.04s" aria-hidden="true">
+                    <span class="shot-label" data-i18n="shots.s1">首页 · 今天花了多少</span>
+                </div>
+                <div class="shot-slot reveal" style="--d:0.1s" aria-hidden="true">
+                    <span class="shot-label" data-i18n="shots.s2">待确认 · 自动捕获的账</span>
+                </div>
+                <div class="shot-slot reveal" style="--d:0.16s" aria-hidden="true">
+                    <span class="shot-label" data-i18n="shots.s3">统计 · 月度与分类</span>
+                </div>
+                <div class="shot-slot reveal" style="--d:0.22s" aria-hidden="true">
+                    <span class="shot-label" data-i18n="shots.s4">账户 · 现金与银行卡</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closed beta -->
+        <section class="section beta-band reveal" id="beta">
+            <div class="beta-inner">
+                <span class="section-tag" data-i18n="beta.tag">封闭测试</span>
+                <h2 class="section-title" data-i18n="beta.title">还在封闭测试，没有公开下载</h2>
+                <p class="desc" data-i18n="beta.desc">
+                    目前不在应用商店公开上架。想试用请先加入测试组，通过后再获取安装包。这样我们可以慢慢改，也更好听大家的意见。
+                </p>
+                <div class="hero-buttons" style="margin-bottom:0">
+                    <a href="https://groups.google.com/g/my-expense-tracker-testing" class="btn-primary" target="_blank" rel="noopener noreferrer" data-i18n="beta.btn">加入测试组</a>
+                    <a href="manual.html" class="btn-secondary" data-nav data-i18n="beta.btnManual">先看使用指南</a>
+                </div>
+                <p class="beta-note" data-i18n="beta.note">链接会打开 Google Groups 页面 · 加入后按组内说明获取测试版</p>
+            </div>
+        </section>
+
         <!-- Next page CTA -->
         <section class="section cta-band reveal" id="next">
             <div class="cta-inner">
@@ -291,6 +330,6 @@
         <p class="footer-note" data-i18n="footer.note">本站介绍真实产品能力，不承诺做不到的事。</p>
     </footer>
 
-    <script src="i18n.js?v=bw3"></script>
+    <script src="i18n.js?v=bw4"></script>
 </body>
 </html>

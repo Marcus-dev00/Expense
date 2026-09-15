@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=bw3">
+    <link rel="stylesheet" href="style.css?v=bw4">
 </head>
 <body class="is-entering">
     <div class="page-veil" aria-hidden="true"></div>
@@ -121,21 +121,36 @@
     <main class="manual-content">
 
         <!-- Title Block -->
-        <div style="padding-bottom: 36px; border-bottom: 1px solid var(--border);">
+        <div class="manual-intro">
             <div class="lang-content lang-en">
-                <span class="hero-tag">Official Documentation · Version 5.1 (Build 51)</span>
-                <h1 style="font-size: 28px; font-weight: 800; color: #ffffff; letter-spacing: -0.02em; margin-bottom: 8px;">Expense User Manual</h1>
-                <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Technical documentation and operational guide for Expense — an offline-first, zero-telemetry personal financial manager built for Malaysia.</p>
+                <span class="hero-tag">User guide · v5.1</span>
+                <h1>Expense User Manual</h1>
+                <p>Plain-language guide for everyday use. Start with First launch and Auto-detect — the rest is there when you need it.</p>
+                <div class="manual-quick">
+                    <a href="#sec-02" class="btn-primary">Start here: first launch</a>
+                    <a href="#sec-10" class="btn-secondary">Set up auto-detect</a>
+                    <a href="index.html#beta" class="btn-secondary" data-nav>Join closed beta</a>
+                </div>
             </div>
             <div class="lang-content lang-zh">
-                <span class="hero-tag">官方参考文档 · 版本 5.1 (Build 51)</span>
-                <h1 style="font-size: 28px; font-weight: 800; color: #ffffff; letter-spacing: -0.02em; margin-bottom: 8px;">Expense 用户完整操作手册</h1>
-                <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">专为马来西亚银行与电子钱包生态打造的 100% 本地优先记账应用官方技术与操作参考指南。</p>
+                <span class="hero-tag">使用指南 · v5.1</span>
+                <h1>Expense 使用手册</h1>
+                <p>按日常用法写的指南。先看「第一次打开」和「自动记账」，其余章节需要时再翻。</p>
+                <div class="manual-quick">
+                    <a href="#sec-02" class="btn-primary">从这里开始：第一次打开</a>
+                    <a href="#sec-10" class="btn-secondary">设置自动记账</a>
+                    <a href="index.html#beta" class="btn-secondary" data-nav>加入封闭测试</a>
+                </div>
             </div>
             <div class="lang-content lang-ms">
-                <span class="hero-tag">Dokumentasi Rasmi · Versi 5.1 (Build 51)</span>
-                <h1 style="font-size: 28px; font-weight: 800; color: #ffffff; letter-spacing: -0.02em; margin-bottom: 8px;">Manual Pengguna Expense</h1>
-                <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Panduan teknikal dan operasi lengkap untuk Expense — pengurus kewangan luar talian tanpa telemetri untuk Malaysia.</p>
+                <span class="hero-tag">Panduan · v5.1</span>
+                <h1>Manual Pengguna Expense</h1>
+                <p>Panduan bahasa mudah untuk kegunaan harian. Mula dengan Buka pertama kali dan Auto tulis — bab lain bila perlu.</p>
+                <div class="manual-quick">
+                    <a href="#sec-02" class="btn-primary">Mula sini: buka pertama kali</a>
+                    <a href="#sec-10" class="btn-secondary">Set auto-tulis</a>
+                    <a href="index.html#beta" class="btn-secondary" data-nav>Join closed beta</a>
+                </div>
             </div>
         </div>
 
@@ -660,7 +675,7 @@
     </div>
 </footer>
 
-<script src="i18n.js?v=bw3"></script>
+<script src="i18n.js?v=bw4"></script>
 <script>
     // Robust sidebar click & scroll-spy handling
     const sections = Array.from(document.querySelectorAll('.doc-section'));
