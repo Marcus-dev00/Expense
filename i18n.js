@@ -12,6 +12,7 @@ const translations = {
         "nav.manual": "Guide",
         "nav.privacy": "Privacy",
         "nav.contact": "Contact",
+        "nav.cta": "Open guide",
         "nav.docsBtn": "Open guide",
         "mobile.menu": "Menu",
         "mobile.tocPrompt": "Jump to section...",
@@ -89,14 +90,23 @@ const translations = {
         "bench1.label": "Battery",
         "bench1.desc": "Less than 0.5% overnight with nothing running in the background.",
         "bench2.label": "Speed",
+        "bench2.value": "Instant",
         "bench2.desc": "Payment alerts turn into notes almost instantly.",
         "bench3.label": "Tested",
         "bench3.desc": "435 automatic checks — so your numbers stay correct.",
+
+        "privacy.manualLink": "Open the guide",
+        "next.tag": "Next",
+        "next.title": "Want the details?",
+        "next.desc": "The homepage only covers what it is, whether it's safe, and how to start. Splits, fuel merge, and brand-specific battery tips live in the guide.",
+        "next.btnManual": "Open the guide",
+        "next.btnPrivacy": "How privacy works",
 
         "contact.tag": "Say hi",
         "contact.title": "Questions? Just email",
         "contact.desc": "Ideas, feedback, tiny bugs — all welcome.",
         "footer.tag": "Expense · 5.1 · Malaysia",
+        "footer.note": "This site describes real product behavior — no empty promises.",
 
         "manual.sidebarHead": "Sections",
         "manual.s01": "How it works",
@@ -129,6 +139,7 @@ const translations = {
         "nav.manual": "使用指南",
         "nav.privacy": "隐私",
         "nav.contact": "联系",
+        "nav.cta": "打开指南",
         "nav.docsBtn": "打开指南",
         "mobile.menu": "菜单",
         "mobile.tocPrompt": "跳到某一节…",
@@ -137,7 +148,7 @@ const translations = {
         "hero.title": "记花的钱，<br>可以很轻松。",
         "hero.subtitle": "用 TnG、Maybank、CIMB 付完款，Expense 帮你记一笔。不用注册账号，也不会把数据传到网上。",
         "hero.btnHow": "三步就能用",
-        "hero.btnManual": "怎么用",
+        "hero.btnManual": "打开使用指南",
         "hero.btnPrivacy": "钱和隐私安全吗？",
         "hero.pill1": "留在手机里",
         "hero.pill2": "不用注册登录",
@@ -206,14 +217,23 @@ const translations = {
         "bench1.label": "省电",
         "bench1.desc": "一晚上待机，耗电不到半个电格。",
         "bench2.label": "够快",
+        "bench2.value": "几乎立刻",
         "bench2.desc": "付款通知几乎立刻变成一条记录。",
         "bench3.label": "测得多",
         "bench3.desc": "自动检查了 435 遍，账目不容易算错。",
+
+        "privacy.manualLink": "去看使用指南",
+        "next.tag": "下一步",
+        "next.title": "还想看细节？",
+        "next.desc": "主页只讲清楚「它是什么、安不安全、怎么开始」。分账、加油合并、各品牌后台设置，都在使用指南里。",
+        "next.btnManual": "打开使用指南",
+        "next.btnPrivacy": "隐私怎么保障",
 
         "contact.tag": "有话说",
         "contact.title": "有想法？发个邮件",
         "contact.desc": "建议、反馈、小问题，都欢迎。",
         "footer.tag": "Expense · 5.1 · 马来西亚",
+        "footer.note": "本站介绍真实产品能力，不承诺做不到的事。",
 
         "manual.sidebarHead": "目录",
         "manual.s01": "它是怎么工作的",
@@ -246,6 +266,7 @@ const translations = {
         "nav.manual": "Panduan",
         "nav.privacy": "Privasi",
         "nav.contact": "Hubungi",
+        "nav.cta": "Buka panduan",
         "nav.docsBtn": "Buka panduan",
         "mobile.menu": "Menu",
         "mobile.tocPrompt": "Pilih bahagian...",
@@ -323,14 +344,23 @@ const translations = {
         "bench1.label": "Bateri",
         "bench1.desc": "Bawah 0.5% semalaman, tiada service latar berputar.",
         "bench2.label": "Pantas",
+        "bench2.value": "Hampir serta-merta",
         "bench2.desc": "Amaran bayaran jadi nota hampir serta-merta.",
         "bench3.label": "Diuji",
         "bench3.desc": "435 semakan automatik — nombor anda kekal betul.",
+
+        "privacy.manualLink": "Buka panduan",
+        "next.tag": "Langkah seterusnya",
+        "next.title": "Nak tahu lebih lanjut?",
+        "next.desc": "Laman utama hanya terangkan apa ia, selamat ke, dan cara mula. Bahagi bil, gabung minyak, dan tetapan bateri jenama ada dalam panduan.",
+        "next.btnManual": "Buka panduan",
+        "next.btnPrivacy": "Bagaimana privasi?",
 
         "contact.tag": "Kata hello",
         "contact.title": "Ada soalan? Email je",
         "contact.desc": "Idea, maklum balas, bug kecil — semua dialu-alukan.",
         "footer.tag": "Expense · 5.1 · Malaysia",
+        "footer.note": "Laman ini terangkan keupayaan sebenar — tiada janji kosong.",
 
         "manual.sidebarHead": "Bahagian",
         "manual.s01": "Ia berfungsi macam mana",
@@ -498,6 +528,37 @@ function initPhoneDemo() {
     phone.setAttribute('tabindex', '0');
 }
 
+function initPageTransitions() {
+    // Entering: lift the veil after first paint
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            document.body.classList.remove('is-entering');
+            document.body.classList.add('is-ready');
+        });
+    });
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll('a[data-nav]').forEach(a => {
+        a.addEventListener('click', (e) => {
+            const href = a.getAttribute('href');
+            if (!href || href.startsWith('mailto:') || href.startsWith('http')) return;
+            // Same-page hash: let smooth scroll handle it
+            if (href.startsWith('#')) return;
+
+            e.preventDefault();
+            if (reduce) {
+                window.location.href = href;
+                return;
+            }
+            document.body.classList.add('is-leaving');
+            window.setTimeout(() => {
+                window.location.href = href;
+            }, 280);
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang')));
@@ -514,4 +575,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavScroll();
     initReveal();
     initPhoneDemo();
+    initPageTransitions();
 });
