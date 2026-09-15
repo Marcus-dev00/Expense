@@ -27,6 +27,9 @@ const translations = {
         "hero.pill3": "English · 中文 · BM",
         "hero.mockArrow": "↓ We catch it · You tap OK",
         "hero.mockLabel": "Today",
+        "hero.demoCta": "Tap to log this",
+        "hero.demoHint": "Try it · tap again to reset",
+        "hero.demoDone": "Logged ✓ Tap to try again",
 
         "features.tag": "Why it's easy",
         "features.title": "Less typing. More living.",
@@ -141,6 +144,9 @@ const translations = {
         "hero.pill3": "中文 · English · BM",
         "hero.mockArrow": "↓ 自动帮你记 · 你点一下确认",
         "hero.mockLabel": "今天记的",
+        "hero.demoCta": "点一下，帮我记这笔",
+        "hero.demoHint": "试试看 · 可以反复点",
+        "hero.demoDone": "已记入 ✓ 再点一下重来",
 
         "features.tag": "为什么省心",
         "features.title": "少打字，多过日子",
@@ -255,6 +261,9 @@ const translations = {
         "hero.pill3": "English · 中文 · BM",
         "hero.mockArrow": "↓ Kami tangkap · Anda tekan OK",
         "hero.mockLabel": "Hari ini",
+        "hero.demoCta": "Tekan untuk rekod",
+        "hero.demoHint": "Cuba · tekan lagi untuk reset",
+        "hero.demoDone": "Disimpan ✓ Tekan untuk cuba lagi",
 
         "features.tag": "Kenapa mudah",
         "features.title": "Kurang taip. Lebih hidup.",
@@ -393,6 +402,102 @@ function initMobileToc() {
     });
 }
 
+function initNavScroll() {
+    const nav = document.querySelector('.navbar');
+    if (!nav) return;
+    const onScroll = () => {
+        nav.classList.toggle('is-scrolled', window.scrollY > 8);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+}
+
+function initReveal() {
+    const nodes = document.querySelectorAll('.reveal');
+    if (!nodes.length) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        nodes.forEach(n => n.classList.add('is-in'));
+        return;
+    }
+
+    if (!('IntersectionObserver' in window)) {
+        nodes.forEach(n => n.classList.add('is-in'));
+        return;
+    }
+
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-in');
+                io.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    nodes.forEach(n => io.observe(n));
+}
+
+function initPhoneDemo() {
+    const phone = document.getElementById('demo-phone');
+    const cta = document.getElementById('demo-cta');
+    if (!phone || !cta) return;
+
+    let stage = 'idle'; // idle | done
+    let busy = false;
+
+    const dict = () => translations[document.documentElement.getAttribute('data-lang')] || translations.en;
+
+    const setCopy = () => {
+        const d = dict();
+        cta.textContent = stage === 'done' ? (d['hero.demoDone'] || cta.textContent) : (d['hero.demoCta'] || cta.textContent);
+    };
+
+    // Keep button label in sync after language switch
+    const langObserver = new MutationObserver(setCopy);
+    langObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-lang'] });
+    setCopy();
+
+    const runDemo = () => {
+        if (busy) return;
+        busy = true;
+
+        if (stage === 'idle') {
+            phone.classList.add('stage-confirm');
+            cta.disabled = true;
+            window.setTimeout(() => {
+                phone.classList.remove('stage-confirm');
+                phone.classList.add('stage-done');
+                stage = 'done';
+                cta.disabled = false;
+                setCopy();
+                busy = false;
+            }, 380);
+        } else {
+            phone.classList.remove('stage-done');
+            stage = 'idle';
+            setCopy();
+            busy = false;
+        }
+    };
+
+    cta.addEventListener('click', (e) => {
+        e.stopPropagation();
+        runDemo();
+    });
+    phone.addEventListener('click', (e) => {
+        if (e.target.closest('.mock-cta')) return;
+        runDemo();
+    });
+    phone.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            runDemo();
+        }
+    });
+    phone.setAttribute('tabindex', '0');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang')));
@@ -406,4 +511,7 @@ document.addEventListener('DOMContentLoaded', () => {
     applyLanguage(lang);
     initMobileMenu();
     initMobileToc();
+    initNavScroll();
+    initReveal();
+    initPhoneDemo();
 });
