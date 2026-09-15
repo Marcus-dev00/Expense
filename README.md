@@ -5,109 +5,77 @@
 </p>
 
 <p align="center">
-  <img src="public/favicon.ico" alt="Expense Logo" width="80" height="80">
+  <strong>Money talks. We listen.</strong><br>
+  <em>Official project website for Expense — an offline-first, zero-telemetry personal expense manager built for Malaysia 🇲🇾</em>
 </p>
 
 <p align="center">
-  <strong>An offline-first, zero-telemetry personal expense manager built specifically for Malaysia 🇲🇾</strong>
-</p>
-
-<p align="center">
-  <a href="https://github.com/marcuslzy0103-bit/expense-app/releases/latest">
-    <img src="https://img.shields.io/github/v/release/marcuslzy0103-bit/expense-app?style=for-the-badge&color=000000" alt="Latest Release">
+  <a href="https://marcus-dev00.github.io/Expense/">
+    <img src="https://img.shields.io/badge/Live_Site-marcus--dev00.github.io-000000?style=for-the-badge" alt="Live Site">
   </a>
-  <a href="https://github.com/marcuslzy0103-bit/expense-app/releases/latest/download/app-release.apk">
-    <img src="https://img.shields.io/badge/Download-Android_APK-000000?style=for-the-badge&logo=android&logoColor=white" alt="Download APK">
-  </a>
+  <img src="https://img.shields.io/badge/Version-5.1%20(Build%2051)-000000?style=for-the-badge" alt="Version 5.1 Build 51">
   <img src="https://img.shields.io/badge/Privacy-100%25_Offline-000000?style=for-the-badge" alt="100% Offline Privacy">
+  <img src="https://img.shields.io/badge/Tests-435%20Passed-000000?style=for-the-badge" alt="435 Tests Passed">
 </p>
 
 ---
 
-## ⚡ Quick Links & Documentation
+## 🌐 Live Website
 
-| Resource | Link | Description |
-| :--- | :--- | :--- |
-| 📱 **Direct APK Download** | [**Download Latest APK (v4.4)**](https://github.com/marcuslzy0103-bit/expense-app/releases/latest/download/app-release.apk) | Production Android APK build (Build 44) |
-| 📦 **GitHub Releases** | [**View Releases**](https://github.com/marcuslzy0103-bit/expense-app/releases) | Release changelogs, assets, and Android App Bundles (.aab) |
-| 📖 **User Manual** | [**User Manual Guide**](./github-site/manual.html) | Interactive 20-section comprehensive reference manual |
-| 🔒 **Privacy Policy** | [**Privacy Architecture**](./github-site/privacy.html) | On-device processing and zero-telemetry standards |
+| Page | URL |
+| :--- | :--- |
+| 🏠 Home | [marcus-dev00.github.io/Expense](https://marcus-dev00.github.io/Expense/) |
+| 📖 User Manual | [manual.html](https://marcus-dev00.github.io/Expense/manual.html) |
+| 🔒 Privacy Policy | [privacy.html](https://marcus-dev00.github.io/Expense/privacy.html) |
 
----
-
-## 🛡️ Core Capabilities
-
-### 1. 100% Offline SQLite Architecture
-- **Embedded Local Database**: All transactions, categories, budgets, and account records are stored strictly on your local physical device.
-- **Zero Telemetry**: No tracking SDKs, no advertising frameworks, and zero remote analytics. 0 bytes of financial data leave your device.
-- **Exact Sen Storage**: Monetary values are stored as integers in *sen* (cents) to eliminate floating-point math rounding issues (`RM 124.50` = `12450` sen).
-
-### 2. Native Notification Auto-Detect Engine
-- **Malaysian App Whitelist**: Automatic real-time capture for Touch 'n Go eWallet, MAE Maybank, CIMB Clicks, Boost, Boost Bank, RHB, Public Bank, GrabPay, Hong Leong, AmBank, Bank Islam, Alliance Bank, OCBC, UOB, HSBC, GXBank, WeChat Pay, Alipay, and DuitNow.
-- **In-Memory Bank SMS Alert Parsing**: Evaluates bank transaction SMS in volatile memory using keyword filters (`RM`, `MYR`, `paid`, `spent`, `debited`, `credited`).
-- **Zero SMS Read Permissions**: Uses Android's `NotificationListenerService`. **Does NOT request `READ_SMS` or `RECEIVE_SMS` permissions**.
-
-### 3. Friend Split & Reimbursement Tracking
-- **AA Bill Splitting**: Quick fractional shortcuts (`1/2`, `2/3`, `3/4`) or custom debtor amounts.
-- **Receivable Ledger**: Separates self-expenses from pending receivables to avoid inflating your monthly spending reports.
-- **One-Tap Settlement**: Settle repaid amounts directly into your chosen receiving account with an automatic offset entry.
-
-### 4. Fuel Pre-Auth (RON95) Auto-Merge
-- **Hold & Refund Reconciliation**: Petrol pre-authorization holds (e.g. RM 80.00) and unpumped refund changes (e.g. RM 5.34) are recognized on the same day and merged into exact net expenditure (`RM 74.66`) with zero artificial income entries.
-
-### 5. 60-Second Cross-App Transfer Consolidation
-- **Reload Detection**: Detects bidirectional transactions occurring within 60 seconds (e.g., reloading TNG eWallet via CIMB Clicks) and prompts: *"Merge as Transfer: CIMB → TNG eWallet"*.
-
-### 6. Atomic Self-Healing Recalibration
-- **Ledger Audit & Balance Repair**: Single-tap calibration recalculates account balances directly from non-deleted ledger transactions with correct Credit Card liability sign inversion (`is_liability = 1`).
-
-### 7. Tri-Lingual Support & Themes
-- **Languages**: English, 简体中文 (Simplified Chinese), and Bahasa Malaysia (Malay) with instant runtime switching.
-- **Appearance**: System Default, Light Theme, and Dark Theme.
+This repository contains the **static GitHub Pages site** (homepage, user manual, privacy policy) for Expense. The app itself is a 100% local Android / PWA expense tracker — zero cloud, zero telemetry, no `READ_SMS`.
 
 ---
 
-## 🛠️ Technology Stack
+## ✨ App Highlights (v5.1)
 
-- **Core**: Vanilla JavaScript (ES6 Modules), HTML5, Vanilla CSS3.
-- **Mobile Runtime**: CapacitorJS 8 (`@capacitor/core`, `@capacitor/android`).
-- **Database Backend**:
-  - **Native Android**: `@capacitor-community/sqlite` (CapacitorSQLite).
-  - **Web Preview**: `sql.js` (WebAssembly) backed by `localStorage`.
-- **Native Android Bridge**: Java `NotificationListenerService` + `NotificationPlugin`.
-- **Testing**: Vitest (21 test files, 151 unit & regression tests).
+- **100% offline SQLite** — integer *sen* precision, atomic transactions, hardened migrations
+- **Notification auto-detect** — 75+ Malaysian bank / eWallet whitelist; OTP & promos rejected in memory
+- **Pending inbox (3D drum wheel)** — approve, merge, or dismiss every captured draft
+- **Merchant learning** — trusted merchants can auto-approve under a spend cap
+- **AA splits, RON95 fuel refund merge, 60s cross-app transfer consolidation**
+- **Dynamic QR device migration** — air-gapped full ledger transfer
+- **Tri-lingual UI** — English · 简体中文 · Bahasa Melayu
+- **435 automated tests** across 33 Vitest suites
 
 ---
 
-## 💻 Local Development Setup
+## 📁 Repository Structure
 
-### Prerequisites
-- Node.js (v18 or higher)
-- npm / npx
-- Android Studio (for native Android builds)
+```text
+index.html      # Product homepage (tri-lingual)
+manual.html     # 20-section user manual
+privacy.html    # Privacy policy (tri-lingual)
+style.css       # Design system (JetBrains Mono, pure black)
+i18n.js         # Language engine + navigation
+README*.md      # This documentation
+```
 
-### Installation & Run
+---
+
+## 🚀 Publish Updates
+
+After editing files locally:
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/marcuslzy0103-bit/expense-app.git
-cd expense-app
-
-# 2. Install dependencies
-npm install
-
-# 3. Start local Vite preview server
-npm run dev
-
-# 4. Run automated test suite
-npm test
-
-# 5. Build production bundle
-npm run build
+git add .
+git commit -m "docs: update site to Expense v5.1"
+git push origin main
 ```
+
+GitHub Pages serves the `main` branch root. Live URL: `https://marcus-dev00.github.io/Expense/`
 
 ---
 
 ## 📄 License & Privacy
 
-This project is built under privacy-first standards. Zero financial data is ever collected or transmitted.
+Zero financial data is ever collected, transmitted, or monetized. See [privacy.html](./privacy.html).
+
+**Contact:** [marcus.dev00@outlook.com](mailto:marcus.dev00@outlook.com)
+
+EXPENSE · VERSION 5.1 · MALAYSIA

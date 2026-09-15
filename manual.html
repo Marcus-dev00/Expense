@@ -27,7 +27,7 @@
     <div class="nav-container">
         <a href="index.html" class="nav-brand">
             <span class="brand-name">EXPENSE</span>
-            <span class="brand-ver">v5.0</span>
+            <span class="brand-ver">v5.1</span>
         </a>
         <div class="nav-right">
             <nav class="nav-links">
@@ -123,17 +123,17 @@
         <!-- Title Block -->
         <div style="padding-bottom: 36px; border-bottom: 1px solid var(--border);">
             <div class="lang-content lang-en">
-                <span class="hero-tag">Official Documentation · Version 5.0 (Build 50)</span>
+                <span class="hero-tag">Official Documentation · Version 5.1 (Build 51)</span>
                 <h1 style="font-size: 28px; font-weight: 800; color: #ffffff; letter-spacing: -0.02em; margin-bottom: 8px;">Expense User Manual</h1>
                 <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Technical documentation and operational guide for Expense — an offline-first, zero-telemetry personal financial manager built for Malaysia.</p>
             </div>
             <div class="lang-content lang-zh">
-                <span class="hero-tag">官方参考文档 · 版本 5.0 (Build 50)</span>
+                <span class="hero-tag">官方参考文档 · 版本 5.1 (Build 51)</span>
                 <h1 style="font-size: 28px; font-weight: 800; color: #ffffff; letter-spacing: -0.02em; margin-bottom: 8px;">Expense 用户完整操作手册</h1>
                 <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">专为马来西亚银行与电子钱包生态打造的 100% 本地优先记账应用官方技术与操作参考指南。</p>
             </div>
             <div class="lang-content lang-ms">
-                <span class="hero-tag">Dokumentasi Rasmi · Versi 5.0 (Build 50)</span>
+                <span class="hero-tag">Dokumentasi Rasmi · Versi 5.1 (Build 51)</span>
                 <h1 style="font-size: 28px; font-weight: 800; color: #ffffff; letter-spacing: -0.02em; margin-bottom: 8px;">Manual Pengguna Expense</h1>
                 <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Panduan teknikal dan operasi lengkap untuk Expense — pengurus kewangan luar talian tanpa telemetri untuk Malaysia.</p>
             </div>
@@ -503,7 +503,7 @@
                             <tr><td><strong>SQLite Batch Insert Rate</strong></td><td><span class="tag-mono yes">0.0177 ms / tx (56,515 tx/s)</span></td><td>5,000 transactions committed in 88.47 ms in a single atomic transaction.</td></tr>
                             <tr><td><strong>Complex Query Latency</strong></td><td><span class="tag-mono yes">1.65 ms / query (606 qps)</span></td><td>Aggregation query with category join and index scan across 5,000 records.</td></tr>
                             <tr><td><strong>Storage Footprint</strong></td><td><span class="tag-mono yes">~1.25 MB / 5,000 txs</span></td><td>SQLite database file size on disk (1,252 KB).</td></tr>
-                            <tr><td><strong>Automated Test Coverage</strong></td><td><span class="tag-mono yes">398 / 398 Passed (100%)</span></td><td>30 test files verified in 2.73 seconds with zero regressions.</td></tr>
+                            <tr><td><strong>Automated Test Coverage</strong></td><td><span class="tag-mono yes">435 / 435 Passed (100%)</span></td><td>33 test files verified in 2.81 seconds with zero regressions.</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -532,7 +532,7 @@
                             <tr><td><strong>SQLite 批量插入速率</strong></td><td><span class="tag-mono yes">0.0177 ms / 笔 (56,515 笔/秒)</span></td><td>单事务内写入 5,000 笔流水仅耗时 88.47 毫秒。</td></tr>
                             <tr><td><strong>SQLite 复杂统计查询</strong></td><td><span class="tag-mono yes">1.65 ms / 次 (606 次/秒)</span></td><td>5,000 笔流水库上多表关联与月度分类聚合查询。</td></tr>
                             <tr><td><strong>磁盘存储空间占用</strong></td><td><span class="tag-mono yes">~1.25 MB / 5,000笔</span></td><td>5,000 笔流水完整数据库物理文件大小仅 1,252 KB。</td></tr>
-                            <tr><td><strong>自动化测试套件通过率</strong></td><td><span class="tag-mono yes">398 / 398 100% 通过</span></td><td>覆盖账目守恒、数据隔离与安全边界的 30 个测试文件在 2.73 秒内全部通过。</td></tr>
+                            <tr><td><strong>自动化测试套件通过率</strong></td><td><span class="tag-mono yes">435 / 435 100% 通过</span></td><td>覆盖账目守恒、数据隔离与安全边界的 33 个测试文件在 2.81 秒内全部通过。</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -561,7 +561,7 @@
                             <tr><td><strong>Kadar Sisipan Kelompok SQLite</strong></td><td><span class="tag-mono yes">0.0177 ms / transaksi (56,515 tx/s)</span></td><td>5,000 rekod dimasukkan dalam 88.47 ms dalam satu transaksi atomik.</td></tr>
                             <tr><td><strong>Kependaman Pertanyaan Kompleks</strong></td><td><span class="tag-mono yes">1.65 ms / pertanyaan (606 qps)</span></td><td>Pertanyaan agregasi dengan imbasan indeks ke atas 5,000 rekod.</td></tr>
                             <tr><td><strong>Jejak Storan Cakera</strong></td><td><span class="tag-mono yes">~1.25 MB / 5,000 rekod</span></td><td>Saiz fizikal fail SQLite pada cakera hanya 1,252 KB.</td></tr>
-                            <tr><td><strong>Liputan Ujian Automatik</strong></td><td><span class="tag-mono yes">398 / 398 Lulus (100%)</span></td><td>30 fail ujian disahkan dalam masa 2.73 saat tanpa sebarang kegagalan.</td></tr>
+                            <tr><td><strong>Liputan Ujian Automatik</strong></td><td><span class="tag-mono yes">435 / 435 Lulus (100%)</span></td><td>33 fail ujian disahkan dalam masa 2.81 saat tanpa sebarang kegagalan.</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -651,7 +651,7 @@
 
 <!-- Footer -->
 <footer class="footer">
-    <div data-i18n="footer.tag">EXPENSE · VERSION 5.0 · MALAYSIA</div>
+    <div data-i18n="footer.tag">EXPENSE · VERSION 5.1 · MALAYSIA</div>
     <div class="footer-links">
         <a href="index.html" data-i18n="nav.home">Home</a>
         <a href="manual.html" data-i18n="nav.manual">Manual</a>

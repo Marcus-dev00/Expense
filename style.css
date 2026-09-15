@@ -1,6 +1,6 @@
 /* ==========================================================================
-   Expense – Ultra-Minimalist Pure Black & White Design System
-   Stark Monochrome, Precision Typography, Zero Fluff
+   Expense – Ultra-Minimalist Pure Black & White Design System (v4.4.0)
+   Stark Monochrome, Precision Typography, Architectural Grid Spacing
    Full Mobile & Tablet Responsive Architecture
    ========================================================================== */
 
@@ -14,7 +14,7 @@
     --border-white: #ffffff;
 
     --text: #ffffff;
-    --text-muted: #888888;
+    --text-muted: #8e8e93;
     --text-dim: #555555;
 
     --radius: 0px;
@@ -41,7 +41,7 @@ html {
 body {
     background-color: var(--bg);
     color: var(--text);
-    line-height: 1.65;
+    line-height: 1.75;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -54,7 +54,6 @@ a {
 
 /* ==========================================================================
    Language Content Switching (EN / ZH / MS)
-   Supports both html[data-lang] and body[data-lang]
    ========================================================================== */
 .lang-content {
     display: none !important;
@@ -97,10 +96,10 @@ body[data-lang="ms"] .lang-content.lang-en {
     top: 0;
     left: 0;
     right: 0;
-    height: 56px;
+    height: 60px;
     background: rgba(0, 0, 0, 0.96);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     z-index: 1000;
     display: flex;
@@ -108,10 +107,10 @@ body[data-lang="ms"] .lang-content.lang-en {
 }
 
 .nav-container {
-    max-width: 1140px;
+    max-width: 1180px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -120,7 +119,7 @@ body[data-lang="ms"] .lang-content.lang-en {
 .nav-brand {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     text-decoration: none;
     color: #ffffff;
     flex-shrink: 0;
@@ -129,7 +128,7 @@ body[data-lang="ms"] .lang-content.lang-en {
 .brand-name {
     font-size: 15px;
     font-weight: 700;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     font-family: var(--font-mono);
     color: #ffffff;
@@ -140,19 +139,20 @@ body[data-lang="ms"] .lang-content.lang-en {
     font-family: var(--font-mono);
     color: var(--text-muted);
     border: 1px solid var(--border);
-    padding: 1px 6px;
+    padding: 2px 7px;
+    letter-spacing: 0.04em;
 }
 
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 20px;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 22px;
 }
 
 .nav-links a, 
@@ -164,7 +164,7 @@ body[data-lang="ms"] .lang-content.lang-en {
     font-size: 13px;
     font-family: var(--font-mono);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     transition: color var(--transition);
 }
 
@@ -189,10 +189,10 @@ body[data-lang="ms"] .lang-content.lang-en {
     color: var(--text-muted);
     font-family: var(--font-mono);
     font-size: 11px;
-    padding: 5px 8px;
+    padding: 6px 10px;
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     transition: background var(--transition), color var(--transition);
 }
 
@@ -217,12 +217,12 @@ a.btn-nav-action:visited {
     color: #000000;
     border: 1px solid #ffffff;
     text-decoration: none;
-    padding: 6px 14px;
+    padding: 7px 16px;
     font-size: 12px;
     font-family: var(--font-mono);
     text-transform: uppercase;
     font-weight: 700;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     transition: background var(--transition), color var(--transition);
     white-space: nowrap;
 }
@@ -241,9 +241,10 @@ a.btn-nav-action:hover {
     color: #ffffff;
     font-family: var(--font-mono);
     font-size: 12px;
-    padding: 5px 10px;
+    padding: 6px 12px;
     cursor: pointer;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .menu-toggle-btn:hover {
@@ -254,15 +255,15 @@ a.btn-nav-action:hover {
 .mobile-nav-drawer {
     display: none;
     position: fixed;
-    top: 56px;
+    top: 60px;
     left: 0;
     right: 0;
     background: #000000;
     border-bottom: 1px solid var(--border);
-    padding: 16px 20px;
+    padding: 20px 24px;
     z-index: 999;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
 }
 
 .mobile-nav-drawer.open {
@@ -274,7 +275,7 @@ a.btn-nav-action:hover {
     font-family: var(--font-mono);
     font-size: 14px;
     text-transform: uppercase;
-    padding: 8px 0;
+    padding: 10px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -284,19 +285,19 @@ a.btn-nav-action:hover {
 }
 
 /* ==========================================================================
-   Layout & Container
+   Layout & Container (Breathable Dimensions)
    ========================================================================== */
 .container {
-    max-width: 1140px;
+    max-width: 1180px;
     margin: 0 auto;
-    padding: 96px 20px 80px;
+    padding: 108px 24px 96px;
 }
 
 /* ==========================================================================
-   Hero Section & Buttons
+   Hero Section
    ========================================================================== */
 .hero {
-    padding: 48px 0 64px;
+    padding: 56px 0 80px;
     border-bottom: 1px solid var(--border);
 }
 
@@ -305,37 +306,67 @@ a.btn-nav-action:hover {
     font-size: 12px;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 16px;
-    display: block;
+    letter-spacing: 0.12em;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 3px 8px;
+    border: 1px solid var(--border);
 }
 
 .hero-title {
-    font-size: clamp(28px, 5vw, 54px);
+    font-size: clamp(32px, 5.5vw, 60px);
     font-weight: 800;
     line-height: 1.15;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
     color: #ffffff;
-    margin-bottom: 20px;
-    max-width: 860px;
+    margin-bottom: 24px;
+    max-width: 920px;
 }
 
 .hero-subtitle {
-    font-size: 16px;
+    font-size: 17px;
     color: var(--text-muted);
-    max-width: 680px;
-    margin-bottom: 32px;
-    line-height: 1.65;
+    max-width: 740px;
+    margin-bottom: 40px;
+    line-height: 1.75;
 }
 
 .hero-buttons {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+/* Telemetry Strip */
+.telemetry-strip {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
     flex-wrap: wrap;
 }
 
-/* Primary Button (White Box with Black Text) */
+.telemetry-item {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.06em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.telemetry-dot {
+    width: 6px;
+    height: 6px;
+    background: #ffffff;
+    display: inline-block;
+}
+
+/* Primary Button */
 .btn-primary,
 .btn-primary:visited,
 a.btn-primary,
@@ -347,12 +378,12 @@ a.btn-primary:visited {
     color: #000000;
     border: 1px solid #ffffff;
     text-decoration: none;
-    padding: 10px 22px;
+    padding: 12px 26px;
     font-size: 13px;
     font-family: var(--font-mono);
     text-transform: uppercase;
     font-weight: 700;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     transition: background var(--transition), color var(--transition);
 }
 
@@ -362,7 +393,7 @@ a.btn-primary:hover {
     color: #ffffff;
 }
 
-/* Secondary Button (Outlined Box with White Text) */
+/* Secondary Button */
 .btn-secondary,
 .btn-secondary:visited,
 a.btn-secondary,
@@ -374,12 +405,12 @@ a.btn-secondary:visited {
     color: #ffffff;
     border: 1px solid var(--border-light);
     text-decoration: none;
-    padding: 10px 22px;
+    padding: 12px 26px;
     font-size: 13px;
     font-family: var(--font-mono);
     text-transform: uppercase;
     font-weight: 600;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     transition: border-color var(--transition), background var(--transition), color var(--transition);
 }
 
@@ -391,36 +422,36 @@ a.btn-secondary:hover {
 }
 
 /* ==========================================================================
-   Section Headers
+   Section Headers (Generous Whitespace)
    ========================================================================== */
 .section {
-    padding: 64px 0;
+    padding: 80px 0;
     border-bottom: 1px solid var(--border);
 }
 
 .section-head {
-    margin-bottom: 36px;
+    margin-bottom: 44px;
 }
 
 .section-tag {
     font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--text-muted);
+    font-size: 11.5px;
+    color: var(--text-dim);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 6px;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
     display: block;
 }
 
 .section-title {
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
     color: #ffffff;
 }
 
 /* ==========================================================================
-   Grid & Minimal Cells
+   Grid & Refined Breathable Cells
    ========================================================================== */
 .grid-3 {
     display: grid;
@@ -437,10 +468,14 @@ a.btn-secondary:hover {
 }
 
 .grid-cell {
-    padding: 28px 24px;
+    padding: 40px 34px;
     border-right: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 230px;
     transition: background var(--transition);
 }
 
@@ -448,48 +483,65 @@ a.btn-secondary:hover {
     background: var(--bg-surface);
 }
 
+.cell-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
 .cell-num {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 11.5px;
     color: var(--text-dim);
-    letter-spacing: 0.05em;
-    margin-bottom: 12px;
-    display: block;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.cell-pill {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    padding: 1px 6px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }
 
 .grid-cell h3 {
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 700;
     color: #ffffff;
-    margin-bottom: 8px;
-    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+    letter-spacing: -0.015em;
+    line-height: 1.4;
 }
 
 .grid-cell p {
-    font-size: 13.5px;
+    font-size: 14px;
     color: var(--text-muted);
-    line-height: 1.6;
+    line-height: 1.75;
 }
 
 /* ==========================================================================
-   Financial Table (with Smooth Mobile Scroll)
+   Financial Table (Spacious & Clean)
    ========================================================================== */
 .table-responsive {
     width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    margin-top: 20px;
+    margin-top: 24px;
 }
 
 table.comp-table {
     width: 100%;
-    min-width: 580px;
+    min-width: 640px;
     border-collapse: collapse;
     border: 1px solid var(--border);
 }
 
 table.comp-table th, table.comp-table td {
-    padding: 14px 18px;
+    padding: 18px 22px;
     text-align: left;
     border-bottom: 1px solid var(--border);
     border-right: 1px solid var(--border);
@@ -500,22 +552,28 @@ table.comp-table th:last-child, table.comp-table td:last-child {
 }
 
 table.comp-table th {
-    font-size: 11px;
+    font-size: 11.5px;
     font-family: var(--font-mono);
     font-weight: 700;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     background: var(--bg-surface);
 }
 
 table.comp-table td {
-    font-size: 13.5px;
+    font-size: 14px;
     color: var(--text-muted);
+    line-height: 1.6;
 }
 
 table.comp-table td strong {
     color: #ffffff;
+    font-weight: 600;
+}
+
+table.comp-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
 }
 
 table.comp-table tr:last-child td {
@@ -525,10 +583,11 @@ table.comp-table tr:last-child td {
 .tag-mono {
     font-family: var(--font-mono);
     font-size: 11px;
-    padding: 2px 6px;
+    padding: 3px 8px;
     border: 1px solid var(--border);
     display: inline-block;
     white-space: nowrap;
+    letter-spacing: 0.05em;
 }
 
 .tag-mono.yes {
@@ -546,19 +605,19 @@ table.comp-table tr:last-child td {
    ========================================================================== */
 .manual-layout {
     display: flex;
-    max-width: 1140px;
+    max-width: 1180px;
     margin: 0 auto;
-    padding: 96px 20px 80px;
+    padding: 108px 24px 96px;
 }
 
 .manual-sidebar {
-    width: 260px;
+    width: 270px;
     flex-shrink: 0;
     position: sticky;
-    top: 80px;
-    height: calc(100vh - 100px);
+    top: 84px;
+    height: calc(100vh - 110px);
     overflow-y: auto;
-    padding-right: 16px;
+    padding-right: 18px;
     border-right: 1px solid var(--border);
     scrollbar-width: thin;
 }
@@ -569,26 +628,28 @@ table.comp-table tr:last-child td {
     font-weight: 700;
     color: var(--text-dim);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 12px;
+    letter-spacing: 0.12em;
+    margin-bottom: 14px;
+    padding-left: 8px;
 }
 
 .manual-sidebar a {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 6px 8px;
+    gap: 10px;
+    padding: 7px 10px;
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 12.5px;
+    font-size: 13px;
     font-family: var(--font-mono);
+    letter-spacing: 0.03em;
     transition: color var(--transition), background var(--transition);
 }
 
 .manual-sidebar a .sidebar-num {
     color: var(--text-dim);
     font-size: 11px;
-    width: 16px;
+    width: 18px;
     flex-shrink: 0;
 }
 
@@ -607,78 +668,78 @@ table.comp-table tr:last-child td {
     color: #000000;
 }
 
-/* Mobile Chapter Selector (Sticky Jump Bar) */
+/* Mobile Chapter Selector */
 .mobile-toc-bar {
     display: none;
     position: sticky;
-    top: 56px;
+    top: 60px;
     left: 0;
     right: 0;
     background: #0a0a0a;
     border-bottom: 1px solid var(--border);
-    padding: 10px 16px;
+    padding: 12px 20px;
     z-index: 950;
 }
 
 .mobile-toc-select {
     width: 100%;
-    height: 40px;
+    height: 42px;
     background: #000000;
     color: #ffffff;
     border: 1px solid var(--border-light);
     font-family: var(--font-mono);
-    font-size: 12.5px;
-    padding: 0 12px;
+    font-size: 13px;
+    padding: 0 14px;
     outline: none;
 }
 
 .manual-content {
     flex-grow: 1;
-    padding-left: 40px;
-    max-width: 840px;
-    padding-bottom: 360px;
+    padding-left: 48px;
+    max-width: 860px;
+    padding-bottom: 380px;
 }
 
 .doc-section {
-    padding: 48px 0;
+    padding: 56px 0;
     border-bottom: 1px solid var(--border);
-    scroll-margin-top: 80px;
+    scroll-margin-top: 84px;
 }
 
 .section-header {
     display: flex;
     align-items: baseline;
-    gap: 12px;
-    margin-bottom: 16px;
+    gap: 14px;
+    margin-bottom: 20px;
 }
 
 .section-badge-num {
     font-family: var(--font-mono);
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     color: #ffffff;
     flex-shrink: 0;
 }
 
 .section-title-group h2 {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 22px;
+    font-weight: 800;
     color: #ffffff;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
 }
 
 .section-title-group .desc {
     font-family: var(--font-mono);
-    font-size: 11.5px;
+    font-size: 12px;
     color: var(--text-dim);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-top: 2px;
+    letter-spacing: 0.08em;
+    margin-top: 4px;
 }
 
 .step-list {
     list-style: none;
-    margin: 20px 0;
+    margin: 24px 0;
     border-top: 1px solid var(--border);
     border-left: 1px solid var(--border);
 }
@@ -686,42 +747,42 @@ table.comp-table tr:last-child td {
 .step-list li {
     display: flex;
     align-items: flex-start;
-    gap: 14px;
+    gap: 16px;
     border-right: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    padding: 16px 18px;
+    padding: 20px 22px;
     background: var(--bg);
 }
 
 .step-num {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 11.5px;
     color: var(--text-dim);
-    padding: 2px 6px;
+    padding: 3px 7px;
     border: 1px solid var(--border);
     flex-shrink: 0;
 }
 
 .step-body strong {
     display: block;
-    font-size: 14px;
+    font-size: 14.5px;
     color: #ffffff;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
 }
 
 .step-body span {
-    font-size: 13px;
+    font-size: 13.5px;
     color: var(--text-muted);
-    line-height: 1.5;
+    line-height: 1.65;
 }
 
 .callout {
     border: 1px solid var(--border);
     border-left: 3px solid #ffffff;
-    padding: 14px 18px;
-    margin: 20px 0;
-    font-size: 13px;
-    line-height: 1.6;
+    padding: 18px 22px;
+    margin: 24px 0;
+    font-size: 13.5px;
+    line-height: 1.7;
     color: var(--text-muted);
     background: var(--bg-surface);
 }
@@ -732,33 +793,29 @@ table.comp-table tr:last-child td {
 
 .qa-card {
     border: 1px solid var(--border);
-    padding: 18px;
-    margin-bottom: 12px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
     background: var(--bg-surface);
 }
 
 .qa-question {
-    font-size: 14px;
+    font-size: 14.5px;
     font-weight: 700;
     color: #ffffff;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-family: var(--font-mono);
 }
 
 .qa-answer {
-    font-size: 13px;
+    font-size: 13.5px;
     color: var(--text-muted);
-    line-height: 1.6;
-}
-
-.qa-answer ul, .qa-answer ol {
-    margin: 8px 0 8px 18px;
+    line-height: 1.7;
 }
 
 kbd {
     font-family: var(--font-mono);
     border: 1px solid var(--border);
-    padding: 1px 4px;
+    padding: 2px 6px;
     font-size: 11px;
     color: #ffffff;
 }
@@ -767,8 +824,8 @@ code {
     font-family: var(--font-mono);
     border: 1px solid var(--border);
     background: var(--bg-surface);
-    padding: 2px 5px;
-    font-size: 12px;
+    padding: 2px 6px;
+    font-size: 12.5px;
     color: #ffffff;
     word-break: break-word;
 }
@@ -777,83 +834,85 @@ code {
    Privacy Policy Page
    ========================================================================== */
 .privacy-wrap {
-    max-width: 840px;
+    max-width: 860px;
     margin: 0 auto;
-    padding: 96px 20px 80px;
+    padding: 108px 24px 96px;
 }
 
 .privacy-wrap h1 {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 800;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
+    letter-spacing: -0.025em;
+    margin-bottom: 10px;
 }
 
 .privacy-meta {
     font-family: var(--font-mono);
-    font-size: 11.5px;
+    font-size: 12px;
     color: var(--text-dim);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 36px;
-    padding-bottom: 16px;
+    letter-spacing: 0.08em;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
     border-bottom: 1px solid var(--border);
 }
 
 .privacy-wrap h2 {
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 700;
-    margin-top: 36px;
-    margin-bottom: 12px;
-    letter-spacing: -0.01em;
+    margin-top: 44px;
+    margin-bottom: 14px;
+    letter-spacing: -0.015em;
 }
 
 .privacy-wrap p {
-    font-size: 14px;
+    font-size: 14.5px;
     color: var(--text-muted);
-    line-height: 1.65;
-    margin-bottom: 14px;
+    line-height: 1.75;
+    margin-bottom: 16px;
 }
 
 .privacy-wrap ul {
-    padding-left: 20px;
-    margin-bottom: 18px;
+    padding-left: 22px;
+    margin-bottom: 22px;
     color: var(--text-muted);
 }
 
 .privacy-wrap li {
-    margin-bottom: 6px;
-    font-size: 13.5px;
-    line-height: 1.6;
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.7;
 }
 
 /* ==========================================================================
    Contact Box
    ========================================================================== */
 .contact-section {
-    padding: 64px 0;
+    padding: 80px 0;
     border-bottom: 1px solid var(--border);
 }
 
 .contact-section h2 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 8px;
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
 }
 
 .contact-section p {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--text-muted);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    line-height: 1.7;
 }
 
 .email-link,
 .email-link:visited {
     font-family: var(--font-mono);
-    font-size: 14px;
+    font-size: 15px;
     color: #ffffff;
     text-decoration: underline;
-    text-underline-offset: 4px;
+    text-underline-offset: 5px;
 }
 
 .email-link:hover {
@@ -864,8 +923,8 @@ code {
    Footer
    ========================================================================== */
 .footer {
-    padding: 40px 20px;
-    max-width: 1140px;
+    padding: 48px 24px;
+    max-width: 1180px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -873,11 +932,12 @@ code {
     font-size: 12px;
     font-family: var(--font-mono);
     color: var(--text-dim);
+    letter-spacing: 0.05em;
 }
 
 .footer-links {
     display: flex;
-    gap: 18px;
+    gap: 22px;
     flex-wrap: wrap;
 }
 
@@ -919,19 +979,23 @@ code {
         display: inline-flex;
     }
     .hero-title {
-        font-size: clamp(26px, 7vw, 36px);
+        font-size: clamp(28px, 7.5vw, 40px);
     }
     .grid-3, .grid-2 {
         grid-template-columns: 1fr;
     }
+    .grid-cell {
+        padding: 30px 24px;
+        min-height: auto;
+    }
     .footer {
         flex-direction: column;
-        gap: 16px;
+        gap: 18px;
         text-align: center;
     }
     .container, .privacy-wrap, .manual-layout {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     .hero-buttons {
         flex-direction: column;
@@ -939,5 +1003,8 @@ code {
     }
     .hero-buttons a {
         text-align: center;
+    }
+    .telemetry-strip {
+        gap: 14px;
     }
 }
