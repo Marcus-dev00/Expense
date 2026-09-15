@@ -3,7 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EXPENSE — User Manual & Reference Guide</title>
+    <title>Expense — 使用指南</title>
+    <meta name="description" content="Expense 日常使用指南：自动记账、账户、预算、隐私与常见问题。">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" type="image/png" href="icon-512.png">
+    <link rel="apple-touch-icon" href="icon-512.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Expense">
+    <meta property="og:title" content="Expense — 使用指南">
+    <meta property="og:description" content="Expense 日常使用指南：自动记账、账户、预算、隐私与常见问题。">
+    <meta property="og:image" content="https://marcus-dev00.github.io/Expense/shots/home.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Expense — 使用指南">
+    <meta name="twitter:description" content="Expense 日常使用指南：自动记账、账户、预算、隐私与常见问题。">
+    <meta name="twitter:image" content="https://marcus-dev00.github.io/Expense/shots/home.jpg">
     <script>
         (function() {
             try {
@@ -11,14 +24,11 @@
                 var s = localStorage.getItem('site_lang');
                 var l = (p === 'zh' || p === 'ms' || p === 'en') ? p : ((s === 'zh' || s === 'ms') ? s : 'en');
                 document.documentElement.setAttribute('data-lang', l);
-                document.documentElement.lang = l;
+                document.documentElement.lang = l === 'zh' ? 'zh-Hans' : l;
             } catch(e) {}
         })();
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=bw4">
+    <link rel="stylesheet" href="style.css?v=bw6">
 </head>
 <body class="is-entering">
     <div class="page-veil" aria-hidden="true"></div>
@@ -497,6 +507,8 @@
             <div class="lang-content lang-en">
                 <div class="section-header"><span class="section-badge-num">18.</span><div class="section-title-group"><h2>Hardware & Battery Benchmarks</h2><div class="desc">Physical device test data (Xiaomi 17 / SM8850)</div></div></div>
                 <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;">All performance, battery drain, and memory metrics were captured on a physical retail <strong>Xiaomi 17 (Snapdragon 8 Elite, HyperOS 3.0 / Android 17)</strong> and automated benchmark suite. Zero synthetic inflation.</p>
+                <details class="fold">
+                    <summary>Show full benchmark table</summary>
                 <div class="table-responsive">
                     <table class="comp-table">
                         <thead>
@@ -522,10 +534,13 @@
                         </tbody>
                     </table>
                 </div>
+                </details>
             </div>
             <div class="lang-content lang-zh">
                 <div class="section-header"><span class="section-badge-num">18.</span><div class="section-title-group"><h2>真实硬件性能与功耗基准</h2><div class="desc">实体物理机测试数据（Xiaomi 17 / SM8850）</div></div></div>
                 <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;">以下全部功耗、内存占用与运算耗时均采集自实体物理机（<strong>Xiaomi 17，高通骁龙 8 至尊版，HyperOS 3.0 / Android 17</strong>）与自动化基准套件，100% 真实，严禁造假：</p>
+                <details class="fold">
+                    <summary>展开完整基准表</summary>
                 <div class="table-responsive">
                     <table class="comp-table">
                         <thead>
@@ -551,10 +566,13 @@
                         </tbody>
                     </table>
                 </div>
+                </details>
             </div>
             <div class="lang-content lang-ms">
                 <div class="section-header"><span class="section-badge-num">18.</span><div class="section-title-group"><h2>Tanda Aras Perkakasan & Penggunaan Kuasa</h2><div class="desc">Data ujian peranti fizikal (Xiaomi 17 / SM8850)</div></div></div>
                 <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;">Semua data prestasi, bateri, dan memori diambil daripada unit fizikal <strong>Xiaomi 17 (Snapdragon 8 Elite, HyperOS 3.0 / Android 17)</strong>. Sifar data palsu:</p>
+                <details class="fold">
+                    <summary>Papar jadual penuh</summary>
                 <div class="table-responsive">
                     <table class="comp-table">
                         <thead>
@@ -580,6 +598,7 @@
                         </tbody>
                     </table>
                 </div>
+                </details>
             </div>
         </section>
 
@@ -675,7 +694,7 @@
     </div>
 </footer>
 
-<script src="i18n.js?v=bw4"></script>
+<script src="i18n.js?v=bw6"></script>
 <script>
     // Robust sidebar click & scroll-spy handling
     const sections = Array.from(document.querySelectorAll('.doc-section'));

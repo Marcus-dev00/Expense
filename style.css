@@ -1023,6 +1023,41 @@ body.is-entering .footer {
 .qa-question { font-weight: 700; margin-bottom: 6px; }
 .qa-answer { color: var(--ink-muted); font-size: 0.94rem; }
 
+/* Collapsible advanced blocks */
+.fold {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--bg-soft);
+    margin-top: 8px;
+}
+.fold summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 14px 16px;
+    font-weight: 650;
+    font-size: 0.92rem;
+    color: var(--ink);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+.fold summary::-webkit-details-marker { display: none; }
+.fold summary::after {
+    content: "+";
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 1.1rem;
+    color: var(--ink-muted);
+}
+.fold[open] summary::after { content: "−"; }
+.fold summary:hover { color: var(--ink); }
+.fold[open] { background: var(--bg-card); }
+.fold > .table-responsive,
+.fold > div.table-responsive {
+    margin: 0 12px 14px;
+    border-radius: 10px;
+}
+
 .privacy-wrap {
     max-width: 760px;
     margin: 0 auto;
