@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EXPENSE — Offline-First Personal Finance</title>
-    <meta name="description" content="Offline-first, zero-telemetry personal expense tracker for Malaysia with native payment auto-detection.">
+    <title>Expense — 记账，不该这么累</title>
+    <meta name="description" content="专为马来西亚打造的本地记账应用：自动识别支付通知，数据只留在你的手机里。">
     <script>
         (function() {
             try {
@@ -16,355 +16,262 @@
             } catch(e) {}
         })();
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Top Navigation -->
 <header class="navbar">
     <div class="nav-container">
         <a href="index.html" class="nav-brand">
-            <span class="brand-name">EXPENSE</span>
+            <span class="brand-name">Expense</span>
             <span class="brand-ver">v5.1</span>
         </a>
         <div class="nav-right">
             <nav class="nav-links">
-                <a href="index.html" class="nav-link active" data-i18n="nav.home">Home</a>
-                <a href="#features" class="nav-link" data-i18n="nav.features">Features</a>
-                <a href="#autodetect" class="nav-link" data-i18n="nav.autodetect">Auto-Detect</a>
-                <a href="manual.html" class="nav-link" data-i18n="nav.manual">Manual</a>
-                <a href="privacy.html" class="nav-link" data-i18n="nav.privacy">Privacy</a>
-                <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+                <a href="index.html" class="nav-link active" data-i18n="nav.home">首页</a>
+                <a href="#features" class="nav-link" data-i18n="nav.features">能做什么</a>
+                <a href="#how" class="nav-link" data-i18n="nav.how">怎么用</a>
+                <a href="manual.html" class="nav-link" data-i18n="nav.manual">手册</a>
+                <a href="privacy.html" class="nav-link" data-i18n="nav.privacy">隐私</a>
+                <a href="#contact" class="nav-link" data-i18n="nav.contact">联系</a>
             </nav>
             <div class="lang-switcher">
                 <button class="lang-btn active" data-lang="en">EN</button>
                 <button class="lang-btn" data-lang="zh">中文</button>
                 <button class="lang-btn" data-lang="ms">BM</button>
             </div>
-            <a href="manual.html" class="btn-nav-action" data-i18n="nav.docsBtn">
-                Documentation
-            </a>
-            <button class="menu-toggle-btn" aria-label="Toggle Menu" data-i18n="mobile.menu">Menu</button>
+            <a href="manual.html" class="btn-nav-action" data-i18n="nav.docsBtn">看看手册</a>
+            <button class="menu-toggle-btn" aria-label="Toggle Menu" data-i18n="mobile.menu">菜单</button>
         </div>
     </div>
 </header>
 
-<!-- Mobile Navigation Drawer -->
 <div class="mobile-nav-drawer">
-    <a href="index.html" class="nav-link active" data-i18n="nav.home">Home</a>
-    <a href="#features" class="nav-link" data-i18n="nav.features">Features</a>
-    <a href="#autodetect" class="nav-link" data-i18n="nav.autodetect">Auto-Detect</a>
-    <a href="manual.html" class="nav-link" data-i18n="nav.manual">Manual</a>
-    <a href="privacy.html" class="nav-link" data-i18n="nav.privacy">Privacy</a>
-    <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+    <a href="index.html" class="nav-link active" data-i18n="nav.home">首页</a>
+    <a href="#features" class="nav-link" data-i18n="nav.features">能做什么</a>
+    <a href="#how" class="nav-link" data-i18n="nav.how">怎么用</a>
+    <a href="manual.html" class="nav-link" data-i18n="nav.manual">手册</a>
+    <a href="privacy.html" class="nav-link" data-i18n="nav.privacy">隐私</a>
+    <a href="#contact" class="nav-link" data-i18n="nav.contact">联系</a>
 </div>
 
 <main class="container">
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
-        <span class="hero-tag" data-i18n="hero.tag">100% Local SQLite · Zero Cloud · Zero Telemetry</span>
-        <h1 class="hero-title" data-i18n-html="hero.title">Your Money. Your Privacy.<br>Zero Cloud. 100% Local.</h1>
-        <p class="hero-subtitle" data-i18n="hero.subtitle">
-            An offline-first financial ledger designed for Malaysia. Capture payment notifications from Touch 'n Go, MAE, CIMB, and bank alerts with zero data leaving your device.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="manual.html" class="btn-primary" data-i18n="hero.btnManual">
-                Explore User Manual
-            </a>
-            <a href="privacy.html" class="btn-secondary" data-i18n="hero.btnPrivacy">
-                Privacy Architecture
-            </a>
-            <a href="mailto:marcus.dev00@outlook.com" class="btn-secondary" data-i18n="hero.btnContact">
-                Contact Developer
-            </a>
+        <div>
+            <span class="hero-tag" data-i18n="hero.tag">100% 本地 · 不上云 · 不追踪</span>
+            <h1 class="hero-title" data-i18n-html="hero.title">记账，<br>不该这么累。</h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">
+                Expense 是专为马来西亚人做的记账本。银行和钱包的支付通知会自动变成流水，数据只留在你的手机里——不用注册，不上传云端。
+            </p>
+            <div class="hero-buttons">
+                <a href="#how" class="btn-primary" data-i18n="hero.btnHow">三步开始用</a>
+                <a href="manual.html" class="btn-secondary" data-i18n="hero.btnManual">阅读手册</a>
+                <a href="privacy.html" class="btn-secondary" data-i18n="hero.btnPrivacy">隐私怎么保障</a>
+            </div>
+            <div class="telemetry-strip">
+                <div class="telemetry-item"><span class="telemetry-dot"></span><span data-i18n="hero.pill1">数据不出手机</span></div>
+                <div class="telemetry-item"><span class="telemetry-dot"></span><span data-i18n="hero.pill2">无需注册登录</span></div>
+                <div class="telemetry-item"><span class="telemetry-dot"></span><span data-i18n="hero.pill3">支持 EN / 中文 / BM</span></div>
+            </div>
         </div>
 
-        <div class="telemetry-strip">
-            <div class="telemetry-item"><span class="telemetry-dot"></span> 0 BYTES TELEMETRY</div>
-            <div class="telemetry-item"><span class="telemetry-dot"></span> 100% EMBEDDED SQLITE</div>
-            <div class="telemetry-item"><span class="telemetry-dot"></span> INTEGER SEN ACCURACY</div>
-            <div class="telemetry-item"><span class="telemetry-dot"></span> NO SMS READ PERMISSION</div>
-            <div class="telemetry-item"><span class="telemetry-dot"></span> &lt; 0.5% BATTERY / 24H</div>
-            <div class="telemetry-item"><span class="telemetry-dot"></span> 143.6 MB RAM</div>
+        <div class="hero-visual" aria-hidden="true">
+            <div class="phone-mock">
+                <div class="phone-notch"></div>
+                <div class="notif-card">
+                    <div class="notif-app">Touch 'n Go eWallet</div>
+                    <div class="notif-body">
+                        You paid RM 18.50 to Grab.<br>
+                        Payment successful.
+                    </div>
+                    <span class="notif-amount">− RM 18.50</span>
+                </div>
+                <div class="mock-arrow" data-i18n="hero.mockArrow">↓ 自动识别，待你确认</div>
+                <div class="tx-card">
+                    <div class="tx-label" data-i18n="hero.mockLabel">今日流水</div>
+                    <div class="tx-row">
+                        <span class="tx-merchant">Grab · Transport</span>
+                        <span class="tx-cat">RM 18.50</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Capabilities Grid (Breathable Layout) -->
-    <section class="section" id="features">
+    <!-- Core benefits -->
+    <section class="section benefit-band" id="features">
         <div class="section-head">
-            <span class="section-tag" data-i18n="features.tag">Architecture</span>
-            <h2 class="section-title" data-i18n="features.title">Core Capabilities</h2>
+            <span class="section-tag" data-i18n="features.tag">为什么好用</span>
+            <h2 class="section-title" data-i18n="features.title">把麻烦事交给它</h2>
         </div>
-
         <div class="grid-3">
             <div class="grid-cell">
                 <div class="cell-header">
-                    <span class="cell-num" data-i18n="feat1.num">01 / DATABASE</span>
-                    <span class="cell-pill">SQLITE 3.42</span>
+                    <span class="cell-num" data-i18n="feat1.num">自动记账</span>
+                    <span class="cell-pill" data-i18n="feat1.pill">通知识别</span>
                 </div>
                 <div>
-                    <h3 data-i18n="feat1.title">Embedded SQLite Engine</h3>
-                    <p data-i18n="feat1.desc">Records are stored exclusively in an embedded local SQLite database. Exact integer sen precision with zero remote database synchronization.</p>
+                    <h3 data-i18n="feat1.title">付款通知，变成流水</h3>
+                    <p data-i18n="feat1.desc">TnG、Maybank、CIMB、Boost 等 70+ 应用的支付提醒，会自动整理成草稿。你看一眼，点确认就行。验证码和广告短信会被直接丢掉。</p>
                 </div>
             </div>
-
             <div class="grid-cell">
                 <div class="cell-header">
-                    <span class="cell-num" data-i18n="feat2.num">02 / CAPTURE</span>
-                    <span class="cell-pill">RAM ONLY</span>
+                    <span class="cell-num" data-i18n="feat2.num">真·本地</span>
+                    <span class="cell-pill" data-i18n="feat2.pill">零上传</span>
                 </div>
                 <div>
-                    <h3 data-i18n="feat2.title">Notification Auto-Detect</h3>
-                    <p data-i18n="feat2.desc">Captures payment alerts from Touch 'n Go, MAE Maybank, CIMB, Boost, and bank SMS in memory without broad SMS read permissions.</p>
+                    <h3 data-i18n="feat2.title">钱和账，都归你</h3>
+                    <p data-i18n="feat2.desc">没有账号体系，没有云端同步，也没有广告追踪。换手机可以用二维码把整本账本搬过去，全程离线。</p>
                 </div>
             </div>
-
             <div class="grid-cell">
                 <div class="cell-header">
-                    <span class="cell-num" data-i18n="feat3.num">03 / SPLIT</span>
-                    <span class="cell-pill">AA LEDGER</span>
+                    <span class="cell-num" data-i18n="feat3.num">日常好帮手</span>
+                    <span class="cell-pill" data-i18n="feat3.pill">大马场景</span>
                 </div>
                 <div>
-                    <h3 data-i18n="feat3.title">Bill Splits & Reimbursements</h3>
-                    <p data-i18n="feat3.desc">Advance shared expenses with fractional splits (1/2, 2/3, 3/4). Tracks receivables separately without inflating personal monthly expenditure.</p>
-                </div>
-            </div>
-
-            <div class="grid-cell">
-                <div class="cell-header">
-                    <span class="cell-num" data-i18n="feat4.num">04 / MERGE</span>
-                    <span class="cell-pill">RON95 HOLD</span>
-                </div>
-                <div>
-                    <h3 data-i18n="feat4.title">Fuel Pre-Auth Auto-Merge</h3>
-                    <p data-i18n="feat4.desc">Pre-authorized pump holds (RON95) and refund changes are matched on the same day and consolidated into exact net spending with one tap.</p>
-                </div>
-            </div>
-
-            <div class="grid-cell">
-                <div class="cell-header">
-                    <span class="cell-num" data-i18n="feat5.num">05 / INBOX</span>
-                    <span class="cell-pill">SNAP DECK</span>
-                </div>
-                <div>
-                    <h3 data-i18n="feat5.title">Drafts Review Deck</h3>
-                    <p data-i18n="feat5.desc">3D drum-wheel inbox for captured drafts, merchant category learning with trusted auto-approve, duplicate warnings, and cross-app transfer merge prompts.</p>
-                </div>
-            </div>
-
-            <div class="grid-cell">
-                <div class="cell-header">
-                    <span class="cell-num" data-i18n="feat6.num">06 / REPAIR</span>
-                    <span class="cell-pill">ATOMIC RECALC</span>
-                </div>
-                <div>
-                    <h3 data-i18n="feat6.title">Tri-Lingual & Self-Healing</h3>
-                    <p data-i18n="feat6.desc">Full support for English, 简体中文, and Bahasa Malaysia. Built-in ledger calibration recalculates account balances atomically.</p>
+                    <h3 data-i18n="feat3.title">聚餐、加油、转账</h3>
+                    <p data-i18n="feat3.desc">AA 分账不乱月度开销；加油预扣和退款自动对上；银行卡扣款 + 钱包入账，60 秒内提示合并成一笔转账。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Auto-Detect Setup (Breathable Steps) -->
-    <section class="section" id="autodetect">
+    <!-- How it works -->
+    <section class="section" id="how">
         <div class="section-head">
-            <span class="section-tag" data-i18n="setup.tag">Setup</span>
-            <h2 class="section-title" data-i18n="setup.title">Enabling Auto-Detect</h2>
+            <span class="section-tag" data-i18n="setup.tag">上手</span>
+            <h2 class="section-title" data-i18n="setup.title">三步就能开始</h2>
+            <p class="desc" data-i18n="setup.desc">不用看长教程。打开应用，跟着做就好。</p>
         </div>
-
-        <div class="grid-3">
-            <div class="grid-cell">
-                <div class="cell-header">
-                    <span class="cell-num" data-i18n="setup.step1">STEP 01</span>
-                    <span class="cell-pill">SETTINGS</span>
-                </div>
-                <div>
-                    <h3 data-i18n="setup.step1Title">Toggle in Settings</h3>
-                    <p data-i18n="setup.step1Desc">Open <strong>Mine (个人中心)</strong> in Expense and turn ON the <strong>Auto-Detect Notifications</strong> switch.</p>
-                </div>
+        <div class="grid-3 step-list">
+            <div class="grid-cell step-body">
+                <span class="step-num" data-i18n="setup.step1">STEP 1</span>
+                <h3 data-i18n="setup.step1Title">填个昵称，选常用账户</h3>
+                <p data-i18n="setup.step1Desc">第一次打开会有引导：起个名字，勾选你常用的钱包和银行卡（TnG、Maybank…）。</p>
             </div>
-
-            <div class="grid-cell">
-                <div class="cell-header">
-                    <span class="cell-num" data-i18n="setup.step2">STEP 02</span>
-                    <span class="cell-pill">ACCESS</span>
-                </div>
-                <div>
-                    <h3 data-i18n="setup.step2Title">Grant Notification Access</h3>
-                    <p data-i18n="setup.step2Desc">In Android System Settings, locate <strong>Expense</strong> under <em>Notification Access</em> and select <strong>Allow</strong>.</p>
-                </div>
+            <div class="grid-cell step-body">
+                <span class="step-num" data-i18n="setup.step2">STEP 2</span>
+                <h3 data-i18n="setup.step2Title">打开「自动记账」</h3>
+                <p data-i18n="setup.step2Desc">在「我的」里打开开关，再允许通知访问权限。我们只读支付通知，不读短信内容库。</p>
             </div>
-
-            <div class="grid-cell">
-                <div class="cell-header">
-                    <span class="cell-num" data-i18n="setup.step3">STEP 03</span>
-                    <span class="cell-pill">BATTERY</span>
-                </div>
-                <div>
-                    <h3 data-i18n="setup.step3Title">Battery Optimization</h3>
-                    <p data-i18n="setup.step3Desc">Under <strong>Mine → Background Autostart Guide</strong>, set battery optimization to unrestricted for Xiaomi, Samsung, OPPO, or vivo.</p>
-                </div>
+            <div class="grid-cell step-body">
+                <span class="step-num" data-i18n="setup.step3">STEP 3</span>
+                <h3 data-i18n="setup.step3Title">付款后看一眼收件箱</h3>
+                <p data-i18n="setup.step3Desc">通知进来后会先放在待确认列表。确认、合并或忽略，都由你说了算。部分手机还要允许后台运行，手册里有各品牌教程。</p>
             </div>
         </div>
     </section>
 
-    <!-- Comparison Table -->
+    <!-- Everyday features -->
     <section class="section">
         <div class="section-head">
-            <span class="section-tag" data-i18n="comp.tag">Comparison</span>
-            <h2 class="section-title" data-i18n="comp.title">Offline-First vs Cloud Accounting</h2>
+            <span class="section-tag" data-i18n="more.tag">更多贴心功能</span>
+            <h2 class="section-title" data-i18n="more.title">日常会用到的小事</h2>
         </div>
-        
-        <div class="table-responsive">
-            <table class="comp-table">
-                <thead>
-                    <tr>
-                        <th data-i18n="comp.thCrit">Criterion</th>
-                        <th data-i18n="comp.thExpense">Expense (v5.1)</th>
-                        <th data-i18n="comp.thCloud">Cloud Expense Apps</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong data-i18n="comp.row1Label">Data Storage</strong></td>
-                        <td><span class="tag-mono yes" data-i18n="comp.row1Exp">100% LOCAL SQLITE</span></td>
-                        <td><span class="tag-mono no" data-i18n="comp.row1Cloud">REMOTE CLOUD</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong data-i18n="comp.row2Label">Account Requirement</strong></td>
-                        <td><span class="tag-mono yes" data-i18n="comp.row2Exp">NO REGISTRATION</span></td>
-                        <td><span class="tag-mono no" data-i18n="comp.row2Cloud">MANDATORY SIGN-UP</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong data-i18n="comp.row3Label">Telemetry & Analytics</strong></td>
-                        <td><span class="tag-mono yes" data-i18n="comp.row3Exp">ZERO TELEMETRY</span></td>
-                        <td><span class="tag-mono no" data-i18n="comp.row3Cloud">TRACKERS & AD NETWORKS</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong data-i18n="comp.row4Label">SMS Access</strong></td>
-                        <td><span class="tag-mono yes" data-i18n="comp.row4Exp">NO READ_SMS PERMISSION</span></td>
-                        <td><span class="tag-mono no" data-i18n="comp.row4Cloud">REQUIRES READ_SMS</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong data-i18n="comp.row5Label">Offline Operation</strong></td>
-                        <td><span class="tag-mono yes" data-i18n="comp.row5Exp">FULLY OFFLINE</span></td>
-                        <td><span class="tag-mono no" data-i18n="comp.row5Cloud">INTERNET REQUIRED</span></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="grid-2">
+            <div class="grid-cell">
+                <div class="cell-header">
+                    <span class="cell-num" data-i18n="more1.num">防窥</span>
+                    <span class="cell-pill" data-i18n="more1.pill">一键打码</span>
+                </div>
+                <div>
+                    <h3 data-i18n="more1.title">旁边有人时，金额可以藏起来</h3>
+                    <p data-i18n="more1.desc">防窥模式把数字打成星号，地铁上、办公室里更安心。</p>
+                </div>
+            </div>
+            <div class="grid-cell">
+                <div class="cell-header">
+                    <span class="cell-num" data-i18n="more2.num">分类学习</span>
+                    <span class="cell-pill" data-i18n="more2.pill">越用越聪明</span>
+                </div>
+                <div>
+                    <h3 data-i18n="more2.title">认过一次的商户，下次自动归类</h3>
+                    <p data-i18n="more2.desc">你确认过的分类会记下来；可信商户还可以在金额上限内自动入账。</p>
+                </div>
+            </div>
+            <div class="grid-cell">
+                <div class="cell-header">
+                    <span class="cell-num" data-i18n="more3.num">三语</span>
+                    <span class="cell-pill" data-i18n="more3.pill">EN · 中文 · BM</span>
+                </div>
+                <div>
+                    <h3 data-i18n="more3.title">界面语言随时切</h3>
+                    <p data-i18n="more3.desc">English、简体中文、Bahasa Melayu 全套界面，深色模式也准备好了。</p>
+                </div>
+            </div>
+            <div class="grid-cell">
+                <div class="cell-header">
+                    <span class="cell-num" data-i18n="more4.num">预算提醒</span>
+                    <span class="cell-pill" data-i18n="more4.pill">本地通知</span>
+                </div>
+                <div>
+                    <h3 data-i18n="more4.title">月度 / 每日预算，超了会提醒</h3>
+                    <p data-i18n="more4.desc">预算存在手机本地，提醒也是本地发的，不经过任何服务器。</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Hardware & Battery Benchmarks Section -->
-    <section class="section" id="benchmarks">
+    <!-- Privacy -->
+    <section class="privacy-band" id="privacy">
+        <span class="section-tag" data-i18n="privacy.tag">隐私</span>
+        <h2 data-i18n="privacy.title">我们看不到你的账本</h2>
+        <p data-i18n="privacy.desc">
+            Expense 没有服务器可以上传你的消费记录。不申请读短信权限，支付通知只在内存里解析，OTP 和促销信息直接丢弃。你随时可以导出备份，或一键清空。
+        </p>
+        <a href="privacy.html" class="btn-primary" data-i18n="privacy.btn">阅读隐私说明</a>
+    </section>
+
+    <!-- Soft trust line -->
+    <section class="section">
         <div class="section-head">
-            <span class="section-tag" data-i18n="bench.tag">Performance</span>
-            <h2 class="section-title" data-i18n="bench.title">Hardware & Power Benchmarks</h2>
+            <span class="section-tag" data-i18n="bench.tag">实力（很克制地说）</span>
+            <h2 class="section-title" data-i18n="bench.title">轻、快、不打扰</h2>
+            <p class="desc" data-i18n="bench.desc">真机实测数据，不吹牛：后台几乎不耗电，5000 笔流水的查询也只要几毫秒。完整基准表在手册里。</p>
         </div>
-
-        <div class="lang-content lang-en">
-            <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;">Genuine hardware measurements captured on a physical retail <strong>Xiaomi 17 (Snapdragon 8 Elite, HyperOS 3.0 / Android 17)</strong> and automated benchmark suite. Zero synthetic inflation:</p>
-            <div class="table-responsive">
-                <table class="comp-table">
-                    <thead>
-                        <tr><th>Metric</th><th>Measured Value</th><th>Scope & Methodology</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><strong>Foreground RAM (PSS)</strong></td><td><span class="tag-mono yes">143.6 MB Total PSS</span></td><td>ADB <code>dumpsys meminfo</code> (80.4 MB Private Dirty, 19.9 MB Java Heap, 23.1 MB Native Heap).</td></tr>
-                        <tr><td><strong>Background Idle RAM</strong></td><td><span class="tag-mono yes">139.5 MB Total PSS</span></td><td>Listener service standby state in background.</td></tr>
-                        <tr><td><strong>Background Idle CPU</strong></td><td><span class="tag-mono yes">0.0% User / 0.1% Kernel</span></td><td>Deep OS sleep state; zero background polling or thread spinning.</td></tr>
-                        <tr><td><strong>Cold Start Time</strong></td><td><span class="tag-mono yes">3,026 ms (3.02s)</span></td><td>Measured via <code>am start -W</code> (full process fork, Capacitor, and System WebView boot).</td></tr>
-                        <tr><td><strong>Hot Resume Time</strong></td><td><span class="tag-mono yes">11 ms</span></td><td>Instantaneous foreground resume.</td></tr>
-                        <tr><td><strong>24-Hour Battery Drain</strong></td><td><span class="tag-mono yes">&lt; 0.1% ~ 0.5% / 24h</span></td><td>Zero persistent WakeLocks, zero foreground services. Pure OS event-driven callback.</td></tr>
-                        <tr><td><strong>Radio Modem Power Draw</strong></td><td><span class="tag-mono yes">0 mW (0 Bytes Tx/Rx)</span></td><td>100% offline-only. Modem remains completely unpowered by Expense.</td></tr>
-                        <tr><td><strong>Notification Regex Parser</strong></td><td><span class="tag-mono yes">17.03 μs (58,709 ops/s)</span></td><td>50,000 iterations benchmark over genuine Malaysian bank alert strings.</td></tr>
-                        <tr><td><strong>SQLite Batch Insert Rate</strong></td><td><span class="tag-mono yes">0.0177 ms / tx (56,515 tx/s)</span></td><td>5,000 records committed in 88.47 ms in a single atomic transaction.</td></tr>
-                        <tr><td><strong>Complex Query Latency</strong></td><td><span class="tag-mono yes">1.65 ms / query (606 qps)</span></td><td>Monthly aggregation with category join and index scan over 5,000 records.</td></tr>
-                        <tr><td><strong>Storage Footprint</strong></td><td><span class="tag-mono yes">~1.25 MB / 5,000 entries</span></td><td>SQLite database file size on disk (1,252 KB).</td></tr>
-                        <tr><td><strong>Automated Unit Tests</strong></td><td><span class="tag-mono yes">435 / 435 Passed (100%)</span></td><td>33 test files verified in 2.81s with zero regressions.</td></tr>
-                    </tbody>
-                </table>
+        <div class="grid-3">
+            <div class="grid-cell">
+                <div class="cell-num" data-i18n="bench1.label">后台耗电</div>
+                <div style="font-size:1.8rem;font-weight:750;letter-spacing:-0.03em;margin-top:8px;">&lt; 0.5%</div>
+                <p data-i18n="bench1.desc">约 24 小时待机消耗，无常驻服务瞎跑。</p>
             </div>
-        </div>
-
-        <div class="lang-content lang-zh">
-            <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;">以下全部功耗、内存占用与运算耗时均采集自实体物理机（<strong>Xiaomi 17，高通骁龙 8 至尊版，HyperOS 3.0 / Android 17</strong>）与自动化基准套件，100% 真实，严禁造假：</p>
-            <div class="table-responsive">
-                <table class="comp-table">
-                    <thead>
-                        <tr><th>实测指标</th><th>实测数值</th><th>测试方法与环境详情</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><strong>前台运行物理内存 (PSS)</strong></td><td><span class="tag-mono yes">143.6 MB Total PSS</span></td><td>ADB <code>dumpsys meminfo</code> 实测（包含 80.4 MB 私有内存，Java堆 19.9 MB，Native堆 23.1 MB）。</td></tr>
-                        <tr><td><strong>后台常驻待机内存 (PSS)</strong></td><td><span class="tag-mono yes">139.5 MB Total PSS</span></td><td>退入后台并保持通知监听状态下的物理内存占用。</td></tr>
-                        <tr><td><strong>后台待机 CPU 占用</strong></td><td><span class="tag-mono yes">0.0% 用户态 / 0.1% 内核态</span></td><td>安卓系统深睡眠模式，无任何后台常驻轮询或线程空转。</td></tr>
-                        <tr><td><strong>冷启动耗时 (Cold Start)</strong></td><td><span class="tag-mono yes">3,026 ms (3.02秒)</span></td><td><code>am start -W</code> 测量（含进程创建、Capacitor 容器与系统 WebView 全量加载）。</td></tr>
-                        <tr><td><strong>热启动耗时 (Hot Start)</strong></td><td><span class="tag-mono yes">11 ms</span></td><td>后台切换至前台瞬间恢复渲染，流畅无卡顿。</td></tr>
-                        <tr><td><strong>24小时后台耗电量</strong></td><td><span class="tag-mono yes">&lt; 0.1% ~ 0.5% / 24小时</span></td><td>实体机 24 小时待机。0 唤醒锁 (WakeLock)、0 前台保活通知、0 闹钟调度。由系统在收到推送时纯事件驱动唤醒。</td></tr>
-                        <tr><td><strong>射频基带网络功耗</strong></td><td><span class="tag-mono yes">0 mW (0 字节发送/接收)</span></td><td>100% 本地运行，完全不产生网络流量，射频模块保持完全休眠。</td></tr>
-                        <tr><td><strong>通知文本解析吞吐量</strong></td><td><span class="tag-mono yes">17.03 μs / 58,709 次/秒</span></td><td>50,000 次马来西亚主流银行通知文本正则匹配实测。</td></tr>
-                        <tr><td><strong>SQLite 批量插入速率</strong></td><td><span class="tag-mono yes">0.0177 ms / 笔 (56,515 笔/秒)</span></td><td>单事务内写入 5,000 笔流水仅耗时 88.47 毫秒。</td></tr>
-                        <tr><td><strong>SQLite 复杂统计查询</strong></td><td><span class="tag-mono yes">1.65 ms / 次 (606 次/秒)</span></td><td>5,000 笔流水库上多表关联与月度分类聚合查询。</td></tr>
-                        <tr><td><strong>磁盘存储空间占用</strong></td><td><span class="tag-mono yes">~1.25 MB / 5,000笔</span></td><td>5,000 笔流水完整数据库物理文件大小仅 1,252 KB。</td></tr>
-                        <tr><td><strong>自动化测试套件通过率</strong></td><td><span class="tag-mono yes">435 / 435 100% 通过</span></td><td>覆盖账目守恒、数据隔离与安全边界的 33 个测试文件在 2.81 秒内全部通过。</td></tr>
-                    </tbody>
-                </table>
+            <div class="grid-cell">
+                <div class="cell-num" data-i18n="bench2.label">通知解析</div>
+                <div style="font-size:1.8rem;font-weight:750;letter-spacing:-0.03em;margin-top:8px;">~17 μs</div>
+                <p data-i18n="bench2.desc">平均一次支付通知文本识别速度。</p>
             </div>
-        </div>
-
-        <div class="lang-content lang-ms">
-            <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;">Semua data prestasi, bateri, dan memori diambil daripada unit fizikal <strong>Xiaomi 17 (Snapdragon 8 Elite, HyperOS 3.0 / Android 17)</strong>. Sifar data palsu:</p>
-            <div class="table-responsive">
-                <table class="comp-table">
-                    <thead>
-                        <tr><th>Metrik Ujian</th><th>Nilai Diukur</th><th>Kaedah & Skop Ujian</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><strong>Memori RAM Latar Depan (PSS)</strong></td><td><span class="tag-mono yes">143.6 MB Jumlah PSS</span></td><td>ADB <code>dumpsys meminfo</code> (80.4 MB Private Dirty, 19.9 MB Java Heap, 23.1 MB Native Heap).</td></tr>
-                        <tr><td><strong>Memori RAM Latar Belakang (PSS)</strong></td><td><span class="tag-mono yes">139.5 MB Jumlah PSS</span></td><td>Keadaan bersiap sedia pendengar notifikasi dalam latar belakang.</td></tr>
-                        <tr><td><strong>CPU Latar Belakang Terbiar</strong></td><td><span class="tag-mono yes">0.0% Pengguna / 0.1% Kernel</span></td><td>Mod tidur mendalam tanpa sebarang utas yang berputar.</td></tr>
-                        <tr><td><strong>Masa Permulaan Sejuk (Cold Start)</strong></td><td><span class="tag-mono yes">3,026 ms (3.02s)</span></td><td>Diukur melalui <code>am start -W</code> (proses baharu, kontena Capacitor, dan System WebView).</td></tr>
-                        <tr><td><strong>Masa Permulaan Panas (Hot Start)</strong></td><td><span class="tag-mono yes">11 ms</span></td><td>Menyambung semula paparan serta-merta tanpa lag.</td></tr>
-                        <tr><td><strong>Penggunaan Bateri 24 Jam</strong></td><td><span class="tag-mono yes">&lt; 0.1% ~ 0.5% / 24 jam</span></td><td>Ujian 24 jam peranti fizikal. 0 WakeLock berterusan, 0 perkhidmatan latar depan. Dipacu sepenuhnya oleh acara notifikasi OS.</td></tr>
-                        <tr><td><strong>Penggunaan Kuasa Radio Selular</strong></td><td><span class="tag-mono yes">0 mW (0 Bait Tx/Rx)</span></td><td>100% luar talian. Modem tidak diaktifkan oleh Expense.</td></tr>
-                        <tr><td><strong>Penapis Notifikasi Regex</strong></td><td><span class="tag-mono yes">17.03 μs / 58,709 op/s</span></td><td>50,000 lelaran pemadanan regex teks amaran bank tempatan.</td></tr>
-                        <tr><td><strong>Kadar Sisipan Kelompok SQLite</strong></td><td><span class="tag-mono yes">0.0177 ms / transaksi (56,515 tx/s)</span></td><td>5,000 rekod dimasukkan dalam 88.47 ms dalam satu transaksi atomik.</td></tr>
-                        <tr><td><strong>Kependaman Pertanyaan Kompleks</strong></td><td><span class="tag-mono yes">1.65 ms / pertanyaan (606 qps)</span></td><td>Pertanyaan agregasi dengan imbasan indeks ke atas 5,000 rekod.</td></tr>
-                        <tr><td><strong>Jejak Storan Cakera</strong></td><td><span class="tag-mono yes">~1.25 MB / 5,000 rekod</span></td><td>Saiz fizikal fail SQLite pada cakera hanya 1,252 KB.</td></tr>
-                        <tr><td><strong>Liputan Ujian Automatik</strong></td><td><span class="tag-mono yes">435 / 435 Lulus (100%)</span></td><td>33 fail ujian disahkan dalam masa 2.81 saat tanpa sebarang kegagalan.</td></tr>
-                    </tbody>
-                </table>
+            <div class="grid-cell">
+                <div class="cell-num" data-i18n="bench3.label">自动化测试</div>
+                <div style="font-size:1.8rem;font-weight:750;letter-spacing:-0.03em;margin-top:8px;">435</div>
+                <p data-i18n="bench3.desc">33 个测试套件全部通过，记账规则反复验证。</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section class="contact-section" id="contact">
-        <span class="section-tag" data-i18n="contact.tag">Inquiries</span>
-        <h2 data-i18n="contact.title">Developer Support</h2>
-        <p data-i18n="contact.desc">For feedback, technical questions, or bug reports:</p>
+        <span class="section-tag" data-i18n="contact.tag">有话说</span>
+        <h2 data-i18n="contact.title">找开发者聊聊</h2>
+        <p data-i18n="contact.desc">反馈、建议、小问题，都欢迎写邮件。</p>
         <a href="mailto:marcus.dev00@outlook.com" class="email-link">marcus.dev00@outlook.com</a>
     </section>
 
 </main>
 
-<!-- Footer -->
 <footer class="footer">
-    <div data-i18n="footer.tag">EXPENSE · VERSION 5.1 · MALAYSIA</div>
+    <div data-i18n="footer.tag">Expense · 5.1 · 马来西亚</div>
     <div class="footer-links">
-        <a href="index.html" data-i18n="nav.home">Home</a>
-        <a href="manual.html" data-i18n="nav.manual">Manual</a>
-        <a href="privacy.html" data-i18n="nav.privacy">Privacy</a>
-        <a href="mailto:marcus.dev00@outlook.com" data-i18n="nav.contact">Contact</a>
+        <a href="index.html" data-i18n="nav.home">首页</a>
+        <a href="manual.html" data-i18n="nav.manual">手册</a>
+        <a href="privacy.html" data-i18n="nav.privacy">隐私</a>
+        <a href="mailto:marcus.dev00@outlook.com" data-i18n="nav.contact">联系</a>
     </div>
 </footer>
 
 <script src="i18n.js"></script>
-
 </body>
 </html>

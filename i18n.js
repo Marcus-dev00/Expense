@@ -1,506 +1,408 @@
 /**
- * Expense – Minimalist Multi-language & Navigation Engine (i18n.js)
+ * Expense – Friendly multi-language & navigation engine
  * Languages: English (en), 简体中文 (zh), Bahasa Melayu (ms)
  */
 
 const translations = {
     en: {
-        // Navigation
         "nav.home": "Home",
-        "nav.features": "Features",
-        "nav.autodetect": "Auto-Detect",
+        "nav.features": "What it does",
+        "nav.how": "How to start",
         "nav.manual": "Manual",
         "nav.privacy": "Privacy",
         "nav.contact": "Contact",
-        "nav.docsBtn": "Documentation",
-        "nav.supportBtn": "Support",
-
-        // Index - Hero
-        "hero.tag": "100% Local SQLite · Zero Cloud · Zero Telemetry",
-        "hero.title": "Your Money. Your Privacy.<br>Zero Cloud. 100% Local.",
-        "hero.subtitle": "An offline-first financial ledger designed for Malaysia. Capture payment notifications from Touch 'n Go, MAE, CIMB, and bank alerts with zero data leaving your device.",
-        "hero.btnManual": "Explore User Manual",
-        "hero.btnPrivacy": "Privacy Architecture",
-        "hero.btnContact": "Contact Developer",
-
-        // Index - Features
-        "features.tag": "Architecture",
-        "features.title": "Core Capabilities",
-        "feat1.num": "01 / DATABASE",
-        "feat1.title": "Embedded SQLite Engine",
-        "feat1.desc": "Records are stored exclusively in an embedded local SQLite database. Exact integer sen precision with zero remote database synchronization.",
-        "feat2.num": "02 / CAPTURE",
-        "feat2.title": "Notification Auto-Detect",
-        "feat2.desc": "Captures payment alerts from Touch 'n Go, MAE Maybank, CIMB, Boost, and bank SMS in memory without broad SMS read permissions.",
-        "feat3.num": "03 / SPLIT",
-        "feat3.title": "Bill Splits & Reimbursements",
-        "feat3.desc": "Advance shared expenses with fractional splits (1/2, 2/3, 3/4). Tracks receivables separately without inflating personal monthly expenditure.",
-        "feat4.num": "04 / MERGE",
-        "feat4.title": "Fuel Pre-Auth Auto-Merge",
-        "feat4.desc": "Pre-authorized pump holds (RON95) and refund changes are matched on the same day and consolidated into exact net spending with one tap.",
-        "feat5.num": "05 / INBOX",
-        "feat5.title": "Drafts Review Deck",
-        "feat5.desc": "3D drum-wheel inbox for captured drafts, merchant category learning with trusted auto-approve, duplicate warnings, and cross-app transfer merge prompts.",
-        "feat6.num": "06 / REPAIR",
-        "feat6.title": "Tri-Lingual & Self-Healing",
-        "feat6.desc": "Full support for English, 简体中文, and Bahasa Malaysia. Built-in ledger calibration recalculates account balances atomically.",
-
-        // Index - Setup
-        "setup.tag": "Setup",
-        "setup.title": "Enabling Auto-Detect",
-        "setup.step1": "STEP 01",
-        "setup.step1Title": "Toggle in Settings",
-        "setup.step1Desc": "Open Mine in Expense and turn ON the Auto-Detect Notifications switch.",
-        "setup.step2": "STEP 02",
-        "setup.step2Title": "Grant Notification Access",
-        "setup.step2Desc": "In Android System Settings, locate Expense under Notification Access and select Allow.",
-        "setup.step3": "STEP 03",
-        "setup.step3Title": "Battery Optimization",
-        "setup.step3Desc": "Under Mine → Background Autostart Guide, set battery optimization to unrestricted for Xiaomi, Samsung, OPPO, or vivo.",
-
-        // Index - Table
-        "comp.tag": "Comparison",
-        "comp.title": "Offline-First vs Cloud Accounting",
-        "comp.thCrit": "Criterion",
-        "comp.thExpense": "Expense (v5.1)",
-        "comp.thCloud": "Cloud Expense Apps",
-        "comp.row1Label": "Data Storage",
-        "comp.row1Exp": "100% LOCAL SQLITE",
-        "comp.row1Cloud": "REMOTE CLOUD",
-        "comp.row2Label": "Account Requirement",
-        "comp.row2Exp": "NO REGISTRATION",
-        "comp.row2Cloud": "MANDATORY SIGN-UP",
-        "comp.row3Label": "Telemetry & Analytics",
-        "comp.row3Exp": "ZERO TELEMETRY",
-        "comp.row3Cloud": "TRACKERS & AD NETWORKS",
-        "comp.row4Label": "SMS Access",
-        "comp.row4Exp": "NO READ_SMS PERMISSION",
-        "comp.row4Cloud": "REQUIRES READ_SMS",
-        "comp.row5Label": "Offline Operation",
-        "comp.row5Exp": "FULLY OFFLINE",
-        "comp.row5Cloud": "INTERNET REQUIRED",
-
-        // Index - Benchmarks
-        "bench.tag": "Performance",
-        "bench.title": "Hardware & Power Benchmarks",
-
-        // Contact & Footer
-        "contact.tag": "Inquiries",
-        "contact.title": "Developer Support",
-        "contact.desc": "For feedback, technical questions, or bug reports:",
-        "footer.tag": "EXPENSE · VERSION 5.1 · MALAYSIA",
+        "nav.docsBtn": "Read the manual",
         "mobile.menu": "Menu",
-        "mobile.tocPrompt": "Jump to Section...",
+        "mobile.tocPrompt": "Jump to section...",
 
-        // Manual Sidebar Items
+        "hero.tag": "100% on your phone · No cloud · No tracking",
+        "hero.title": "Tracking expenses<br>shouldn't feel like work.",
+        "hero.subtitle": "Expense is a money diary made for Malaysia. Payment alerts from banks and eWallets become neat entries you just confirm. Everything stays on your phone — no account, no upload.",
+        "hero.btnHow": "Start in 3 steps",
+        "hero.btnManual": "Open the manual",
+        "hero.btnPrivacy": "How privacy works",
+        "hero.pill1": "Data stays on device",
+        "hero.pill2": "No sign-up needed",
+        "hero.pill3": "English · 中文 · BM",
+        "hero.mockArrow": "↓ Caught automatically, you confirm",
+        "hero.mockLabel": "Today's entries",
+
+        "features.tag": "Why people like it",
+        "features.title": "The boring parts, handled",
+        "feat1.num": "Auto-log",
+        "feat1.pill": "Notification capture",
+        "feat1.title": "Payment alerts become entries",
+        "feat1.desc": "Alerts from 70+ Malaysian apps — TnG, Maybank, CIMB, Boost and more — turn into drafts. Glance, confirm, done. OTP codes and promo spam are discarded.",
+        "feat2.num": "Truly local",
+        "feat2.pill": "Zero upload",
+        "feat2.title": "Your money, your phone",
+        "feat2.desc": "No accounts, no cloud sync, no ad trackers. Moving to a new phone? Transfer the whole ledger with QR codes, fully offline.",
+        "feat3.num": "Everyday helper",
+        "feat3.pill": "Made for MY",
+        "feat3.title": "Meals, fuel, transfers",
+        "feat3.desc": "Split bills without polluting monthly spend. Petrol holds and refunds match up. Card charge + wallet top-up within 60 seconds? Suggest merging as a transfer.",
+
+        "setup.tag": "Get started",
+        "setup.title": "Up and running in 3 steps",
+        "setup.desc": "No long tutorial. Open the app and follow along.",
+        "setup.step1": "STEP 1",
+        "setup.step1Title": "Pick a nickname & accounts",
+        "setup.step1Desc": "First launch walks you through a name and the wallets/banks you actually use (TnG, Maybank…).",
+        "setup.step2": "STEP 2",
+        "setup.step2Title": "Turn on auto-detect",
+        "setup.step2Desc": "Flip the switch under Me, then allow notification access. We only read payment notifications — not your SMS inbox.",
+        "setup.step3": "STEP 3",
+        "setup.step3Title": "Check the inbox after you pay",
+        "setup.step3Desc": "Captures wait in a pending list. Confirm, merge, or dismiss — your call. Some phones also need battery/autostart tips; the manual covers brands.",
+
+        "more.tag": "More thoughtful bits",
+        "more.title": "Small things for daily life",
+        "more1.num": "Privacy screen",
+        "more1.pill": "One-tap mask",
+        "more1.title": "Hide amounts when someone's looking",
+        "more1.desc": "Peek mode turns figures into asterisks — safer on the train or at the office.",
+        "more2.num": "Learns merchants",
+        "more2.pill": "Gets smarter",
+        "more2.title": "Confirmed once, remembered forever",
+        "more2.desc": "Categories you confirm stick. Trusted merchants can even auto-approve under a spend cap you set.",
+        "more3.num": "3 languages",
+        "more3.pill": "EN · 中文 · BM",
+        "more3.title": "Switch language anytime",
+        "more3.desc": "Full English, Simplified Chinese, and Bahasa Melayu UI — dark mode included.",
+        "more4.num": "Budget nudges",
+        "more4.pill": "Local only",
+        "more4.title": "Monthly & daily budgets with local reminders",
+        "more4.desc": "Budgets live on your phone. Reminders fire locally — never through a server.",
+
+        "privacy.tag": "Privacy",
+        "privacy.title": "We can't see your ledger",
+        "privacy.desc": "Expense has no server that could receive your spending. No SMS permission. Payment text is parsed in memory; OTPs and promos are dropped. Export a backup or wipe everything whenever you want.",
+        "privacy.btn": "Read the privacy note",
+
+        "bench.tag": "Under the hood (briefly)",
+        "bench.title": "Light, fast, out of your way",
+        "bench.desc": "Real-device measurements, no hype: almost no idle battery drain, and queries over 5,000 entries stay snappy. Full tables live in the manual.",
+        "bench1.label": "24h battery",
+        "bench1.desc": "Under half a percent overnight with no background services spinning.",
+        "bench2.label": "Parse speed",
+        "bench2.desc": "About 17 microseconds average per payment notification.",
+        "bench3.label": "Automated tests",
+        "bench3.desc": "435 tests across 33 suites — accounting rules checked again and again.",
+
+        "contact.tag": "Say hello",
+        "contact.title": "Talk to the developer",
+        "contact.desc": "Feedback, ideas, and small bugs all welcome by email.",
+        "footer.tag": "Expense · 5.1 · Malaysia",
+
         "manual.sidebarHead": "Sections",
         "manual.s01": "Architecture",
-        "manual.s02": "First Launch",
+        "manual.s02": "First launch",
         "manual.s03": "Navigation",
-        "manual.s04": "Logging & Keypad",
+        "manual.s04": "Logging & keypad",
         "manual.s05": "Categories",
-        "manual.s06": "Accounts & Debts",
-        "manual.s07": "Bill Splits",
+        "manual.s06": "Accounts & cards",
+        "manual.s07": "Bill splits",
         "manual.s08": "Analytics",
-        "manual.s09": "Budget Tracking",
-        "manual.s10": "Auto-Detect",
-        "manual.s11": "Drafts Deck",
-        "manual.s12": "Fuel Refund",
-        "manual.s13": "Transfer Merge",
+        "manual.s09": "Budgets",
+        "manual.s10": "Auto-detect",
+        "manual.s11": "Inbox deck",
+        "manual.s12": "Fuel refunds",
+        "manual.s13": "Transfer merge",
         "manual.s14": "Setup Q&A",
-        "manual.s15": "OEM Autostart",
+        "manual.s15": "Phone brand tips",
         "manual.s16": "Preferences",
-        "manual.s17": "Data & Migration",
-        "manual.s18": "Hardware Benchmarks",
-        "manual.s19": "Privacy Governance",
-        "manual.s20": "Future Roadmap",
-        "manual.s21": "Contact & Support"
+        "manual.s17": "Backup & move",
+        "manual.s18": "Performance",
+        "manual.s19": "Privacy",
+        "manual.s20": "Roadmap",
+        "manual.s21": "Contact"
     },
 
     zh: {
-        // Navigation
         "nav.home": "首页",
-        "nav.features": "核心功能",
-        "nav.autodetect": "自动记账",
-        "nav.manual": "用户手册",
-        "nav.privacy": "隐私政策",
-        "nav.contact": "联系开发",
-        "nav.docsBtn": "使用手册",
-        "nav.supportBtn": "获取支持",
-
-        // Index - Hero
-        "hero.tag": "100% 本地 SQLITE · 零云端 · 零数据追踪",
-        "hero.title": "你的资产，完全私有。<br>零云端，100% 本地运行。",
-        "hero.subtitle": "专为马来西亚打造的本地优先个人记账应用。自动识别 Touch 'n Go、MAE Maybank、CIMB 等银行与电子钱包支付通知，零数据离机，保障绝对隐私。",
-        "hero.btnManual": "查阅用户手册",
-        "hero.btnPrivacy": "隐私安全架构",
-        "hero.btnContact": "联系开发者",
-
-        // Index - Features
-        "features.tag": "技术架构",
-        "features.title": "核心能力与特性",
-        "feat1.num": "01 / 本地数据库",
-        "feat1.title": "100% 嵌入式 SQLite 引擎",
-        "feat1.desc": "所有流水明细、账户余额与预算配置仅保存在手机本地物理 SQLite 数据库中。以整数分（sen）存储，杜绝浮点精度误差，无需云端同步。",
-        "feat2.num": "02 / 智能识别",
-        "feat2.title": "通知监听原生自动记账",
-        "feat2.desc": "实时捕获 Touch 'n Go、MAE、CIMB、Boost 及银行短信通知并在内存中完成解析，无需申请宽泛的短信读取权限。",
-        "feat3.num": "03 / 垫付分摊",
-        "feat3.title": "AA 聚餐分账与一键还款冲减",
-        "feat3.desc": "聚餐垫付支持 1/2、2/3、3/4 快捷分摊比例。应收款独立建账，不虚增个人单月开销，还款一键入账冲减。",
-        "feat4.num": "04 / 智能合并",
-        "feat4.title": "加油预扣与找零退款自动合并",
-        "feat4.desc": "加油站（RON95）预授权扣款与后续找零退款智能关联，一键合并为净支出（如 RM 80 预扣 + RM 5.34 退款 ➔ RM 74.66 实际支出），不产生虚假收入。",
-        "feat5.num": "05 / 待办箱",
-        "feat5.title": "3D 滚轮卡片待办箱",
-        "feat5.desc": "3D 滚轮收件箱审核待入账草稿，支持商户分类学习与可信自动入账、同日重复预警，以及 60 秒跨软件转账合并识别。",
-        "feat6.num": "06 / 维护修复",
-        "feat6.title": "三语支持与原子自愈校准",
-        "feat6.desc": "完整支持 English、简体中文与 Bahasa Malaysia。内置原子自愈工具，一键从有效流水中重算校准全账本账户余额。",
-
-        // Index - Setup
-        "setup.tag": "配置指引",
-        "setup.title": "3 步开启自动识别记账",
-        "setup.step1": "步骤 01",
-        "setup.step1Title": "在应用内开启开关",
-        "setup.step1Desc": "打开应用内「个人中心（Mine）」标签页，开启「自动识别记账」开关。",
-        "setup.step2": "步骤 02",
-        "setup.step2Title": "授予通知使用权",
-        "setup.step2Desc": "在安卓系统设置的「通知使用权（Notification Access）」中找到 Expense 并点击允许。",
-        "setup.step3": "步骤 03",
-        "setup.step3Title": "设置后台保活无限制",
-        "setup.step3Desc": "参考「后台保活与自启动指南」，针对小米、三星、OPPO、vivo 等机型设置电池策略为无限制。",
-
-        // Index - Table
-        "comp.tag": "对比分析",
-        "comp.title": "本地优先 vs 传统云端记账",
-        "comp.thCrit": "对比维度",
-        "comp.thExpense": "Expense (v5.1)",
-        "comp.thCloud": "传统云端记账应用",
-        "comp.row1Label": "数据存储位置",
-        "comp.row1Exp": "100% 本地 SQLITE",
-        "comp.row1Cloud": "第三方云端服务器",
-        "comp.row2Label": "账户注册要求",
-        "comp.row2Exp": "无需注册 / 无需邮箱",
-        "comp.row2Cloud": "强制手机号/邮箱注册",
-        "comp.row3Label": "数据追踪与 SDK",
-        "comp.row3Exp": "零追踪 / 零遥测 SDK",
-        "comp.row3Cloud": "集成广告与行为分析追踪",
-        "comp.row4Label": "短信权限获取",
-        "comp.row4Exp": "不索取 READ_SMS 权限",
-        "comp.row4Cloud": "强制要求完整短信读取权限",
-        "comp.row5Label": "离线运行能力",
-        "comp.row5Exp": "完全离线可用",
-        "comp.row5Cloud": "必须连接互联网",
-
-        // Index - Benchmarks
-        "bench.tag": "实测性能",
-        "bench.title": "真实硬件与功耗基准",
-
-        // Contact & Footer
-        "contact.tag": "联系与咨询",
-        "contact.title": "开发者技术支持",
-        "contact.desc": "如有任何反馈、功能建议或 Bug 汇报，请直接联系开发者：",
-        "footer.tag": "EXPENSE · 5.1 版本 · 马来西亚隐私记账",
+        "nav.features": "能做什么",
+        "nav.how": "怎么用",
+        "nav.manual": "手册",
+        "nav.privacy": "隐私",
+        "nav.contact": "联系",
+        "nav.docsBtn": "看看手册",
         "mobile.menu": "菜单",
-        "mobile.tocPrompt": "快速跳转章节...",
+        "mobile.tocPrompt": "跳转到章节…",
 
-        // Manual Sidebar Items
-        "manual.sidebarHead": "章节目录",
+        "hero.tag": "100% 本地 · 不上云 · 不追踪",
+        "hero.title": "记账，<br>不该这么累。",
+        "hero.subtitle": "Expense 是专为马来西亚人做的记账本。银行和钱包的支付通知会自动变成流水，数据只留在你的手机里——不用注册，不上传云端。",
+        "hero.btnHow": "三步开始用",
+        "hero.btnManual": "阅读手册",
+        "hero.btnPrivacy": "隐私怎么保障",
+        "hero.pill1": "数据不出手机",
+        "hero.pill2": "无需注册登录",
+        "hero.pill3": "支持 EN / 中文 / BM",
+        "hero.mockArrow": "↓ 自动识别，待你确认",
+        "hero.mockLabel": "今日流水",
+
+        "features.tag": "为什么好用",
+        "features.title": "把麻烦事交给它",
+        "feat1.num": "自动记账",
+        "feat1.pill": "通知识别",
+        "feat1.title": "付款通知，变成流水",
+        "feat1.desc": "TnG、Maybank、CIMB、Boost 等 70+ 应用的支付提醒，会自动整理成草稿。你看一眼，点确认就行。验证码和广告短信会被直接丢掉。",
+        "feat2.num": "真·本地",
+        "feat2.pill": "零上传",
+        "feat2.title": "钱和账，都归你",
+        "feat2.desc": "没有账号体系，没有云端同步，也没有广告追踪。换手机可以用二维码把整本账本搬过去，全程离线。",
+        "feat3.num": "日常好帮手",
+        "feat3.pill": "大马场景",
+        "feat3.title": "聚餐、加油、转账",
+        "feat3.desc": "AA 分账不乱月度开销；加油预扣和退款自动对上；银行卡扣款 + 钱包入账，60 秒内提示合并成一笔转账。",
+
+        "setup.tag": "上手",
+        "setup.title": "三步就能开始",
+        "setup.desc": "不用看长教程。打开应用，跟着做就好。",
+        "setup.step1": "STEP 1",
+        "setup.step1Title": "填个昵称，选常用账户",
+        "setup.step1Desc": "第一次打开会有引导：起个名字，勾选你常用的钱包和银行卡（TnG、Maybank…）。",
+        "setup.step2": "STEP 2",
+        "setup.step2Title": "打开「自动记账」",
+        "setup.step2Desc": "在「我的」里打开开关，再允许通知访问权限。我们只读支付通知，不读短信内容库。",
+        "setup.step3": "STEP 3",
+        "setup.step3Title": "付款后看一眼收件箱",
+        "setup.step3Desc": "通知进来后会先放在待确认列表。确认、合并或忽略，都由你说了算。部分手机还要允许后台运行，手册里有各品牌教程。",
+
+        "more.tag": "更多贴心功能",
+        "more.title": "日常会用到的小事",
+        "more1.num": "防窥",
+        "more1.pill": "一键打码",
+        "more1.title": "旁边有人时，金额可以藏起来",
+        "more1.desc": "防窥模式把数字打成星号，地铁上、办公室里更安心。",
+        "more2.num": "分类学习",
+        "more2.pill": "越用越聪明",
+        "more2.title": "认过一次的商户，下次自动归类",
+        "more2.desc": "你确认过的分类会记下来；可信商户还可以在金额上限内自动入账。",
+        "more3.num": "三语",
+        "more3.pill": "EN · 中文 · BM",
+        "more3.title": "界面语言随时切",
+        "more3.desc": "English、简体中文、Bahasa Melayu 全套界面，深色模式也准备好了。",
+        "more4.num": "预算提醒",
+        "more4.pill": "本地通知",
+        "more4.title": "月度 / 每日预算，超了会提醒",
+        "more4.desc": "预算存在手机本地，提醒也是本地发的，不经过任何服务器。",
+
+        "privacy.tag": "隐私",
+        "privacy.title": "我们看不到你的账本",
+        "privacy.desc": "Expense 没有服务器可以上传你的消费记录。不申请读短信权限，支付通知只在内存里解析，OTP 和促销信息直接丢弃。你随时可以导出备份，或一键清空。",
+        "privacy.btn": "阅读隐私说明",
+
+        "bench.tag": "实力（很克制地说）",
+        "bench.title": "轻、快、不打扰",
+        "bench.desc": "真机实测数据，不吹牛：后台几乎不耗电，5000 笔流水的查询也只要几毫秒。完整基准表在手册里。",
+        "bench1.label": "后台耗电",
+        "bench1.desc": "约 24 小时待机消耗，无常驻服务瞎跑。",
+        "bench2.label": "通知解析",
+        "bench2.desc": "平均一次支付通知文本识别速度。",
+        "bench3.label": "自动化测试",
+        "bench3.desc": "33 个测试套件全部通过，记账规则反复验证。",
+
+        "contact.tag": "有话说",
+        "contact.title": "找开发者聊聊",
+        "contact.desc": "反馈、建议、小问题，都欢迎写邮件。",
+        "footer.tag": "Expense · 5.1 · 马来西亚",
+
+        "manual.sidebarHead": "章节",
         "manual.s01": "架构与隐私",
         "manual.s02": "首次启动",
-        "manual.s03": "导航与视图",
+        "manual.s03": "导航",
         "manual.s04": "记账与键盘",
-        "manual.s05": "分类体系",
-        "manual.s06": "账户与负债",
-        "manual.s07": "AA 垫付分账",
-        "manual.s08": "统计分析",
-        "manual.s09": "预算管理",
+        "manual.s05": "分类",
+        "manual.s06": "账户与信用卡",
+        "manual.s07": "AA 分账",
+        "manual.s08": "统计",
+        "manual.s09": "预算",
         "manual.s10": "自动记账",
-        "manual.s11": "待办箱卡片",
-        "manual.s12": "加油退款合并",
-        "manual.s13": "转账识别合并",
-        "manual.s14": "常见问题",
-        "manual.s15": "机型保活指南",
+        "manual.s11": "待确认箱",
+        "manual.s12": "加油退款",
+        "manual.s13": "转账合并",
+        "manual.s14": "设置问答",
+        "manual.s15": "各品牌手机",
         "manual.s16": "偏好设置",
-        "manual.s17": "数据迁移与备份",
-        "manual.s18": "硬件与功耗基准",
-        "manual.s19": "隐私保护准则",
-        "manual.s20": "未来规划",
-        "manual.s21": "联系与支持"
+        "manual.s17": "备份与迁移",
+        "manual.s18": "性能",
+        "manual.s19": "隐私说明",
+        "manual.s20": "路线图",
+        "manual.s21": "联系"
     },
 
     ms: {
-        // Navigation
         "nav.home": "Utama",
-        "nav.features": "Fungsi",
-        "nav.autodetect": "Auto-Kesan",
+        "nav.features": "Apa fungsi",
+        "nav.how": "Cara mula",
         "nav.manual": "Manual",
         "nav.privacy": "Privasi",
         "nav.contact": "Hubungi",
-        "nav.docsBtn": "Dokumentasi",
-        "nav.supportBtn": "Bantuan",
-
-        // Index - Hero
-        "hero.tag": "100% SQLite Tempatan · Tanpa Awan · Tanpa Telemetri",
-        "hero.title": "Wang Anda. Privasi Anda.<br>Tanpa Awan. 100% Tempatan.",
-        "hero.subtitle": "Pengurus kewangan peribadi luar talian khas untuk Malaysia. Tangkap notifikasi pembayaran daripada Touch 'n Go, MAE, CIMB, dan amaran bank tanpa sebarang data keluar dari peranti anda.",
-        "hero.btnManual": "Terokai Manual Pengguna",
-        "hero.btnPrivacy": "Arkitektur Privasi",
-        "hero.btnContact": "Hubungi Pembangun",
-
-        // Index - Features
-        "features.tag": "Arkitektur",
-        "features.title": "Keupayaan Utama",
-        "feat1.num": "01 / PANGKALAN DATA",
-        "feat1.title": "Enjin SQLite Terbenam",
-        "feat1.desc": "Semua rekod disimpan secara eksklusif dalam pangkalan data SQLite tempatan. Ketepatan sen integer tepat tanpa penyegerakan awan.",
-        "feat2.num": "02 / TANGKAP",
-        "feat2.title": "Auto-Kesan Notifikasi",
-        "feat2.desc": "Mengesan amaran pembayaran daripada Touch 'n Go, MAE, CIMB, Boost, dan SMS bank dalam memori tanpa kebenaran membaca SMS.",
-        "feat3.num": "03 / KONGSI BIL",
-        "feat3.title": "Kongsi Bil & Bayaran Balik",
-        "feat3.desc": "Mendahulukan perbelanjaan bersama dengan pecahan nisbah (1/2, 2/3, 3/4). Menjejaki belum terima secara berasingan tanpa mengembung perbelanjaan bulanan peribadi.",
-        "feat4.num": "04 / GABUNG",
-        "feat4.title": "Gabung Auto Bayaran Balik Minyak",
-        "feat4.desc": "Pra-kebenaran pam minyak (RON95) dan baki pulangan dipadankan pada hari yang sama dan digabungkan menjadi perbelanjaan bersih tepat dengan 1 ketikan.",
-        "feat5.num": "05 / PETI MASUK",
-        "feat5.title": "Dek Kad Semakan Draf",
-        "feat5.desc": "Inbox drum-wheel 3D untuk draf tangkapan, pembelajaran kategori peniaga dengan auto-approve dipercayai, amaran duplikasi, dan cadangan gabung pindahan antara aplikasi.",
-        "feat6.num": "06 / PEMULIHAN",
-        "feat6.title": "Tri-Bahasa & Kalibrasi Kendiri",
-        "feat6.desc": "Sokongan penuh untuk Bahasa Inggeris, Bahasa Cina, dan Bahasa Melayu. Alat penentukuran lejar terbina dalam mengira semula baki akaun secara tepat.",
-
-        // Index - Setup
-        "setup.tag": "Persediaan",
-        "setup.title": "Mengaktifkan Auto-Kesan",
-        "setup.step1": "LANGKAH 01",
-        "setup.step1Title": "Aktifkan dalam Tetapan",
-        "setup.step1Desc": "Buka tab Mine dalam Expense dan hidupkan suis Auto-Detect Notifications.",
-        "setup.step2": "LANGKAH 02",
-        "setup.step2Title": "Beri Akses Notifikasi",
-        "setup.step2Desc": "Dalam Tetapan Sistem Android, cari Expense di bawah Akses Notifikasi dan pilih Benarkan.",
-        "setup.step3": "LANGKAH 03",
-        "setup.step3Title": "Pengecualian Bateri",
-        "setup.step3Desc": "Di bawah Mine → Panduan Autostart, tetapkan pengoptimuman bateri kepada tanpa sekatan untuk Xiaomi, Samsung, OPPO, atau vivo.",
-
-        // Index - Table
-        "comp.tag": "Perbandingan",
-        "comp.title": "Luar Talian vs Aplikasi Awan",
-        "comp.thCrit": "Kriteria",
-        "comp.thExpense": "Expense (v5.1)",
-        "comp.thCloud": "Aplikasi Perbelanjaan Awan",
-        "comp.row1Label": "Lokasi Penyimpanan Data",
-        "comp.row1Exp": "100% SQLITE TEMPATAN",
-        "comp.row1Cloud": "PELAYAN AWAN JAUH",
-        "comp.row2Label": "Keperluan Pendaftaran",
-        "comp.row2Exp": "TIADA PENDAFTARAN",
-        "comp.row2Cloud": "PENDAFTARAN WAJIB",
-        "comp.row3Label": "Penjejakan & SDK",
-        "comp.row3Exp": "SIFAR TELEMETRI",
-        "comp.row3Cloud": "PENJEJAK & RANGKAIAN IKLAN",
-        "comp.row4Label": "Akses SMS",
-        "comp.row4Exp": "TIADA KEBENARAN READ_SMS",
-        "comp.row4Cloud": "MEMERLUKAN AKSES PENUH SMS",
-        "comp.row5Label": "Operasi Luar Talian",
-        "comp.row5Exp": "SEPENUHNYA LUAR TALIAN",
-        "comp.row5Cloud": "MEMERLUKAN INTERNET",
-
-        // Index - Benchmarks
-        "bench.tag": "Prestasi",
-        "bench.title": "Tanda Aras Perkakasan & Kuasa",
-
-        // Contact & Footer
-        "contact.tag": "Pertanyaan",
-        "contact.title": "Sokongan Pembangun",
-        "contact.desc": "Untuk maklum balas, pertanyaan teknikal, atau laporan pepijat:",
-        "footer.tag": "EXPENSE · VERSI 5.1 · MALAYSIA",
+        "nav.docsBtn": "Baca manual",
         "mobile.menu": "Menu",
-        "mobile.tocPrompt": "Lompat ke Seksyen...",
+        "mobile.tocPrompt": "Pilih bahagian...",
 
-        // Manual Sidebar Items
-        "manual.sidebarHead": "Seksyen",
-        "manual.s01": "Arkitektur",
-        "manual.s02": "Pelancaran Pertama",
+        "hero.tag": "100% dalam telefon · Tiada awan · Tiada jejak",
+        "hero.title": "Merekod perbelanjaan<br>tak semestinya penat.",
+        "hero.subtitle": "Expense ialah buku duit untuk rakyat Malaysia. Notifikasi bayaran daripada bank dan eWallet bertukar menjadi entri yang anda sahkan sahaja. Semuanya kekal dalam telefon — tanpa akaun, tanpa muat naik.",
+        "hero.btnHow": "Mula dalam 3 langkah",
+        "hero.btnManual": "Buka manual",
+        "hero.btnPrivacy": "Bagaimana privasi?",
+        "hero.pill1": "Data kekal dalam peranti",
+        "hero.pill2": "Tiada pendaftaran",
+        "hero.pill3": "English · 中文 · BM",
+        "hero.mockArrow": "↓ Ditangkap automatik, anda sahkan",
+        "hero.mockLabel": "Entri hari ini",
+
+        "features.tag": "Kenapa digemari",
+        "features.title": "Bahagian membosankan, biar ia urus",
+        "feat1.num": "Auto-log",
+        "feat1.pill": "Tangkap notifikasi",
+        "feat1.title": "Notifikasi bayaran jadi entri",
+        "feat1.desc": "Amaran daripada 70+ aplikasi Malaysia — TnG, Maybank, CIMB, Boost dan lain-lain — menjadi draf. Lihat, sahkan, selesai. Kod OTP dan promosi dibuang.",
+        "feat2.num": "Benar-benar lokal",
+        "feat2.pill": "Sifar muat naik",
+        "feat2.title": "Duit anda, telefon anda",
+        "feat2.desc": "Tiada akaun, tiada sync awan, tiada perchure. Tukar telefon? Pindah keseluruhan buku besar dengan QR, 100% luar talian.",
+        "feat3.num": "Pembantu harian",
+        "feat3.pill": "Untuk Malaysia",
+        "feat3.title": "Makan, minyak, pindahan",
+        "feat3.desc": "Bahagi bil tanpa cemarkan belanja bulanan. Pegangan minyak & bayaran balik sepadan. Caj kad + top-up dompet dalam 60 saat? Cadangan gabung sebagai pindahan.",
+
+        "setup.tag": "Mula guna",
+        "setup.title": "Siap dalam 3 langkah",
+        "setup.desc": "Tiada tutorial panjang. Buka aplikasi dan ikut sahaja.",
+        "setup.step1": "LANGKAH 1",
+        "setup.step1Title": "Nama & akaun pilihan",
+        "setup.step1Desc": "Panduan kali pertama: pilih nama dan dompet/bank yang anda guna (TnG, Maybank…).",
+        "setup.step2": "LANGKAH 2",
+        "setup.step2Title": "Hidupkan auto-detect",
+        "setup.step2Desc": "Buka suis di bawah Saya, kemudian benarkan akses notifikasi. Kami hanya baca notifikasi pembayaran — bukan peti masuk SMS.",
+        "setup.step3": "LANGKAH 3",
+        "setup.step3Title": "Semak inbox selepas bayar",
+        "setup.step3Desc": "Tangkapan menunggu dalam senarai tertunggak. Sahkan, gabung, atau tolak — pilihan anda. Sesetengah telefon perlukan tip bateri/autostart; manual ada panduan jenama.",
+
+        "more.tag": "Lebih banyak",
+        "more.title": "Perkara kecil untuk hidup harian",
+        "more1.num": "Skrin privasi",
+        "more1.pill": "Topeng satu ketik",
+        "more1.title": "Sembunyikan amaun bila ada orang",
+        "more1.desc": "Mod peek tukar angka kepada tanda bintang — lebih selamat di LRT atau pejabat.",
+        "more2.num": "Belajar peniaga",
+        "more2.pill": "Lebih bijak",
+        "more2.title": "Sekali sahkan, diingat selamanya",
+        "more2.desc": "Kategori yang anda sahkan kekal. Peniaga dipercayai boleh auto-approve dalam had perbelanjaan anda.",
+        "more3.num": "3 bahasa",
+        "more3.pill": "EN · 中文 · BM",
+        "more3.title": "Tukar bahasa bila-bila",
+        "more3.desc": "UI penuh English, 简体中文, dan Bahasa Melayu — termasuk mod gelap.",
+        "more4.num": "Nudge bajet",
+        "more4.pill": "Lokal sahaja",
+        "more4.title": "Bajet bulanan & harian dengan peringatan lokal",
+        "more4.desc": "Bajet disimpan dalam telefon. Peringatan berjalan secara lokal — tidak melalui mana-mana pelayan.",
+
+        "privacy.tag": "Privasi",
+        "privacy.title": "Kami tak boleh lihat buku besar anda",
+        "privacy.desc": "Expense tiada pelayan yang boleh menerima data perbelanjaan anda. Tiada kebenaran SMS. Teks pembayaran diproses dalam memori; OTP & promosi dibuang. Eksport sandaran atau kosongkan semuanya bila-bila.",
+        "privacy.btn": "Baca nota privasi",
+
+        "bench.tag": "Di sebalik tabir (ringkas)",
+        "bench.title": "Ringan, pantas, tidak mengganggu",
+        "bench.desc": "Ukuran peranti fizikal, tanpa hiperbola: hampir tiada bateri terbiar, pertanyaan kekal laju walaupun 5,000 entri. Jadual penuh dalam manual.",
+        "bench1.label": "Bateri 24 jam",
+        "bench1.desc": "Bawah setengah peratus semalaman tanpa perkhidmatan latar berputar.",
+        "bench2.label": "Kelajuan parse",
+        "bench2.desc": "Kira-kira 17 mikrosaat purata bagi setiap notifikasi pembayaran.",
+        "bench3.label": "Ujian automatik",
+        "bench3.desc": "435 ujian merentas 33 suite — perakaunan disemak berulang kali.",
+
+        "contact.tag": "Katakan halo",
+        "contact.title": "Bercakap dengan pembangun",
+        "contact.desc": "Maklum balas, idea, dan bug kecil dialu-alukan melalui e-mel.",
+        "footer.tag": "Expense · 5.1 · Malaysia",
+
+        "manual.sidebarHead": "Bahagian",
+        "manual.s01": "Arsitektur & privasi",
+        "manual.s02": "Pelancaran pertama",
         "manual.s03": "Navigasi",
-        "manual.s04": "Merekod & Papan Kekunci",
+        "manual.s04": "Rekod & papan kekunci",
         "manual.s05": "Kategori",
-        "manual.s06": "Akaun & Liabiliti",
-        "manual.s07": "Kongsi Bil",
-        "manual.s08": "Statistik",
-        "manual.s09": "Pengurusan Bajet",
-        "manual.s10": "Auto-Kesan",
-        "manual.s11": "Peti Masuk Draf",
-        "manual.s12": "Bayaran Balik Minyak",
-        "manual.s13": "Gabung Pindahan",
-        "manual.s14": "Soal Jawab",
-        "manual.s15": "Panduan Autostart",
+        "manual.s06": "Akaun & kad",
+        "manual.s07": "Bahagi bil",
+        "manual.s08": "Analitik",
+        "manual.s09": "Bajet",
+        "manual.s10": "Auto-detect",
+        "manual.s11": "Deck inbox",
+        "manual.s12": "Bayaran balik minyak",
+        "manual.s13": "Gabung pindahan",
+        "manual.s14": "Soalan tetapan",
+        "manual.s15": "Tip jenama telefon",
         "manual.s16": "Keutamaan",
-        "manual.s17": "Data & Migrasi",
-        "manual.s18": "Tanda Aras Perkakasan",
-        "manual.s19": "Tadbir Urus Privasi",
-        "manual.s20": "Peta Hala Tuju",
-        "manual.s21": "Hubungi & Bantuan"
+        "manual.s17": "Sandar & pindah",
+        "manual.s18": "Prestasi",
+        "manual.s19": "Privasi",
+        "manual.s20": "Peta jalan",
+        "manual.s21": "Hubungi"
     }
 };
 
-/**
- * Appends or updates the ?lang= parameter on all internal HTML links.
- * Ensures seamless state transfer across pages even on file:/// local browsing.
- */
-function updateInternalLinks(lang) {
-    document.querySelectorAll("a[href]").forEach(a => {
-        const rawHref = a.getAttribute("href");
-        if (!rawHref || rawHref.startsWith("mailto:") || rawHref.startsWith("http://") || rawHref.startsWith("https://")) {
-            return;
-        }
-
-        // If it's a relative link to an html file or anchor
-        if (rawHref.includes(".html") || rawHref.startsWith("index.html") || rawHref.startsWith("manual.html") || rawHref.startsWith("privacy.html")) {
-            try {
-                const parts = rawHref.split("#");
-                const pathAndQuery = parts[0];
-                const hash = parts.length > 1 ? "#" + parts[1] : "";
-
-                const fileParts = pathAndQuery.split("?");
-                const baseFile = fileParts[0];
-
-                const searchParams = new URLSearchParams(fileParts[1] || "");
-                searchParams.set("lang", lang);
-
-                a.setAttribute("href", baseFile + "?" + searchParams.toString() + hash);
-            } catch (e) {}
-        }
-    });
-}
-
 function applyLanguage(lang) {
-    const validLang = (lang === "zh" || lang === "ms") ? lang : "en";
-    const dict = translations[validLang];
+    const dict = translations[lang] || translations.en;
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : lang;
 
-    document.documentElement.setAttribute("data-lang", validLang);
-    document.documentElement.lang = validLang;
-    
-    if (document.body) {
-        document.body.setAttribute("data-lang", validLang);
-    }
-
-    // Update all elements with data-i18n
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (dict[key]) {
-            el.textContent = dict[key];
-        }
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] != null) el.textContent = dict[key];
     });
-
-    // Update all elements with data-i18n-html
-    document.querySelectorAll("[data-i18n-html]").forEach(el => {
-        const key = el.getAttribute("data-i18n-html");
-        if (dict[key]) {
-            el.innerHTML = dict[key];
-        }
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key] != null) el.innerHTML = dict[key];
     });
-
-    // Update active class on language toggle buttons
-    document.querySelectorAll(".lang-btn").forEach(btn => {
-        const btnLang = btn.getAttribute("data-lang");
-        btn.classList.toggle("active", btnLang === validLang);
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
-
-    // Update URL query parameters on all internal navigation links
-    updateInternalLinks(validLang);
-
-    // Save to localStorage
+    try { localStorage.setItem('site_lang', lang); } catch (e) {}
     try {
-        localStorage.setItem("site_lang", validLang);
+        const url = new URL(window.location.href);
+        url.searchParams.set('lang', lang);
+        history.replaceState(null, '', url);
     } catch (e) {}
-
-    // Update browser URL query string without reloading
-    try {
-        if (window.history && window.history.replaceState) {
-            const url = new URL(window.location.href);
-            url.searchParams.set("lang", validLang);
-            window.history.replaceState(null, "", url.pathname.split("/").pop() + url.search + url.hash);
-        }
-    } catch (e) {}
-}
-
-function getInitialLanguage() {
-    try {
-        const urlParams = new URLSearchParams(window.location.search);
-        const langParam = urlParams.get("lang");
-        if (langParam === "zh" || langParam === "ms" || langParam === "en") {
-            return langParam;
-        }
-    } catch (e) {}
-
-    try {
-        const savedLang = localStorage.getItem("site_lang");
-        if (savedLang === "zh" || savedLang === "ms" || savedLang === "en") {
-            return savedLang;
-        }
-    } catch (e) {}
-
-    return "en";
 }
 
 function initMobileMenu() {
-    const menuBtn = document.querySelector(".menu-toggle-btn");
-    const drawer = document.querySelector(".mobile-nav-drawer");
-
-    if (menuBtn && drawer) {
-        menuBtn.addEventListener("click", () => {
-            drawer.classList.toggle("open");
-            const isOpen = drawer.classList.contains("open");
-            const curLang = document.documentElement.getAttribute("data-lang") || "en";
-            menuBtn.textContent = isOpen ? "CLOSE" : (translations[curLang]["mobile.menu"] || "MENU");
-        });
-
-        drawer.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => {
-                drawer.classList.remove("open");
-                const curLang = document.documentElement.getAttribute("data-lang") || "en";
-                menuBtn.textContent = translations[curLang]["mobile.menu"] || "MENU";
-            });
-        });
-    }
+    const toggle = document.querySelector('.menu-toggle-btn');
+    const drawer = document.querySelector('.mobile-nav-drawer');
+    if (!toggle || !drawer) return;
+    toggle.addEventListener('click', () => drawer.classList.toggle('open'));
+    drawer.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => drawer.classList.remove('open'));
+    });
 }
 
 function initMobileToc() {
-    const tocSelect = document.querySelector(".mobile-toc-select");
-    if (tocSelect) {
-        tocSelect.addEventListener("change", (e) => {
-            const targetId = e.target.value;
-            if (targetId) {
-                const targetSec = document.getElementById(targetId);
-                if (targetSec) {
-                    targetSec.scrollIntoView({ behavior: "smooth" });
-                }
-            }
-        });
-    }
+    const select = document.querySelector('.mobile-toc-select');
+    if (!select) return;
+    select.addEventListener('change', () => {
+        const id = select.value;
+        if (!id) return;
+        const target = document.getElementById(id);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
 }
 
-function initI18n() {
-    const initialLang = getInitialLanguage();
-    applyLanguage(initialLang);
-
-    // Bind click events on language toggle buttons
-    document.querySelectorAll(".lang-btn").forEach(btn => {
-        btn.addEventListener("click", (e) => {
-            e.preventDefault();
-            const chosenLang = btn.getAttribute("data-lang");
-            applyLanguage(chosenLang);
-        });
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang')));
     });
-
+    const params = new URLSearchParams(window.location.search);
+    const saved = (() => { try { return localStorage.getItem('site_lang'); } catch (e) { return null; } })();
+    const fromUrl = params.get('lang');
+    const lang = (fromUrl === 'en' || fromUrl === 'zh' || fromUrl === 'ms')
+        ? fromUrl
+        : ((saved === 'en' || saved === 'zh' || saved === 'ms') ? saved : 'en');
+    applyLanguage(lang);
     initMobileMenu();
     initMobileToc();
-}
-
-// Auto initialize on DOM ready
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initI18n);
-} else {
-    initI18n();
-}
+});
