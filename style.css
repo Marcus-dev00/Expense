@@ -894,6 +894,53 @@ body[data-lang="ms"] .lang-content.lang-zh { display: none !important; }
     font-size: 0.8rem;
     color: var(--ink-soft);
 }
+.beta-list {
+    list-style: none;
+    text-align: left;
+    max-width: 420px;
+    margin: 0 auto 22px;
+    display: grid;
+    gap: 8px;
+}
+.beta-list li {
+    font-size: 0.92rem;
+    color: var(--ink-muted);
+    padding-left: 1.1em;
+    position: relative;
+}
+.beta-list li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: var(--ink);
+    font-weight: 700;
+}
+.plain-summary {
+    margin-bottom: 22px;
+}
+.plain-summary ul {
+    margin-top: 8px;
+    padding-left: 1.2em;
+}
+.plain-summary li {
+    margin-bottom: 6px;
+}
+
+/* Skip link */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 10000;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 10px 16px;
+    border-radius: 0 0 8px 0;
+    font-weight: 650;
+}
+.skip-link:focus {
+    left: 0;
+}
 
 /* Manual intro */
 .manual-intro {

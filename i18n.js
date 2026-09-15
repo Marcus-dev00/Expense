@@ -16,6 +16,7 @@ const translations = {
         "nav.docsBtn": "Open guide",
         "mobile.menu": "Menu",
         "mobile.tocPrompt": "Jump to section...",
+        "a11y.skip": "Skip to content",
 
         "hero.tag": "Only on your phone · No internet needed · No spying",
         "hero.title": "Saving money notes<br>should be easy.",
@@ -106,10 +107,13 @@ const translations = {
         "shots.s5": "Mine · budget & auto-log",
         "beta.tag": "Closed beta",
         "beta.title": "Still in closed testing — no public download",
-        "beta.desc": "Not on the Play Store yet. Join the testing group first; after you're approved you'll get the installer. That way we can improve slowly and hear real feedback.",
+        "beta.desc": "Not on the Play Store yet. Join the group, get the test installer from the posts, and help us fix what feels awkward.",
+        "beta.what1": "You get: a test APK install link (via the group)",
+        "beta.what2": "You give: short feedback on bugs or confusing bits",
+        "beta.what3": "No spam — group posts are only about Expense",
         "beta.btn": "Join testing group",
         "beta.btnManual": "Read the guide first",
-        "beta.note": "Opens Google Groups · follow the group posts to get the test build",
+        "beta.note": "Opens Google Groups · approval may take a little time",
         "next.tag": "Next",
         "next.title": "Want the details?",
         "next.desc": "The homepage only covers what it is, whether it's safe, and how to start. Splits, fuel merge, and brand-specific battery tips live in the guide.",
@@ -157,6 +161,7 @@ const translations = {
         "nav.docsBtn": "打开指南",
         "mobile.menu": "菜单",
         "mobile.tocPrompt": "跳到某一节…",
+        "a11y.skip": "跳到主要内容",
 
         "hero.tag": "只存在你手机里 · 不用联网 · 没人偷看",
         "hero.title": "记花的钱，<br>可以很轻松。",
@@ -247,10 +252,13 @@ const translations = {
         "shots.s5": "我的 · 预算与自动记账",
         "beta.tag": "封闭测试",
         "beta.title": "还在封闭测试，没有公开下载",
-        "beta.desc": "目前不在应用商店公开上架。想试用请先加入测试组，通过后再获取安装包。这样我们可以慢慢改，也更好听大家的意见。",
+        "beta.desc": "目前不在应用商店公开上架。加入测试组后，按组内说明拿测试安装包；用起来别扭的地方，欢迎直接反馈。",
+        "beta.what1": "你会得到：组内发布的测试版安装链接",
+        "beta.what2": "你会给出：简短反馈（Bug 或难懂的地方）",
+        "beta.what3": "不灌水：组内通知只谈 Expense",
         "beta.btn": "加入测试组",
         "beta.btnManual": "先看使用指南",
-        "beta.note": "链接会打开 Google Groups 页面 · 加入后按组内说明获取测试版",
+        "beta.note": "会打开 Google Groups · 审核可能需要一点时间",
         "next.tag": "下一步",
         "next.title": "还想看细节？",
         "next.desc": "主页只讲清楚「它是什么、安不安全、怎么开始」。分账、加油合并、各品牌后台设置，都在使用指南里。",
@@ -298,6 +306,7 @@ const translations = {
         "nav.docsBtn": "Buka panduan",
         "mobile.menu": "Menu",
         "mobile.tocPrompt": "Pilih bahagian...",
+        "a11y.skip": "Langkau ke kandungan",
 
         "hero.tag": "Dalam telefon sahaja · Tak perlu internet · Tiada orang intai",
         "hero.title": "Rekod duit belanja<br>patut senang.",
@@ -388,10 +397,13 @@ const translations = {
         "shots.s5": "Saya · bajet & auto-log",
         "beta.tag": "Beta tertutup",
         "beta.title": "Masih beta tertutup — tiada muat naik awam",
-        "beta.desc": "Belum di Play Store. Sertai kumpulan ujian dahulu; selepas lulus anda akan dapat pemasang. Boleh perbaiki perlahan-lahan dan dengar maklum balas sebenar.",
+        "beta.desc": "Belum di Play Store. Sertai kumpulan, ambil pemasang ujian daripada post, dan bantu kami betulkan apa yang rasa janggal.",
+        "beta.what1": "Anda dapat: pautan APK ujian (dalam kumpulan)",
+        "beta.what2": "Anda beri: maklum balas ringkas tentang bug atau bahagian keliru",
+        "beta.what3": "Tiada spam — notis kumpulan hanya pasal Expense",
         "beta.btn": "Sertai kumpulan ujian",
         "beta.btnManual": "Baca panduan dulu",
-        "beta.note": "Buka Google Groups · ikut pos dalam kumpulan untuk dapat build ujian",
+        "beta.note": "Buka Google Groups · kelulusan mungkin ambil masa",
         "next.tag": "Langkah seterusnya",
         "next.title": "Nak tahu lebih lanjut?",
         "next.desc": "Laman utama hanya terangkan apa ia, selamat ke, dan cara mula. Bahagi bil, gabung minyak, dan tetapan bateri jenama ada dalam panduan.",
@@ -443,7 +455,9 @@ function applyLanguage(lang) {
         if (dict[key] != null) el.innerHTML = dict[key];
     });
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        const active = btn.getAttribute('data-lang') === lang;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
     try { localStorage.setItem('site_lang', lang); } catch (e) {}
     try {
@@ -571,11 +585,16 @@ function initPhoneDemo() {
 }
 
 function initPageTransitions() {
-    // Entering: lift the veil after first paint
+    // Entering: lift the veil after first paint, then move focus to main
     requestAnimationFrame(() => {
         requestAnimationFrame(() => {
             document.body.classList.remove('is-entering');
             document.body.classList.add('is-ready');
+            const main = document.querySelector('main');
+            if (main) {
+                main.setAttribute('tabindex', '-1');
+                main.focus({ preventScroll: true });
+            }
         });
     });
 
@@ -585,7 +604,6 @@ function initPageTransitions() {
         a.addEventListener('click', (e) => {
             const href = a.getAttribute('href');
             if (!href || href.startsWith('mailto:') || href.startsWith('http')) return;
-            // Same-page hash: let smooth scroll handle it
             if (href.startsWith('#')) return;
 
             e.preventDefault();

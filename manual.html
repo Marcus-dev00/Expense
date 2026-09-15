@@ -28,9 +28,10 @@
             } catch(e) {}
         })();
     </script>
-    <link rel="stylesheet" href="style.css?v=bw6">
+    <link rel="stylesheet" href="style.css?v=bw7">
 </head>
 <body class="is-entering">
+    <a class="skip-link" href="#main" data-i18n="a11y.skip">跳到主要内容</a>
     <div class="page-veil" aria-hidden="true"></div>
 
 <!-- Top Navigation -->
@@ -99,7 +100,7 @@
     </select>
 </div>
 
-<div class="manual-layout">
+<div class="manual-layout" id="main" tabindex="-1">
 
     <!-- Sticky Desktop Sidebar -->
     <aside class="manual-sidebar">
@@ -167,82 +168,79 @@
         <!-- 01. Architecture -->
         <section class="doc-section" id="sec-01">
             <div class="lang-content lang-en">
-                <div class="section-header"><span class="section-badge-num">01.</span><div class="section-title-group"><h2>Overview & Architecture</h2><div class="desc">100% Offline-first local ledger</div></div></div>
-                <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;"><strong>Expense</strong> is designed for privacy-conscious users in Malaysia. All records are stored exclusively in an embedded SQLite database on your device with exact integer sen precision.</p>
-                <div class="callout"><strong>Currency Standard:</strong> Amounts are stored internally as integer sen (`RM 124.50` = `12450` sen) to prevent floating-point errors.</div>
+                <div class="section-header"><span class="section-badge-num">01.</span><div class="section-title-group"><h2>What Expense is</h2><div class="desc">Local money notes for Malaysia</div></div></div>
+                <p>Expense keeps your spending on this phone. No login. No cloud. Amounts use exact sen math so totals stay correct.</p>
+                <div class="callout"><strong>Good to know:</strong> Optional auto-log only reads payment alerts you already see as notifications.</div>
             </div>
             <div class="lang-content lang-zh">
-                <div class="section-header"><span class="section-badge-num">01.</span><div class="section-title-group"><h2>技术架构与隐私哲学</h2><div class="desc">100% 本地嵌入式 SQLite 引擎</div></div></div>
-                <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;"><strong>Expense</strong> 专为注重个人财务隐私的马来西亚用户设计。所有流水、分类、预算与账户配置全部保存在手机物理 SQLite 数据库中，零数据上报。</p>
-                <div class="callout"><strong>货币单位与存储精度：</strong> 底层全部采用<strong>整数分（sen）</strong>存储（例如 `RM 124.50` 存储为整数 `12450`），彻底消除浮点数计算误差。</div>
+                <div class="section-header"><span class="section-badge-num">01.</span><div class="section-title-group"><h2>Expense 是什么</h2><div class="desc">记在手机里的大马日常账本</div></div></div>
+                <p>Expense 把你的花费记在这台手机里。不用登录，不用上云。金额按「分」精确计算，总账不容易算错。</p>
+                <div class="callout"><strong>先知道这一点：</strong>自动记账只看你本来就能看到的付款通知，不会去翻全部短信。</div>
             </div>
             <div class="lang-content lang-ms">
-                <div class="section-header"><span class="section-badge-num">01.</span><div class="section-title-group"><h2>Arkitektur & Privasi</h2><div class="desc">100% Lejar tempatan luar talian</div></div></div>
-                <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;"><strong>Expense</strong> direka khas untuk pengguna di Malaysia. Semua rekod disimpan dalam pangkalan data SQLite peranti anda dengan ketepatan integer sen.</p>
-                <div class="callout"><strong>Standard Mata Wang:</strong> Nilai disimpan sebagai integer sen (`RM 124.50` = `12450` sen) untuk mengelakkan ralat pembundaran.</div>
+                <div class="section-header"><span class="section-badge-num">01.</span><div class="section-title-group"><h2>Apa itu Expense</h2><div class="desc">Nota duit tempatan untuk Malaysia</div></div></div>
+                <p>Expense simpan belanja dalam telefon ini. Tiada log masuk. Tiada awan. Amaun dikira tepat dalam sen supaya jumlah kekal betul.</p>
+                <div class="callout"><strong>Perlu tahu:</strong> Auto-log hanya baca amaran bayaran yang anda sudah nampak sebagai notifikasi.</div>
             </div>
         </section>
 
         <!-- 02. First Launch -->
         <section class="doc-section" id="sec-02">
             <div class="lang-content lang-en">
-                <div class="section-header"><span class="section-badge-num">02.</span><div class="section-title-group"><h2>First Launch & Onboarding</h2><div class="desc">3-step wizard and interactive spotlight tour</div></div></div>
+                <div class="section-header"><span class="section-badge-num">02.</span><div class="section-title-group"><h2>First open</h2><div class="desc">Three quick steps</div></div></div>
                 <ul class="step-list">
-                    <li><span class="step-num">01</span><div class="step-body"><strong>Welcome & Privacy Commitment</strong><span>Showcases offline-first architecture with option to migrate from an old phone.</span></div></li>
-                    <li><span class="step-num">02</span><div class="step-body"><strong>Profile Name Setup</strong><span>Set your local profile nickname (2–20 characters) stored solely on your device.</span></div></li>
-                    <li><span class="step-num">03</span><div class="step-body"><strong>Account Selection Grid</strong><span>Select primary accounts in 1-tap from Malaysian presets (TNG, MAE, CIMB, Cash, Credit Cards).</span></div></li>
+                    <li><span class="step-num">1</span><div class="step-body"><strong>Nickname</strong><span>Pick a short name (2–20 chars). Stored only on device.</span></div></li>
+                    <li><span class="step-num">2</span><div class="step-body"><strong>Accounts you use</strong><span>Tick TnG, Maybank, CIMB, cash, cards — only what you actually use.</span></div></li>
+                    <li><span class="step-num">3</span><div class="step-body"><strong>Spotlight tour</strong><span>Optional guide shows where to add, view stats, and open settings.</span></div></li>
                 </ul>
-                <div class="callout" style="margin-top: 14px;"><strong>Interactive Spotlight Tour:</strong> Following onboarding, a guided tour highlights the + Record button, Pending Inbox, Statistics, Accounts, and Mine settings.</div>
             </div>
             <div class="lang-content lang-zh">
-                <div class="section-header"><span class="section-badge-num">02.</span><div class="section-title-group"><h2>首次启动与新手向导</h2><div class="desc">极简三步初始化与交互式聚光灯教程</div></div></div>
+                <div class="section-header"><span class="section-badge-num">02.</span><div class="section-title-group"><h2>第一次打开</h2><div class="desc">三步就绪</div></div></div>
                 <ul class="step-list">
-                    <li><span class="step-num">01</span><div class="step-body"><strong>欢迎页与零云端声明</strong><span>展示本地优先隐私原则，支持直接点击「旧手机数据迁入」快速无网换机。</span></div></li>
-                    <li><span class="step-num">02</span><div class="step-body"><strong>设置个人昵称</strong><span>输入 2–20 位的本地显示名字，纯本地存储，绝不外传。</span></div></li>
-                    <li><span class="step-num">03</span><div class="step-body"><strong>常用账户一键勾选网格</strong><span>分类筛选并一键勾选马来西亚主流电子钱包与银行卡（TNG、MAE、CIMB、现金、信用卡）。</span></div></li>
+                    <li><span class="step-num">1</span><div class="step-body"><strong>起个昵称</strong><span>2–20 个字，只存在手机里。</span></div></li>
+                    <li><span class="step-num">2</span><div class="step-body"><strong>选常用账户</strong><span>勾上你真的会用的：TnG、Maybank、CIMB、现金、信用卡……</span></div></li>
+                    <li><span class="step-num">3</span><div class="step-body"><strong>跟着引导看一眼</strong><span>告诉你哪里记账、哪里看统计、哪里改设置。</span></div></li>
                 </ul>
-                <div class="callout" style="margin-top: 14px;"><strong>交互式聚光灯向导：</strong> 进入主界面后，逐步指引熟悉「+ 记账悬浮钮」、「待办箱」、「统计分析」、「账户管理」及「个人中心」。</div>
             </div>
             <div class="lang-content lang-ms">
-                <div class="section-header"><span class="section-badge-num">02.</span><div class="section-title-group"><h2>Pelancaran Pertama & Persediaan</h2><div class="desc">Panduan 3-langkah dan jelajah lampu sorot interaktif</div></div></div>
+                <div class="section-header"><span class="section-badge-num">02.</span><div class="section-title-group"><h2>Buka pertama kali</h2><div class="desc">Tiga langkah ringkas</div></div></div>
                 <ul class="step-list">
-                    <li><span class="step-num">01</span><div class="step-body"><strong>Skrin Alu-aluan & Privasi</strong><span>Pengisytiharan privasi luar talian dengan pilihan migrasi dari telefon lama.</span></div></li>
-                    <li><span class="step-num">02</span><div class="step-body"><strong>Tetapan Nama Profil</strong><span>Masukkan nama profil tempatan (2–20 aksara) yang disimpan pada peranti anda sahaja.</span></div></li>
-                    <li><span class="step-num">03</span><div class="step-body"><strong>Grid Pilihan Akaun Utama</strong><span>Pilih akaun harian dalam 1-ketikan daripada pratetap Malaysia (TNG, MAE, CIMB, Tunai, Kad Kredit).</span></div></li>
+                    <li><span class="step-num">1</span><div class="step-body"><strong>Nama samaran</strong><span>2–20 aksara. Disimpan dalam telefon sahaja.</span></div></li>
+                    <li><span class="step-num">2</span><div class="step-body"><strong>Akaun biasa</strong><span>Tick TnG, Maybank, CIMB, tunai, kad — yang anda guna sahaja.</span></div></li>
+                    <li><span class="step-num">3</span><div class="step-body"><strong>Jelajah ringkas</strong><span>Tunjuk di mana nak rekod, lihat statistik, dan tetapan.</span></div></li>
                 </ul>
-                <div class="callout" style="margin-top: 14px;"><strong>Jelajah Lampu Sorot Interaktif:</strong> Selepas persediaan, panduan beranimasi membimbing ciri butang +, Peti Masuk, Statistik, Akaun, dan Mine.</div>
             </div>
         </section>
 
         <!-- 03. Navigation -->
         <section class="doc-section" id="sec-03">
             <div class="lang-content lang-en">
-                <div class="section-header"><span class="section-badge-num">03.</span><div class="section-title-group"><h2>Navigation & Views</h2><div class="desc">Four primary tabs and central recorder</div></div></div>
-                <p style="color:var(--text-muted); font-size:14px;"><strong>Home:</strong> Monthly balances with privacy eye, inbox banner, and transaction feed.<br><strong>Statistics:</strong> Period graphs, trends, and category rankings.<br><strong>Accounts:</strong> Net assets, bank cards, eWallets, and receivable debts.<br><strong>Mine:</strong> Budgets, auto-detect settings, language, theme, and recalibration tools.</p>
+                <div class="section-header"><span class="section-badge-num">03.</span><div class="section-title-group"><h2>Where things are</h2><div class="desc">Four tabs + the + button</div></div></div>
+                <p><strong>Home:</strong> month balance, feed.<br><strong>Stats:</strong> week / month / year charts.<br><strong>Accounts:</strong> cash, banks, cards.<br><strong>Mine:</strong> budget, auto-log, language, theme.</p>
             </div>
             <div class="lang-content lang-zh">
-                <div class="section-header"><span class="section-badge-num">03.</span><div class="section-title-group"><h2>导航架构与核心视图</h2><div class="desc">四大主标签页与中央悬浮记账</div></div></div>
-                <p style="color:var(--text-muted); font-size:14px;"><strong>首页 (Home)：</strong> 月度收支卡片（支持隐私眼睛遮挡）、待办箱横幅、按日期分组流水列表与搜索筛选。<br><strong>统计 (Statistics)：</strong> 周/月/年周期切换、动态条形图、月环比趋势及分类支出排行榜。<br><strong>资金账本 (Accounts)：</strong> 净资产总额、现金与电子钱包、银行卡、信用卡负债及待收欠款。<br><strong>个人中心 (Mine)：</strong> 预算限额、自动记账开关、保活指南、中英马三语切换、主题及余额自愈校准。</p>
+                <div class="section-header"><span class="section-badge-num">03.</span><div class="section-title-group"><h2>界面怎么走</h2><div class="desc">四个页签 + 中间加号</div></div></div>
+                <p><strong>首页：</strong>本月余额和流水。<br><strong>统计：</strong>周 / 月 / 年图表。<br><strong>账户：</strong>现金、银行、信用卡。<br><strong>我的：</strong>预算、自动记账、语言、主题。</p>
             </div>
             <div class="lang-content lang-ms">
-                <div class="section-header"><span class="section-badge-num">03.</span><div class="section-title-group"><h2>Navigasi & Paparan Utama</h2><div class="desc">Empat tab utama dan butang rakam</div></div></div>
-                <p style="color:var(--text-muted); font-size:14px;"><strong>Utama:</strong> Baki bulanan dengan ikon privasi, sepanduk peti masuk, dan senarai transaksi.<br><strong>Statistik:</strong> Graf tempoh, tren, dan kedudukan kategori.<br><strong>Akaun:</strong> Aset bersih, kad bank, e-dompet, dan pinjaman belum terima.<br><strong>Mine:</strong> Had bajet, tetapan auto-kesan, pertukaran bahasa, tema, dan alat penentukuran.</p>
+                <div class="section-header"><span class="section-badge-num">03.</span><div class="section-title-group"><h2>Di mana letaknya</h2><div class="desc">Empat tab + butang +</div></div></div>
+                <p><strong>Utama:</strong> baki bulanan, senarai.<br><strong>Statistik:</strong> graf minggu / bulan / tahun.<br><strong>Akaun:</strong> tunai, bank, kad.<br><strong>Mine:</strong> bajet, auto-log, bahasa, tema.</p>
             </div>
         </section>
 
         <!-- 04. Logging & Keypad -->
         <section class="doc-section" id="sec-04">
             <div class="lang-content lang-en">
-                <div class="section-header"><span class="section-badge-num">04.</span><div class="section-title-group"><h2>Logging Transactions & Keypad</h2><div class="desc">Live arithmetic and soft-delete undo</div></div></div>
-                <p style="color:var(--text-muted); font-size:14px;">The custom numeric keypad supports live arithmetic calculations (e.g. `12.50 + 5.30 = RM 17.80`). Deleting a record triggers a 4.5-second undo snackbar.</p>
+                <div class="section-header"><span class="section-badge-num">04.</span><div class="section-title-group"><h2>Add an expense</h2><div class="desc">Math keypad · undo delete</div></div></div>
+                <p>Tap <strong>+</strong>, type the amount (you can do sums like <code>12.50 + 5</code>), pick category and account, save. Delete has a few seconds to undo.</p>
             </div>
             <div class="lang-content lang-zh">
-                <div class="section-header"><span class="section-badge-num">04.</span><div class="section-title-group"><h2>记账流程与算术键盘</h2><div class="desc">实时算术运算与 4.5 秒防误删撤销</div></div></div>
-                <p style="color:var(--text-muted); font-size:14px;">点击中央「+ 记账」呼出专用数字键盘（`NumKeyboard.js`），支持在金额框中直接进行加减乘除实时运算（如 `12.50 + 5.30 = RM 17.80`）。删除流水采用软删除（`deleted_at`），提供 4.5 秒悬浮撤销栏。</p>
+                <div class="section-header"><span class="section-badge-num">04.</span><div class="section-title-group"><h2>怎么记一笔</h2><div class="desc">算术键盘 · 可撤销删除</div></div></div>
+                <p>点 <strong>+</strong>，输入金额（可以直接写 <code>12.50 + 5</code>），选分类和账户，保存。删错了还有几秒可以撤销。</p>
             </div>
             <div class="lang-content lang-ms">
-                <div class="section-header"><span class="section-badge-num">04.</span><div class="section-title-group"><h2>Merekod Transaksi & Papan Kekunci</h2><div class="desc">Aritmetik langsung dan bar snek batal padam</div></div></div>
-                <p style="color:var(--text-muted); font-size:14px;">Papan kekunci numerik terbina dalam menyokong pengiraan matematik langsung (cth. `12.50 + 5.30 = RM 17.80`). Pemadaman menyediakan bar snek pemulihan 4.5 saat.</p>
+                <div class="section-header"><span class="section-badge-num">04.</span><div class="section-title-group"><h2>Tambah belanja</h2><div class="desc">Papan kekunci · boleh batal padam</div></div></div>
+                <p>Tekan <strong>+</strong>, taip amaun (boleh buat seperti <code>12.50 + 5</code>), pilih kategori dan akaun, simpan. Padam boleh dibatalkan beberapa saat.</p>
             </div>
         </section>
 
@@ -694,7 +692,7 @@
     </div>
 </footer>
 
-<script src="i18n.js?v=bw6"></script>
+<script src="i18n.js?v=bw7"></script>
 <script>
     // Robust sidebar click & scroll-spy handling
     const sections = Array.from(document.querySelectorAll('.doc-section'));

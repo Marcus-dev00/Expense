@@ -29,9 +29,28 @@
             } catch(e) {}
         })();
     </script>
-    <link rel="stylesheet" href="style.css?v=bw6">
+    <link rel="stylesheet" href="style.css?v=bw7">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Expense",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Android",
+      "description": "Offline-first personal expense tracker for Malaysia. Payment notifications become entries. Data stays on your phone.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "MYR"
+      },
+      "softwareVersion": "5.1",
+      "url": "https://marcus-dev00.github.io/Expense/",
+      "image": "https://marcus-dev00.github.io/Expense/shots/home.jpg"
+    }
+    </script>
 </head>
 <body class="is-entering">
+    <a class="skip-link" href="#main" data-i18n="a11y.skip">跳到主要内容</a>
     <div class="page-veil" aria-hidden="true"></div>
 
     <header class="navbar">
@@ -68,7 +87,7 @@
         <a href="privacy.html" class="nav-link" data-nav data-i18n="nav.privacy">隐私</a>
     </div>
 
-    <main class="container">
+    <main class="container" id="main">
 
         <!-- Hero -->
         <section class="hero" id="top">
@@ -300,8 +319,13 @@
                 <span class="section-tag" data-i18n="beta.tag">封闭测试</span>
                 <h2 class="section-title" data-i18n="beta.title">还在封闭测试，没有公开下载</h2>
                 <p class="desc" data-i18n="beta.desc">
-                    目前不在应用商店公开上架。想试用请先加入测试组，通过后再获取安装包。这样我们可以慢慢改，也更好听大家的意见。
+                    目前不在应用商店公开上架。加入测试组后，按组内说明拿测试安装包；用起来别扭的地方，欢迎直接反馈。
                 </p>
+                <ul class="beta-list">
+                    <li data-i18n="beta.what1">你会得到：组内发布的测试版安装链接</li>
+                    <li data-i18n="beta.what2">你会给出：简短反馈（Bug 或难懂的地方）</li>
+                    <li data-i18n="beta.what3">不灌水：组内通知只谈 Expense</li>
+                </ul>
                 <div class="hero-buttons" style="margin-bottom:0">
                     <a href="https://groups.google.com/g/my-expense-tracker-testing" class="btn-primary" target="_blank" rel="noopener noreferrer" data-i18n="beta.btn">加入测试组</a>
                     <a href="manual.html" class="btn-secondary" data-nav data-i18n="beta.btnManual">先看使用指南</a>
@@ -347,6 +371,6 @@
         <p class="footer-note" data-i18n="footer.note">本站介绍真实产品能力，不承诺做不到的事。</p>
     </footer>
 
-    <script src="i18n.js?v=bw6"></script>
+    <script src="i18n.js?v=bw7"></script>
 </body>
 </html>
